@@ -38,7 +38,7 @@ export default class MainView extends Component {
 			);
 		} else {
 			return (
-				<div className="main-view">
+				<div className="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid="true">
 					{movies.map((movie) => (
 						<MovieCard
 							key={movie._id}

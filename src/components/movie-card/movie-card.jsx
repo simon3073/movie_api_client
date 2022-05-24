@@ -5,7 +5,7 @@ export default class MovieCard extends Component {
 		const { movieData, onMovieClick } = this.props;
 		return (
 			<div
-				className="movie-card"
+				className="movie-card uk-card uk-card-body uk-card-default uk-card-hover uk-width-1"
 				onClick={() => {
 					onMovieClick(movieData);
 				}}

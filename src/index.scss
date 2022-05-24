@@ -1,5 +1,9 @@
-$color: steelblue;
+.app-container {
+	height: 100vh;
+	background: #f8f8f8;
+	padding: 40px;
+}
 
-.my-flix {
-	color: $color;
+.movie-card {
+	cursor: pointer;
 }

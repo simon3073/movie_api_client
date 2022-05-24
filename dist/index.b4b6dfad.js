@@ -4059,7 +4059,8 @@ class MainView extends _react.Component {
             columnNumber: 5
         }, this);
         else return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "main-view",
+            className: "uk-grid-small uk-child-width-expand@s uk-text-center",
+            "uk-grid": "true",
             children: movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCardDefault.default, {
                     movieData: movie,
                     onMovieClick: (newSelectedMovie)=>{
@@ -4101,7 +4102,7 @@ class MovieCard extends _react.Component {
     render() {
         const { movieData , onMovieClick  } = this.props;
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "movie-card",
+            className: "movie-card uk-card uk-card-body uk-card-default uk-card-hover uk-width-1",
             onClick: ()=>{
                 onMovieClick(movieData);
             },
