@@ -3942,9 +3942,9 @@ class MainView extends _react.Component {
                     Title: 'Sixteen Candles',
                     ReleaseYear: '1984',
                     Director: 'John Hughes',
-                    Description: "A girl's 'sweet' sixteenth birthday becomes anything but special, as she suffers from every embarrassment possible.",
+                    Description: "A girls 'sweet' sixteenth birthday becomes anything but special, as she suffers from every embarrassment possible.",
                     imdbRating: 7.0,
-                    imgURL: 'https://m.media-amazon.com/images/M/MV5BYjE2ZmZiMTYtODg3Ni00NzkyLWEyMjktMTUyMzEzYjdjNmFlXkEyXkFqcGdeQXVyMDAwMDAwNA@@._V1_.jpg',
+                    imgURL: 'https://m.media-amazon.com/images/M/MV5BMjA3NjkzMzI2Nl5BMl5BanBnXkFtZTcwNzE5OTU3MQ@@._V1_.jpg',
                     Genre: [
                         'Comedy',
                         'Romance'
@@ -3994,7 +3994,7 @@ class MainView extends _react.Component {
                     Director: 'John Hughes',
                     Description: 'Two high school nerds use a computer program to literally create the perfect woman, but she turns their lives upside down.',
                     imdbRating: 6.6,
-                    imgURL: 'https://m.media-amazon.com/images/M/MV5BNWM5ZmFkNjQtMmUxYi00NTY5LWJjYzAtMTIxMzg2NDViNDAwXkEyXkFqcGdeQXVyMTYzMDM0NTU@._V1_.jpg',
+                    imgURL: 'https://m.media-amazon.com/images/M/MV5BNTE2MzkxNzExM15BMl5BanBnXkFtZTgwNzIwODQxMTE@._V1_.jpg',
                     Genre: [
                         'Romance',
                         'Sci-Fi',
@@ -4134,189 +4134,171 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 class MovieView extends _react.Component {
+    // Function to set movie state
+    arrayExpand(array, separator) {
+        const newDisplay = array.map((g, i)=>{
+            return i < array.length - 1 ? `${g}${separator} ` : g;
+        });
+        return newDisplay;
+    }
     render() {
         const { movieData , onBackClick  } = this.props;
+        const genres = this.arrayExpand(movieData.Genre, ' /');
+        const actors = this.arrayExpand(movieData.Actor, ',');
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "movie-view",
+            className: "uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-grid",
             children: [
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                    className: "movie-poster",
-                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
-                        src: movieData.imgURL
-                    }, void 0, false, {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 9,
-                        columnNumber: 6
-                    }, this)
-                }, void 0, false, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 8,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                    className: "movie-title",
+                    className: "uk-card-media-left uk-cover-container",
                     children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "label",
-                            children: "Title: "
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
+                            src: movieData.imgURL,
+                            alt: "",
+                            "uk-cover": "true"
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 12,
+                            lineNumber: 19,
                             columnNumber: 6
                         }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "value",
-                            children: movieData.Title
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 13,
-                            columnNumber: 6
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 11,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                    className: "movie-director",
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "label",
-                            children: "Directed By: "
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 16,
-                            columnNumber: 6
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "value",
-                            children: movieData.Director
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 17,
-                            columnNumber: 6
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 15,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                    className: "movie-actors",
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "label",
-                            children: "Starring: "
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("canvas", {
+                            width: "600",
+                            height: "900"
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 20,
                             columnNumber: 6
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "value",
-                            children: movieData.Actor
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 21,
-                            columnNumber: 6
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 19,
+                    lineNumber: 18,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                    className: "movie-rating",
+                    className: "uk-card-body uk-padding movie-view ",
                     children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "label",
-                            children: "IMDB Rating: "
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "uk-card-title ",
+                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
+                                children: movieData.Title
+                            }, void 0, false, {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 24,
+                                columnNumber: 7
+                            }, this)
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 24,
+                            lineNumber: 23,
                             columnNumber: 6
                         }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "value",
-                            children: movieData.imdbRating
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "movie-director uk-text-bold",
+                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                className: "label",
+                                children: [
+                                    "Directed by ",
+                                    movieData.Director
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 27,
+                                columnNumber: 7
+                            }, this)
                         }, void 0, false, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 25,
-                            columnNumber: 6
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 23,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                    className: "movie-genre",
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "label",
-                            children: "Genre: "
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 28,
+                            lineNumber: 26,
                             columnNumber: 6
                         }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "value",
-                            children: movieData.Genre
-                        }, void 0, false, {
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "movie-actors uk-text-bold",
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                    className: "label",
+                                    children: "Starring: "
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 30,
+                                    columnNumber: 7
+                                }, this),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                    className: "value",
+                                    children: actors
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 31,
+                                    columnNumber: 7
+                                }, this)
+                            ]
+                        }, void 0, true, {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 29,
                             columnNumber: 6
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 27,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                    className: "movie-description",
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "label",
-                            children: "Description: "
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 32,
-                            columnNumber: 6
                         }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                            className: "value",
-                            children: movieData.Description
-                        }, void 0, false, {
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "movie-rating uk-text-bold",
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                    className: "label",
+                                    children: "IMDB Rating: "
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 34,
+                                    columnNumber: 7
+                                }, this),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                    className: "value",
+                                    children: [
+                                        movieData.imdbRating,
+                                        "/10"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 35,
+                                    columnNumber: 7
+                                }, this)
+                            ]
+                        }, void 0, true, {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 33,
                             columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "uk-card-badge uk-label",
+                            children: genres
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 37,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "movie-description",
+                            children: movieData.Description
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 38,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                            className: "uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large back-button",
+                            onClick: ()=>{
+                                onBackClick(null);
+                            },
+                            children: "BACK"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 39,
+                            columnNumber: 6
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 31,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                    onClick: ()=>{
-                        onBackClick(null);
-                    },
-                    children: "BACK"
-                }, void 0, false, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 35,
+                    lineNumber: 22,
                     columnNumber: 5
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-view/movie-view.jsx",
-            lineNumber: 7,
+            lineNumber: 17,
             columnNumber: 4
         }, this);
     }
