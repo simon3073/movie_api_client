@@ -1,0 +1,17 @@
+.app-container {
+  height: 100vh;
+  background: #d01010;
+  padding: 40px;
+}
+
+.movie-card {
+  cursor: pointer;
+}
+
+.app-container {
+  height: 100vh;
+  background: #f8f8f8;
+  padding: 40px;
+}
+
+/*# sourceMappingURL=index.cb75f6f6.css.map */

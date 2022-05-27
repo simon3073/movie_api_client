@@ -1,0 +1,21 @@
+.movie-description {
+  margin: 20px 0;
+}
+
+.movie-view {
+  margin-top: 40px;
+}
+
+
+
+.movie-card {
+  cursor: pointer;
+}
+
+.app-container {
+  height: 100vh;
+  background: #f8f8f8;
+  padding: 40px;
+}
+
+/*# sourceMappingURL=index.5f1df611.css.map */

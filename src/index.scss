@@ -1,17 +1,11 @@
-.app-container {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+	display: flex;
+	font-family: 'Poppins';
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 	height: 100vh;
-	background: #f8f8f8;
-	padding: 40px;
-}
-
-.movie-card {
-	cursor: pointer;
-}
-
-.movie-description {
-	margin: 20px 0 40px;
-}
-
-.movie-view {
-	margin-top: 40px;
+	background: url('./img/bg.png') no-repeat center fixed;
 }

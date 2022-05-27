@@ -1,0 +1,47 @@
+.movie-view {
+	display: flex;
+	color: #fff;
+	margin-top: 20px;
+	padding-right: 20px;
+	h1 {
+		color: #fff;
+	}
+
+	img {
+		width: 40%;
+		padding: 10px;
+	}
+	.uk-label.genres {
+		padding: 5px 10px;
+		border-radius: 10px;
+		margin: 10px 10px 0 0;
+	}
+
+	button.btn-profile {
+		margin: 10px;
+		padding: 10px;
+		border-radius: 5px;
+		width: 60px;
+	}
+
+	button.btn-favourites {
+		padding: 10px;
+		border-radius: 5px;
+		width: 60px;
+	}
+
+	.movie-description {
+		margin: 40px 0;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.movie-view {
+		flex-direction: column;
+		img {
+			width: 40%;
+
+			margin-top: 10px;
+		}
+	}
+}
