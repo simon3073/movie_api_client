@@ -5,18 +5,10 @@ import PropTypes from 'prop-types';
 import './movie-view.scss';
 
 export default class MovieView extends Component {
-	// separate genres for display
-	genreDisplay(genres) {
-		const newGenreDisplay = genres.map((g, i) => {
-			return i < genres.length - 1 ? `${g.Genre} / ` : g.Genre;
-		});
-		return newGenreDisplay;
-	}
-
 	// separate actors for display
 	actorDisplay(actors) {
 		const newActorDisplay = actors.map((a, i) => {
-			return i < actors.length - 1 ? `${a.Name},` : a.Name;
+			return i < actors.length - 1 ? `${a.Name}, ` : a.Name;
 		});
 		return newActorDisplay;
 	}
@@ -72,7 +64,7 @@ export default class MovieView extends Component {
 								onBackClick(null);
 							}}
 						>
-							BACK
+							BACK TO MOVIES
 						</button>
 					</div>
 				</div>
