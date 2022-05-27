@@ -50,7 +50,7 @@ export default class MainView extends Component {
 			return <MovieView movieData={selectedMovie} onBackClick={(newSelectedMovie) => this.setSelectedMovie(newSelectedMovie)} />;
 		} else {
 			return (
-				<div className="movie-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center uk-padding-small uk-animation-fade uk-position-top" uk-grid="true">
+				<div>
 					{movies.map((movie) => (
 						<MovieCard
 							key={movie._id}

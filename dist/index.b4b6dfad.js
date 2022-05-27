@@ -3966,8 +3966,6 @@ class MainView extends _react.Component {
             columnNumber: 11
         }, this);
         else return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "movie-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center uk-padding-small uk-animation-fade uk-position-top",
-            "uk-grid": "true",
             children: movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCardDefault.default, {
                     movieData: movie,
                     onMovieClick: (newSelectedMovie)=>{
@@ -4014,29 +4012,17 @@ class MovieCard extends _react.Component {
         const { movieData , onMovieClick  } = this.props;
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                className: "uk-card uk-card-default uk-card-body uk-card-hover uk-card-small uk-box-shadow-medium",
                 onClick: ()=>{
                     onMovieClick(movieData);
                 },
-                children: [
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
-                        className: "uk-card-title uk-text-bold",
-                        children: movieData.Title
-                    }, void 0, false, {
-                        fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 18,
-                        columnNumber: 6
-                    }, this),
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                        className: "uk-card-footer",
-                        children: "Get Movie Information"
-                    }, void 0, false, {
-                        fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 19,
-                        columnNumber: 6
-                    }, this)
-                ]
-            }, void 0, true, {
+                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
+                    children: movieData.Title
+                }, void 0, false, {
+                    fileName: "src/components/movie-card/movie-card.jsx",
+                    lineNumber: 17,
+                    columnNumber: 6
+                }, this)
+            }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
                 lineNumber: 12,
                 columnNumber: 5
@@ -4840,190 +4826,156 @@ class MovieView extends _react.Component {
     }
     render() {
         const { movieData , onBackClick  } = this.props;
-        console.log('🚀 ~ file: movie-view.jsx ~ line 31 ~ MovieView ~ render ~ movieData', movieData);
+        //console.log('🚀 ~ file: movie-view.jsx ~ line 31 ~ MovieView ~ render ~ movieData', movieData);
         //const genres = this.genreDisplay(movieData.Genre); // add a / in between each genre
         const actors = this.actorDisplay(movieData.Actor); // add a , in between each actor
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "uk-flex uk-flex-center ",
-            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                className: "uk-card uk-card-default uk-width-5-6s uk-width-3-4 movie-view uk-animation-slide-top ",
-                children: [
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
-                        src: movieData.imgURL,
-                        alt: ""
-                    }, void 0, false, {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 33,
-                        columnNumber: 6
-                    }, this),
-                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                        className: "uk-card-body uk-padding-small movie-view-info",
-                        children: [
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                                className: "btn-profile uk-button uk-button-primary uk-margin-small-bottom uk-button-small uk-position-top-right",
-                                "uk-tooltip": "Go To Profile Page",
-                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                    "uk-icon": "user"
-                                }, void 0, false, {
-                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 36,
-                                    columnNumber: 8
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 35,
-                                columnNumber: 7
-                            }, this),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                                className: "btn-favourites uk-button uk-button-danger uk-margin-small-bottom uk-button-small",
-                                "uk-tooltip": "Add to favourites",
-                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                    "uk-icon": "star"
-                                }, void 0, false, {
-                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 39,
-                                    columnNumber: 8
-                                }, this)
-                            }, void 0, false, {
+            children: [
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
+                    src: movieData.imgURL,
+                    alt: ""
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 32,
+                    columnNumber: 5
+                }, this),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                    children: [
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                            children: "Go To My Profile"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 34,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                            children: "Add to favourites"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 35,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h1", {
+                            className: "uk-text-bold",
+                            children: movieData.Title
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 36,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "movie-director",
+                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                className: "label",
+                                children: [
+                                    "Directed by ",
+                                    movieData.Director[0].Name
+                                ]
+                            }, void 0, true, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
                                 lineNumber: 38,
                                 columnNumber: 7
-                            }, this),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-card-title ",
-                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h1", {
-                                    className: "uk-text-bold",
-                                    children: movieData.Title
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 37,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "movie-actors",
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                    className: "label",
+                                    children: "Starring: "
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 41,
+                                    columnNumber: 7
+                                }, this),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                    className: "value",
+                                    children: actors
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
                                     lineNumber: 42,
-                                    columnNumber: 8
+                                    columnNumber: 7
                                 }, this)
-                            }, void 0, false, {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 41,
-                                columnNumber: 7
-                            }, this),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "movie-director uk-text-bold",
-                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 40,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "movie-rating",
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
                                     className: "label",
+                                    children: "IMDB Rating: "
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 45,
+                                    columnNumber: 7
+                                }, this),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                    className: "value",
                                     children: [
-                                        "Directed by ",
-                                        movieData.Director[0].Name
+                                        movieData.imdbRating,
+                                        "/10"
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 45,
-                                    columnNumber: 8
+                                    lineNumber: 46,
+                                    columnNumber: 7
                                 }, this)
-                            }, void 0, false, {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 44,
-                                columnNumber: 7
-                            }, this),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "movie-actors uk-text-bold",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                        className: "label",
-                                        children: "Starring: "
-                                    }, void 0, false, {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 48,
-                                        columnNumber: 8
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                        className: "value",
-                                        children: actors
-                                    }, void 0, false, {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 49,
-                                        columnNumber: 8
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 47,
-                                columnNumber: 7
-                            }, this),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "movie-rating uk-text-bold",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                        className: "label",
-                                        children: "IMDB Rating: "
-                                    }, void 0, false, {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 52,
-                                        columnNumber: 8
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                        className: "value",
-                                        children: [
-                                            movieData.imdbRating,
-                                            "/10"
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 53,
-                                        columnNumber: 8
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 51,
-                                columnNumber: 7
-                            }, this),
-                            movieData.Genre.map(({ Genre  })=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                    href: "#",
-                                    "uk-tooltip": 'View a list of ' + Genre.toLowerCase() + ' movies',
-                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                        class: "uk-label genres",
-                                        children: Genre
-                                    }, void 0, false, {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 57,
-                                        columnNumber: 9
-                                    }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 44,
+                            columnNumber: 6
+                        }, this),
+                        movieData.Genre.map(({ Genre  })=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
+                                href: "#",
+                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                    class: "genres",
+                                    children: Genre
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 56,
+                                    lineNumber: 50,
                                     columnNumber: 8
                                 }, this)
-                            ),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "movie-description",
-                                children: movieData.Description
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 60,
-                                columnNumber: 7
-                            }, this),
-                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                                className: "uk-margin-small-top uk-button uk-button-primary uk-width-1 uk-margin-small-bottom uk-button-large back-button",
-                                onClick: ()=>{
-                                    onBackClick(null);
-                                },
-                                children: "BACK TO MOVIES"
-                            }, void 0, false, {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 61,
+                                lineNumber: 49,
                                 columnNumber: 7
                             }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 34,
-                        columnNumber: 6
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 32,
-                columnNumber: 5
-            }, this)
-        }, void 0, false, {
+                        ),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            className: "movie-description",
+                            children: movieData.Description
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 53,
+                            columnNumber: 6
+                        }, this),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                            onClick: ()=>{
+                                onBackClick(null);
+                            },
+                            children: "BACK TO MOVIES"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 54,
+                            columnNumber: 6
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 33,
+                    columnNumber: 5
+                }, this)
+            ]
+        }, void 0, true, {
             fileName: "src/components/movie-view/movie-view.jsx",
             lineNumber: 31,
             columnNumber: 4
@@ -8431,118 +8383,55 @@ function LoginView(props) {
         props.onLoggedIn(username);
     };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-        className: "uk-flex uk-flex-center@l",
-        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "uk-card uk-card-default uk-card-body",
-            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("form", {
-                className: "uk-form-stacked login-form",
-                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("fieldset", {
-                    className: "uk-fieldset",
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("legend", {
-                            className: "uk-legend uk-text-bold login-header uk-margin-small-bottom",
-                            children: "Log In"
-                        }, void 0, false, {
-                            fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 22,
-                            columnNumber: 7
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                            className: "uk-margin",
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                        className: "uk-form-icon uk-form-icon",
-                                        href: "",
-                                        "uk-icon": "icon: user"
-                                    }, void 0, false, {
-                                        fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 25,
-                                        columnNumber: 9
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
-                                        type: "text",
-                                        placeholder: "Username",
-                                        value: username,
-                                        onChange: (e)=>setUsername(e.target.value)
-                                    }, void 0, false, {
-                                        fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 26,
-                                        columnNumber: 9
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 24,
-                                columnNumber: 8
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 23,
-                            columnNumber: 7
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                            className: "uk-margin",
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                        className: "uk-form-icon uk-form-icon",
-                                        href: "",
-                                        "uk-icon": "icon: lock"
-                                    }, void 0, false, {
-                                        fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 31,
-                                        columnNumber: 9
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
-                                        type: "password",
-                                        placeholder: "Password",
-                                        value: password,
-                                        onChange: (e)=>setPassword(e.target.value)
-                                    }, void 0, false, {
-                                        fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 32,
-                                        columnNumber: 9
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 30,
-                                columnNumber: 8
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 29,
-                            columnNumber: 7
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                            className: "uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large back-button",
-                            onClick: handleSubmit,
-                            children: "LOG IN"
-                        }, void 0, false, {
-                            fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 35,
-                            columnNumber: 7
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                            className: "uk-margin-small-top uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom uk-button-large login-button",
-                            children: "SIGN UP"
-                        }, void 0, false, {
-                            fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 38,
-                            columnNumber: 7
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 21,
-                    columnNumber: 6
-                }, this)
-            }, void 0, false, {
+        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("form", {
+            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("fieldset", {
+                children: [
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("legend", {
+                        children: "Log In"
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 21,
+                        columnNumber: 6
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
+                        className: "uk-input uk-form-large",
+                        type: "text",
+                        placeholder: "Username",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 22,
+                        columnNumber: 6
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
+                        className: "uk-input uk-form-large",
+                        type: "password",
+                        placeholder: "Password",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 23,
+                        columnNumber: 6
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                        onClick: handleSubmit,
+                        children: "LOG IN"
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 24,
+                        columnNumber: 6
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                        children: "SIGN UP"
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 25,
+                        columnNumber: 6
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
                 lineNumber: 20,
                 columnNumber: 5
@@ -8597,190 +8486,73 @@ function LoginView(props) {
         props.onLoggedIn(username);
     };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-        className: "uk-flex uk-flex-center@l",
-        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "uk-card uk-card-default uk-card-body",
-            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("form", {
-                className: "uk-form-stacked reg-form",
-                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("fieldset", {
-                    className: "uk-fieldset",
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("legend", {
-                            className: "uk-legend uk-text-bold reg-header uk-margin-small-bottom",
-                            children: "Log In"
-                        }, void 0, false, {
-                            fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 24,
-                            columnNumber: 7
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                            className: "uk-margin",
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                        className: "uk-form-icon uk-form-icon",
-                                        href: "",
-                                        "uk-icon": "icon: user"
-                                    }, void 0, false, {
-                                        fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 27,
-                                        columnNumber: 9
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
-                                        type: "text",
-                                        placeholder: "Username",
-                                        value: username,
-                                        onChange: (e)=>setUsername(e.target.value)
-                                    }, void 0, false, {
-                                        fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 28,
-                                        columnNumber: 9
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/register-view/register-view.jsx",
-                                lineNumber: 26,
-                                columnNumber: 8
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 25,
-                            columnNumber: 7
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                            className: "uk-margin",
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                        className: "uk-form-icon uk-form-icon",
-                                        href: "",
-                                        "uk-icon": "icon: lock"
-                                    }, void 0, false, {
-                                        fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 33,
-                                        columnNumber: 9
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
-                                        type: "password",
-                                        placeholder: "Password",
-                                        value: password,
-                                        onChange: (e)=>setPassword(e.target.value)
-                                    }, void 0, false, {
-                                        fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 34,
-                                        columnNumber: 9
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/register-view/register-view.jsx",
-                                lineNumber: 32,
-                                columnNumber: 8
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 31,
-                            columnNumber: 7
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                            className: "uk-margin",
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                        className: "uk-form-icon uk-form-icon",
-                                        href: "",
-                                        "uk-icon": "icon: mail"
-                                    }, void 0, false, {
-                                        fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 39,
-                                        columnNumber: 9
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
-                                        type: "email",
-                                        placeholder: "Email",
-                                        value: email,
-                                        onChange: (e)=>setEmail(e.target.value)
-                                    }, void 0, false, {
-                                        fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 40,
-                                        columnNumber: 9
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/register-view/register-view.jsx",
-                                lineNumber: 38,
-                                columnNumber: 8
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 37,
-                            columnNumber: 7
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                            className: "uk-margin",
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                        className: "uk-form-icon uk-form-icon",
-                                        href: "",
-                                        "uk-icon": "icon: calendar"
-                                    }, void 0, false, {
-                                        fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 45,
-                                        columnNumber: 9
-                                    }, this),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
-                                        type: "date",
-                                        placeholder: "Birthday",
-                                        value: birthday,
-                                        onChange: (e)=>setBirthday(e.target.value)
-                                    }, void 0, false, {
-                                        fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 46,
-                                        columnNumber: 9
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/register-view/register-view.jsx",
-                                lineNumber: 44,
-                                columnNumber: 8
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 43,
-                            columnNumber: 7
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                            className: "uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large",
-                            onClick: handleSubmit,
-                            children: "CREATE ACCOUNT"
-                        }, void 0, false, {
-                            fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 49,
-                            columnNumber: 7
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                            className: "uk-margin-small-top uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom uk-button-large reg-button",
-                            children: "LOG IN"
-                        }, void 0, false, {
-                            fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 52,
-                            columnNumber: 7
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/register-view/register-view.jsx",
-                    lineNumber: 23,
-                    columnNumber: 6
-                }, this)
-            }, void 0, false, {
+        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("form", {
+            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("fieldset", {
+                children: [
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("legend", {
+                        children: "Create Account"
+                    }, void 0, false, {
+                        fileName: "src/components/register-view/register-view.jsx",
+                        lineNumber: 23,
+                        columnNumber: 6
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
+                        type: "text",
+                        placeholder: "Username",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/register-view/register-view.jsx",
+                        lineNumber: 24,
+                        columnNumber: 6
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
+                        type: "password",
+                        placeholder: "Password",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/register-view/register-view.jsx",
+                        lineNumber: 25,
+                        columnNumber: 6
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
+                        type: "email",
+                        placeholder: "Email",
+                        value: email,
+                        onChange: (e)=>setEmail(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/register-view/register-view.jsx",
+                        lineNumber: 26,
+                        columnNumber: 6
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
+                        type: "date",
+                        placeholder: "Birthday",
+                        value: birthday,
+                        onChange: (e)=>setBirthday(e.target.value)
+                    }, void 0, false, {
+                        fileName: "src/components/register-view/register-view.jsx",
+                        lineNumber: 28,
+                        columnNumber: 6
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                        onClick: handleSubmit,
+                        children: "LOG IN"
+                    }, void 0, false, {
+                        fileName: "src/components/register-view/register-view.jsx",
+                        lineNumber: 30,
+                        columnNumber: 6
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                        children: "LOG IN"
+                    }, void 0, false, {
+                        fileName: "src/components/register-view/register-view.jsx",
+                        lineNumber: 31,
+                        columnNumber: 6
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/register-view/register-view.jsx",
                 lineNumber: 22,
                 columnNumber: 5

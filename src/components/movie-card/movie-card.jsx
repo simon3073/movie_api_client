@@ -10,13 +10,11 @@ export default class MovieCard extends Component {
 		return (
 			<div>
 				<div
-					className="uk-card uk-card-default uk-card-body uk-card-hover uk-card-small uk-box-shadow-medium"
 					onClick={() => {
 						onMovieClick(movieData);
 					}}
 				>
-					<h3 className="uk-card-title uk-text-bold">{movieData.Title}</h3>
-					<div className="uk-card-footer">Get Movie Information</div>
+					<h3>{movieData.Title}</h3>
 				</div>
 			</div>
 		);
