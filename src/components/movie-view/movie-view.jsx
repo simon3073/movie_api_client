@@ -23,19 +23,24 @@ export default class MovieView extends Component {
 
 	render() {
 		const { movieData, onBackClick } = this.props;
-		console.log('🚀 ~ file: movie-view.jsx ~ line 31 ~ MovieView ~ render ~ movieData', movieData);
-		//const genres = this.genreDisplay(movieData.Genre); // add a / in between each genre
 		const actors = this.actorDisplay(movieData.Actor); // add a , in between each actor
 
+		// variables for multiple UIKIT css class styles
+		const ukMovieViewBase = 'uk-flex uk-flex-center ';
+		const ukMovieViewCont = 'uk-card uk-card-default uk-width-5-6s uk-width-3-4 movie-view uk-animation-slide-top ';
+		const ukProfileBtn = 'btn-profile uk-button uk-button-primary uk-margin-small-bottom uk-button-small uk-position-top-right';
+		const ukFavouriteBtn = 'btn-favourites uk-button uk-button-danger uk-margin-small-bottom uk-button-small';
+		const ukButton = 'uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large';
+
 		return (
-			<div className="uk-flex uk-flex-center ">
-				<div className="uk-card uk-card-default uk-width-5-6s uk-width-3-4 movie-view uk-animation-slide-top ">
+			<div className={ukMovieViewBase}>
+				<div className={ukMovieViewCont}>
 					<img src={movieData.imgURL} alt="" />
 					<div className="uk-card-body uk-padding-small movie-view-info">
-						<button className="btn-profile uk-button uk-button-primary uk-margin-small-bottom uk-button-small uk-position-top-right" uk-tooltip="Go To Profile Page">
+						<button className={ukProfileBtn} uk-tooltip="Go To Profile Page">
 							<span uk-icon="user"></span>
 						</button>
-						<button className="btn-favourites uk-button uk-button-danger uk-margin-small-bottom uk-button-small" uk-tooltip="Add to favourites">
+						<button className={ukFavouriteBtn} uk-tooltip="Add to favourites">
 							<span uk-icon="star"></span>
 						</button>
 						<div className="uk-card-title ">
@@ -59,7 +64,7 @@ export default class MovieView extends Component {
 						))}
 						<div className="movie-description">{movieData.Description}</div>
 						<button
-							className="uk-margin-small-top uk-button uk-button-primary uk-width-1 uk-margin-small-bottom uk-button-large back-button"
+							className={ukButton}
 							onClick={() => {
 								onBackClick(null);
 							}}

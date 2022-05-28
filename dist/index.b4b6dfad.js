@@ -3940,12 +3940,14 @@ class MainView extends _react.Component {
     }
     render() {
         const { movies , selectedMovie , user: user1  } = this.state;
+        // variables for multiple UIKIT css class styles
+        const ukCardMovieGrid = 'movie-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center uk-padding-small uk-animation-fade uk-position-top';
         // Check if we have to Log in by looking at the user value
         if (!user1) return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginViewDefault.default, {
             onLoggedIn: (user)=>this.onLoggedIn(user)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 43,
+            lineNumber: 46,
             columnNumber: 21
         }, this);
         // Check it we have any data to show and display an empty message if not
@@ -3953,7 +3955,7 @@ class MainView extends _react.Component {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 46,
+            lineNumber: 49,
             columnNumber: 35
         }, this);
         // Or else display either a movie's details or the movie list
@@ -3962,11 +3964,11 @@ class MainView extends _react.Component {
             onBackClick: (newSelectedMovie)=>this.setSelectedMovie(newSelectedMovie)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 50,
+            lineNumber: 53,
             columnNumber: 11
         }, this);
         else return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "movie-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center uk-padding-small uk-animation-fade uk-position-top",
+            className: ukCardMovieGrid,
             "uk-grid": "true",
             children: movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCardDefault.default, {
                     movieData: movie,
@@ -3975,13 +3977,13 @@ class MainView extends _react.Component {
                     }
                 }, movie._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 55,
+                    lineNumber: 58,
                     columnNumber: 7
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 53,
+            lineNumber: 56,
             columnNumber: 5
         }, this);
     }
@@ -4012,19 +4014,22 @@ var _movieCardScss = require("./movie-card.scss");
 class MovieCard extends _react.Component {
     render() {
         const { movieData , onMovieClick  } = this.props;
+        // variables for multiple UIKIT css class styles
+        const ukCardMovieView = 'uk-card uk-card-default uk-card-body uk-card-hover uk-card-small uk-box-shadow-medium';
+        const ukCardTitle = 'uk-card-title uk-text-bold';
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                className: "uk-card uk-card-default uk-card-body uk-card-hover uk-card-small uk-box-shadow-medium",
+                className: ukCardMovieView,
                 onClick: ()=>{
                     onMovieClick(movieData);
                 },
                 children: [
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
-                        className: "uk-card-title uk-text-bold",
+                        className: ukCardTitle,
                         children: movieData.Title
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 18,
+                        lineNumber: 23,
                         columnNumber: 6
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -4032,18 +4037,18 @@ class MovieCard extends _react.Component {
                         children: "Get Movie Information"
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 19,
+                        lineNumber: 24,
                         columnNumber: 6
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 12,
+                lineNumber: 17,
                 columnNumber: 5
             }, this)
         }, void 0, false, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 11,
+            lineNumber: 16,
             columnNumber: 4
         }, this);
     }
@@ -4840,53 +4845,57 @@ class MovieView extends _react.Component {
     }
     render() {
         const { movieData , onBackClick  } = this.props;
-        console.log('🚀 ~ file: movie-view.jsx ~ line 31 ~ MovieView ~ render ~ movieData', movieData);
-        //const genres = this.genreDisplay(movieData.Genre); // add a / in between each genre
         const actors = this.actorDisplay(movieData.Actor); // add a , in between each actor
+        // variables for multiple UIKIT css class styles
+        const ukMovieViewBase = 'uk-flex uk-flex-center ';
+        const ukMovieViewCont = 'uk-card uk-card-default uk-width-5-6s uk-width-3-4 movie-view uk-animation-slide-top ';
+        const ukProfileBtn = 'btn-profile uk-button uk-button-primary uk-margin-small-bottom uk-button-small uk-position-top-right';
+        const ukFavouriteBtn = 'btn-favourites uk-button uk-button-danger uk-margin-small-bottom uk-button-small';
+        const ukButton = 'uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large';
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "uk-flex uk-flex-center ",
+            className: ukMovieViewBase,
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                className: "uk-card uk-card-default uk-width-5-6s uk-width-3-4 movie-view uk-animation-slide-top ",
+                className: ukMovieViewCont,
                 children: [
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
                         src: movieData.imgURL,
                         alt: ""
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 33,
+                        lineNumber: 38,
                         columnNumber: 6
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                         className: "uk-card-body uk-padding-small movie-view-info",
                         children: [
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                                className: "btn-profile uk-button uk-button-primary uk-margin-small-bottom uk-button-small uk-position-top-right",
+                                className: ukProfileBtn,
                                 "uk-tooltip": "Go To Profile Page",
                                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
                                     "uk-icon": "user"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 36,
+                                    lineNumber: 41,
                                     columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 35,
+                                lineNumber: 40,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                                className: "btn-favourites uk-button uk-button-danger uk-margin-small-bottom uk-button-small",
+                                className: ukFavouriteBtn,
                                 "uk-tooltip": "Add to favourites",
                                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
                                     "uk-icon": "star"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 39,
+                                    lineNumber: 44,
                                     columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 38,
+                                lineNumber: 43,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -4896,12 +4905,12 @@ class MovieView extends _react.Component {
                                     children: movieData.Title
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 42,
+                                    lineNumber: 47,
                                     columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 41,
+                                lineNumber: 46,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -4914,12 +4923,12 @@ class MovieView extends _react.Component {
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 45,
+                                    lineNumber: 50,
                                     columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 44,
+                                lineNumber: 49,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -4930,7 +4939,7 @@ class MovieView extends _react.Component {
                                         children: "Starring: "
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 48,
+                                        lineNumber: 53,
                                         columnNumber: 8
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -4938,13 +4947,13 @@ class MovieView extends _react.Component {
                                         children: actors
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 49,
+                                        lineNumber: 54,
                                         columnNumber: 8
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 47,
+                                lineNumber: 52,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -4955,7 +4964,7 @@ class MovieView extends _react.Component {
                                         children: "IMDB Rating: "
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 52,
+                                        lineNumber: 57,
                                         columnNumber: 8
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -4966,13 +4975,13 @@ class MovieView extends _react.Component {
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 53,
+                                        lineNumber: 58,
                                         columnNumber: 8
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 51,
+                                lineNumber: 56,
                                 columnNumber: 7
                             }, this),
                             movieData.Genre.map(({ Genre  })=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
@@ -4983,12 +4992,12 @@ class MovieView extends _react.Component {
                                         children: Genre
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 57,
+                                        lineNumber: 62,
                                         columnNumber: 9
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 56,
+                                    lineNumber: 61,
                                     columnNumber: 8
                                 }, this)
                             ),
@@ -4997,35 +5006,35 @@ class MovieView extends _react.Component {
                                 children: movieData.Description
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 60,
+                                lineNumber: 65,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                                className: "uk-margin-small-top uk-button uk-button-primary uk-width-1 uk-margin-small-bottom uk-button-large back-button",
+                                className: ukButton,
                                 onClick: ()=>{
                                     onBackClick(null);
                                 },
                                 children: "BACK TO MOVIES"
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 61,
+                                lineNumber: 66,
                                 columnNumber: 7
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 34,
+                        lineNumber: 39,
                         columnNumber: 6
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 32,
+                lineNumber: 37,
                 columnNumber: 5
             }, this)
         }, void 0, false, {
             fileName: "src/components/movie-view/movie-view.jsx",
-            lineNumber: 31,
+            lineNumber: 36,
             columnNumber: 4
         }, this);
     }
@@ -8424,6 +8433,14 @@ function LoginView(props) {
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
+    // variables for multiple UIKIT css class styles
+    const ukCardBody = 'uk-card uk-card-default uk-card-body';
+    const ukForm = 'uk-form-stacked login-form';
+    const ukFormTitle = 'uk-legend uk-text-bold login-header uk-margin-small-bottom';
+    const ukFromInputDiv = 'uk-inline uk-width-1-1';
+    const ukFormLabel = 'uk-form-icon uk-form-icon';
+    const ukFormTextInput = 'uk-input uk-form-large';
+    const ukFormButton = 'uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large';
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(username, password);
@@ -8431,130 +8448,127 @@ function LoginView(props) {
         props.onLoggedIn(username);
     };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-        className: "uk-flex uk-flex-center@l",
         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "uk-card uk-card-default uk-card-body",
+            className: ukCardBody,
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("form", {
-                className: "uk-form-stacked login-form",
+                className: ukForm,
                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("fieldset", {
                     className: "uk-fieldset",
                     children: [
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("legend", {
-                            className: "uk-legend uk-text-bold login-header uk-margin-small-bottom",
+                            className: ukFormTitle,
                             children: "Log In"
                         }, void 0, false, {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 22,
+                            lineNumber: 31,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                             className: "uk-margin",
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
+                                className: ukFromInputDiv,
                                 children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                        className: "uk-form-icon uk-form-icon",
-                                        href: "",
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                        className: ukFormLabel,
                                         "uk-icon": "icon: user"
                                     }, void 0, false, {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 25,
+                                        lineNumber: 34,
                                         columnNumber: 9
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
+                                        className: ukFormTextInput,
                                         type: "text",
                                         placeholder: "Username",
                                         value: username,
                                         onChange: (e)=>setUsername(e.target.value)
                                     }, void 0, false, {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 26,
+                                        lineNumber: 35,
                                         columnNumber: 9
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 24,
+                                lineNumber: 33,
                                 columnNumber: 8
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 23,
+                            lineNumber: 32,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                             className: "uk-margin",
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
+                                className: ukFromInputDiv,
                                 children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                        className: "uk-form-icon uk-form-icon",
-                                        href: "",
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                        className: ukFormLabel,
                                         "uk-icon": "icon: lock"
                                     }, void 0, false, {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 31,
+                                        lineNumber: 40,
                                         columnNumber: 9
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
+                                        className: ukFormTextInput,
                                         type: "password",
                                         placeholder: "Password",
                                         value: password,
                                         onChange: (e)=>setPassword(e.target.value)
                                     }, void 0, false, {
                                         fileName: "src/components/login-view/login-view.jsx",
-                                        lineNumber: 32,
+                                        lineNumber: 41,
                                         columnNumber: 9
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 30,
+                                lineNumber: 39,
                                 columnNumber: 8
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 29,
+                            lineNumber: 38,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                            className: "uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large back-button",
+                            className: ukFormButton + ' back-button',
                             onClick: handleSubmit,
                             children: "LOG IN"
                         }, void 0, false, {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 35,
+                            lineNumber: 44,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                            className: "uk-margin-small-top uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom uk-button-large login-button",
+                            className: ukFormButton + ' login-button',
                             children: "SIGN UP"
                         }, void 0, false, {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 38,
+                            lineNumber: 47,
                             columnNumber: 7
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 21,
+                    lineNumber: 30,
                     columnNumber: 6
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 20,
+                lineNumber: 29,
                 columnNumber: 5
             }, this)
         }, void 0, false, {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 19,
+            lineNumber: 28,
             columnNumber: 4
         }, this)
     }, void 0, false, {
         fileName: "src/components/login-view/login-view.jsx",
-        lineNumber: 18,
+        lineNumber: 27,
         columnNumber: 3
     }, this);
 }
@@ -8590,6 +8604,14 @@ function LoginView(props) {
     const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
     const [birthday, setBirthday] = _react.useState('');
+    // variables for multiple UIKIT css class styles
+    const ukCardBody = 'uk-card uk-card-default uk-card-body';
+    const ukForm = 'uk-form-stacked login-form';
+    const ukFormTitle = 'uk-legend uk-text-bold login-header uk-margin-small-bottom';
+    const ukFromInputDiv = 'uk-inline uk-width-1-1';
+    const ukFormLabel = 'uk-form-icon uk-form-icon';
+    const ukFormTextInput = 'uk-input uk-form-large';
+    const ukFormButton = 'uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large';
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(username, password, email, birthday);
@@ -8597,202 +8619,197 @@ function LoginView(props) {
         props.onLoggedIn(username);
     };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-        className: "uk-flex uk-flex-center@l",
         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-            className: "uk-card uk-card-default uk-card-body",
+            className: ukCardBody,
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("form", {
-                className: "uk-form-stacked reg-form",
+                className: ukForm,
                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("fieldset", {
                     className: "uk-fieldset",
                     children: [
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("legend", {
-                            className: "uk-legend uk-text-bold reg-header uk-margin-small-bottom",
-                            children: "Log In"
+                            className: ukFormTitle,
+                            children: "Create New Account"
                         }, void 0, false, {
                             fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 24,
+                            lineNumber: 33,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                             className: "uk-margin",
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
+                                className: ukFromInputDiv,
                                 children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                        className: "uk-form-icon uk-form-icon",
-                                        href: "",
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                        className: ukFormLabel,
                                         "uk-icon": "icon: user"
                                     }, void 0, false, {
                                         fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 27,
+                                        lineNumber: 36,
                                         columnNumber: 9
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
+                                        className: ukFormTextInput,
                                         type: "text",
                                         placeholder: "Username",
                                         value: username,
                                         onChange: (e)=>setUsername(e.target.value)
                                     }, void 0, false, {
                                         fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 28,
+                                        lineNumber: 37,
                                         columnNumber: 9
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/register-view/register-view.jsx",
-                                lineNumber: 26,
+                                lineNumber: 35,
                                 columnNumber: 8
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 25,
+                            lineNumber: 34,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                             className: "uk-margin",
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
+                                className: ukFromInputDiv,
                                 children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                        className: "uk-form-icon uk-form-icon",
-                                        href: "",
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                        className: ukFormLabel,
                                         "uk-icon": "icon: lock"
                                     }, void 0, false, {
                                         fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 33,
+                                        lineNumber: 42,
                                         columnNumber: 9
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
+                                        className: ukFormTextInput,
                                         type: "password",
                                         placeholder: "Password",
                                         value: password,
                                         onChange: (e)=>setPassword(e.target.value)
                                     }, void 0, false, {
                                         fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 34,
+                                        lineNumber: 43,
                                         columnNumber: 9
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/register-view/register-view.jsx",
-                                lineNumber: 32,
+                                lineNumber: 41,
                                 columnNumber: 8
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 31,
+                            lineNumber: 40,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                             className: "uk-margin",
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
+                                className: ukFromInputDiv,
                                 children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
-                                        className: "uk-form-icon uk-form-icon",
-                                        href: "",
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                        className: ukFormLabel,
                                         "uk-icon": "icon: mail"
                                     }, void 0, false, {
                                         fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 39,
+                                        lineNumber: 48,
                                         columnNumber: 9
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
+                                        className: ukFormTextInput,
                                         type: "email",
                                         placeholder: "Email",
                                         value: email,
                                         onChange: (e)=>setEmail(e.target.value)
                                     }, void 0, false, {
                                         fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 40,
+                                        lineNumber: 49,
                                         columnNumber: 9
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/register-view/register-view.jsx",
-                                lineNumber: 38,
+                                lineNumber: 47,
                                 columnNumber: 8
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 37,
+                            lineNumber: 46,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                             className: "uk-margin",
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "uk-inline uk-width-1-1",
+                                className: ukFromInputDiv,
                                 children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
                                         className: "uk-form-icon uk-form-icon",
-                                        href: "",
                                         "uk-icon": "icon: calendar"
                                     }, void 0, false, {
                                         fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 45,
+                                        lineNumber: 54,
                                         columnNumber: 9
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("input", {
-                                        className: "uk-input uk-form-large",
+                                        className: ukFormTextInput,
                                         type: "date",
                                         placeholder: "Birthday",
                                         value: birthday,
                                         onChange: (e)=>setBirthday(e.target.value)
                                     }, void 0, false, {
                                         fileName: "src/components/register-view/register-view.jsx",
-                                        lineNumber: 46,
+                                        lineNumber: 55,
                                         columnNumber: 9
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/register-view/register-view.jsx",
-                                lineNumber: 44,
+                                lineNumber: 53,
                                 columnNumber: 8
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 43,
+                            lineNumber: 52,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                            className: "uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large",
+                            className: ukFormButton,
                             onClick: handleSubmit,
                             children: "CREATE ACCOUNT"
                         }, void 0, false, {
                             fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 49,
+                            lineNumber: 58,
                             columnNumber: 7
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                            className: "uk-margin-small-top uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom uk-button-large reg-button",
+                            className: ukFormButton + ' reg-button',
                             children: "LOG IN"
                         }, void 0, false, {
                             fileName: "src/components/register-view/register-view.jsx",
-                            lineNumber: 52,
+                            lineNumber: 61,
                             columnNumber: 7
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/register-view/register-view.jsx",
-                    lineNumber: 23,
+                    lineNumber: 32,
                     columnNumber: 6
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/register-view/register-view.jsx",
-                lineNumber: 22,
+                lineNumber: 31,
                 columnNumber: 5
             }, this)
         }, void 0, false, {
             fileName: "src/components/register-view/register-view.jsx",
-            lineNumber: 21,
+            lineNumber: 30,
             columnNumber: 4
         }, this)
     }, void 0, false, {
         fileName: "src/components/register-view/register-view.jsx",
-        lineNumber: 20,
+        lineNumber: 29,
         columnNumber: 3
     }, this);
 }

@@ -7,15 +7,20 @@ import './movie-card.scss';
 export default class MovieCard extends Component {
 	render() {
 		const { movieData, onMovieClick } = this.props;
+
+		// variables for multiple UIKIT css class styles
+		const ukCardMovieView = 'uk-card uk-card-default uk-card-body uk-card-hover uk-card-small uk-box-shadow-medium';
+		const ukCardTitle = 'uk-card-title uk-text-bold';
+
 		return (
 			<div>
 				<div
-					className="uk-card uk-card-default uk-card-body uk-card-hover uk-card-small uk-box-shadow-medium"
+					className={ukCardMovieView}
 					onClick={() => {
 						onMovieClick(movieData);
 					}}
 				>
-					<h3 className="uk-card-title uk-text-bold">{movieData.Title}</h3>
+					<h3 className={ukCardTitle}>{movieData.Title}</h3>
 					<div className="uk-card-footer">Get Movie Information</div>
 				</div>
 			</div>
