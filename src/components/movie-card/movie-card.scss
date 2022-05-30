@@ -1,0 +1,18 @@
+.movie-grid {
+	.uk-card-title,
+	.uk-card-footer {
+		color: rgb(255, 255, 255);
+	}
+
+	img {
+		width: 250px;
+	}
+	.uk-card-default {
+		background-color: #0f003fea;
+		cursor: pointer;
+	}
+	.uk-card-default:hover {
+		background-color: #230e69ea;
+		box-shadow: 3px 5px 16px 4px hsl(242deg 60% 58%);
+	}
+}

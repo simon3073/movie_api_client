@@ -17,11 +17,16 @@
 	},
 	"homepage": "https://github.com/simon3073/movie_api_client#readme",
 	"dependencies": {
+		"axios": "^0.27.2",
+		"material-design-lite": "^1.3.0",
 		"parcel": "^2.5.0",
+		"prop-types": "^15.8.1",
 		"react": "^18.1.0",
 		"react-dom": "^18.1.0"
 	},
 	"devDependencies": {
-		"@parcel/transformer-sass": "^2.5.0"
+		"@parcel/transformer-sass": "^2.5.0",
+		"buffer": "^6.0.3",
+		"process": "^0.11.10"
 	}
 }

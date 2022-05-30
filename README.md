@@ -33,6 +33,7 @@ If you have run : `npx parcel src/index.html`, parcels has an excellent hot relo
 - React
 - Javascript
 - SASS
+- UIKit
 - Parcel
 
 <br/>
