@@ -1,10 +1,28 @@
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap";
+.movie-grid {
+  max-height: 100vh;
+  overflow-x: scroll;
+}
+
 .movie-grid .uk-card-title, .movie-grid .uk-card-footer {
   color: #fff;
 }
 
-.movie-grid img {
-  width: 250px;
+.movie-grid .movie-thumb {
+  width: 100px;
+  border-radius: 5px;
+}
+
+.movie-grid h3 {
+  margin: 15px 0 10px;
+}
+
+.movie-grid .imdb-div {
+  margin-top: 20px;
+}
+
+.movie-grid .imdb-div .rating {
+  color: #fff;
 }
 
 .movie-grid .uk-card-default {
@@ -29,7 +47,7 @@
 }
 
 .movie-view img {
-  width: 40%;
+  width: 400px;
   padding: 10px;
 }
 
@@ -37,6 +55,21 @@
   border-radius: 10px;
   margin: 10px 10px 0 0;
   padding: 5px 10px;
+}
+
+.movie-view .imdb-div {
+  margin: 20px 0 10px;
+}
+
+.movie-view .imdb-div .imdb-logo {
+  width: 59px;
+  height: 30px;
+  background: url("imdb_logo.f3a3550c.png");
+  margin-right: 10px;
+}
+
+.movie-view .imdb-div .rating {
+  color: #fff;
 }
 
 .movie-view button.btn-profile {
@@ -62,7 +95,7 @@
   }
 
   .movie-view img {
-    width: 40%;
+    width: 250px;
     margin-top: 10px;
   }
 }
@@ -102,7 +135,7 @@
 }
 
 .uk-card-default {
-  background-color: #10004e9e;
+  background-color: #0f003fe0;
 }
 
 .uk-logo {
@@ -117,6 +150,13 @@ body {
   align-items: center;
   font-family: Poppins;
   display: flex;
+}
+
+.imdb-logo {
+  width: 59px;
+  height: 30px;
+  background: url("imdb_logo.f3a3550c.png");
+  margin-right: 10px;
 }
 
 /*# sourceMappingURL=index.e3f97e84.css.map */

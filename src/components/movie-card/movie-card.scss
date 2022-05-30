@@ -1,12 +1,29 @@
 .movie-grid {
+	overflow-x: scroll;
+	max-height: 100vh;
+
 	.uk-card-title,
 	.uk-card-footer {
 		color: rgb(255, 255, 255);
 	}
 
-	img {
-		width: 250px;
+	.movie-thumb {
+		width: 100px;
+		border-radius: 5px;
 	}
+
+	h3 {
+		margin: 15px 0 10px 0;
+	}
+
+	.imdb-div {
+		margin-top: 20px;
+
+		.rating {
+			color: #fff;
+		}
+	}
+
 	.uk-card-default {
 		background-color: #0f003fea;
 		cursor: pointer;

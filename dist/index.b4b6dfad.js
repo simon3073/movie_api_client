@@ -28595,6 +28595,7 @@ class MovieCard extends _react.Component {
         // variables for multiple UIKIT css class styles
         const ukCardMovieView = 'uk-card uk-card-default uk-card-body uk-card-hover uk-card-small uk-box-shadow-medium';
         const ukCardTitle = 'uk-card-title uk-text-bold';
+        const ukImdbDiv = 'uk-flex uk-flex-center uk-flex-middle imdb-div';
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                 className: ukCardMovieView,
@@ -28602,12 +28603,45 @@ class MovieCard extends _react.Component {
                     onMovieClick(movieData);
                 },
                 children: [
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
+                        className: "movie-thumb",
+                        src: movieData.imgURL,
+                        alt: ""
+                    }, void 0, false, {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 24,
+                        columnNumber: 6
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                        className: ukImdbDiv,
+                        children: [
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                className: "imdb-logo"
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 26,
+                                columnNumber: 7
+                            }, this),
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                className: "rating",
+                                children: movieData.imdbRating
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 27,
+                                columnNumber: 7
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 25,
+                        columnNumber: 6
+                    }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h3", {
                         className: ukCardTitle,
                         children: movieData.Title
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 23,
+                        lineNumber: 29,
                         columnNumber: 6
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -28615,18 +28649,18 @@ class MovieCard extends _react.Component {
                         children: "Get Movie Information"
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 24,
+                        lineNumber: 30,
                         columnNumber: 6
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 17,
+                lineNumber: 18,
                 columnNumber: 5
             }, this)
         }, void 0, false, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 16,
+            lineNumber: 17,
             columnNumber: 4
         }, this);
     }
@@ -29577,9 +29611,11 @@ class MovieView extends _react.Component {
         // variables for multiple UIKIT css class styles
         const ukMovieViewBase = 'uk-flex uk-flex-center ';
         const ukMovieViewCont = 'uk-card uk-card-default uk-width-5-6s uk-width-3-4 movie-view uk-animation-slide-top ';
+        const ukMovieViewCard = 'uk-card-body uk-padding-small movie-view-info';
         const ukProfileBtn = 'btn-profile uk-button uk-button-primary uk-margin-small-bottom uk-button-small uk-position-top-right';
         const ukFavouriteBtn = 'btn-favourites uk-button uk-button-danger uk-margin-small-bottom uk-button-small';
         const ukButton = 'uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large';
+        const ukImdbDiv = 'uk-flex uk-flex-middle imdb-div';
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
             className: ukMovieViewBase,
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -29590,11 +29626,11 @@ class MovieView extends _react.Component {
                         alt: ""
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 38,
+                        lineNumber: 40,
                         columnNumber: 6
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                        className: "uk-card-body uk-padding-small movie-view-info",
+                        className: ukMovieViewCard,
                         children: [
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
                                 className: ukProfileBtn,
@@ -29603,12 +29639,12 @@ class MovieView extends _react.Component {
                                     "uk-icon": "user"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 41,
+                                    lineNumber: 43,
                                     columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 40,
+                                lineNumber: 42,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
@@ -29618,12 +29654,12 @@ class MovieView extends _react.Component {
                                     "uk-icon": "star"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 44,
+                                    lineNumber: 46,
                                     columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 43,
+                                lineNumber: 45,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -29633,12 +29669,12 @@ class MovieView extends _react.Component {
                                     children: movieData.Title
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 47,
+                                    lineNumber: 49,
                                     columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 46,
+                                lineNumber: 48,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -29651,12 +29687,12 @@ class MovieView extends _react.Component {
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 50,
+                                    lineNumber: 52,
                                     columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 49,
+                                lineNumber: 51,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -29667,7 +29703,7 @@ class MovieView extends _react.Component {
                                         children: "Starring: "
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 53,
+                                        lineNumber: 55,
                                         columnNumber: 8
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -29675,57 +29711,53 @@ class MovieView extends _react.Component {
                                         children: actors
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 54,
+                                        lineNumber: 56,
                                         columnNumber: 8
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 52,
+                                lineNumber: 54,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                                className: "movie-rating uk-text-bold",
+                                className: ukImdbDiv,
                                 children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                        className: "label",
-                                        children: "IMDB Rating: "
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                                        className: "imdb-logo"
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 57,
+                                        lineNumber: 59,
                                         columnNumber: 8
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                        className: "value",
-                                        children: [
-                                            movieData.imdbRating,
-                                            "/10"
-                                        ]
-                                    }, void 0, true, {
+                                        className: "rating",
+                                        children: movieData.imdbRating
+                                    }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 58,
+                                        lineNumber: 60,
                                         columnNumber: 8
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 56,
+                                lineNumber: 58,
                                 columnNumber: 7
                             }, this),
-                            movieData.Genre.map(({ Genre  })=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
+                            movieData.Genre.map((g)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV("a", {
                                     href: "#",
-                                    "uk-tooltip": 'View a list of ' + Genre.toLowerCase() + ' movies',
+                                    "uk-tooltip": 'View a list of ' + g.Genre.toLowerCase() + ' movies',
                                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                        class: "uk-label genres",
-                                        children: Genre
+                                        className: "uk-label genres",
+                                        children: g.Genre
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 62,
+                                        lineNumber: 64,
                                         columnNumber: 9
                                     }, this)
-                                }, void 0, false, {
+                                }, g._id, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 61,
+                                    lineNumber: 63,
                                     columnNumber: 8
                                 }, this)
                             ),
@@ -29734,7 +29766,7 @@ class MovieView extends _react.Component {
                                 children: movieData.Description
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 65,
+                                lineNumber: 67,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
@@ -29745,24 +29777,24 @@ class MovieView extends _react.Component {
                                 children: "BACK TO MOVIES"
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 66,
+                                lineNumber: 68,
                                 columnNumber: 7
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 39,
+                        lineNumber: 41,
                         columnNumber: 6
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 37,
+                lineNumber: 39,
                 columnNumber: 5
             }, this)
         }, void 0, false, {
             fileName: "src/components/movie-view/movie-view.jsx",
-            lineNumber: 36,
+            lineNumber: 38,
             columnNumber: 4
         }, this);
     }

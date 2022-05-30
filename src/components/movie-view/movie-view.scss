@@ -3,18 +3,34 @@
 	color: #fff;
 	margin-top: 20px;
 	padding-right: 20px;
+
 	h1 {
 		color: #fff;
 	}
 
 	img {
-		width: 40%;
+		width: 400px;
 		padding: 10px;
 	}
 	.uk-label.genres {
 		padding: 5px 10px;
 		border-radius: 10px;
 		margin: 10px 10px 0 0;
+	}
+
+	.imdb-div {
+		margin: 20px 0 10px;
+
+		.imdb-logo {
+			width: 59px;
+			height: 30px;
+			margin-right: 10px;
+			background: url('../../img/imdb_logo.png');
+		}
+
+		.rating {
+			color: #fff;
+		}
 	}
 
 	button.btn-profile {
@@ -39,7 +55,7 @@
 	.movie-view {
 		flex-direction: column;
 		img {
-			width: 40%;
+			width: 250px;
 
 			margin-top: 10px;
 		}
