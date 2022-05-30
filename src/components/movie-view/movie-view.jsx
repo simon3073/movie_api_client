@@ -28,15 +28,17 @@ export default class MovieView extends Component {
 		// variables for multiple UIKIT css class styles
 		const ukMovieViewBase = 'uk-flex uk-flex-center ';
 		const ukMovieViewCont = 'uk-card uk-card-default uk-width-5-6s uk-width-3-4 movie-view uk-animation-slide-top ';
+		const ukMovieViewCard = 'uk-card-body uk-padding-small movie-view-info';
 		const ukProfileBtn = 'btn-profile uk-button uk-button-primary uk-margin-small-bottom uk-button-small uk-position-top-right';
 		const ukFavouriteBtn = 'btn-favourites uk-button uk-button-danger uk-margin-small-bottom uk-button-small';
 		const ukButton = 'uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large';
+		const ukImdbDiv = 'uk-flex uk-flex-middle imdb-div';
 
 		return (
 			<div className={ukMovieViewBase}>
 				<div className={ukMovieViewCont}>
 					<img src={movieData.imgURL} alt="" />
-					<div className="uk-card-body uk-padding-small movie-view-info">
+					<div className={ukMovieViewCard}>
 						<button className={ukProfileBtn} uk-tooltip="Go To Profile Page">
 							<span uk-icon="user"></span>
 						</button>
@@ -53,13 +55,13 @@ export default class MovieView extends Component {
 							<span className="label">Starring: </span>
 							<span className="value">{actors}</span>
 						</div>
-						<div className="movie-rating uk-text-bold">
-							<span className="label">IMDB Rating: </span>
-							<span className="value">{movieData.imdbRating}/10</span>
+						<div className={ukImdbDiv}>
+							<div className="imdb-logo" />
+							<span className="rating">{movieData.imdbRating}</span>
 						</div>
-						{movieData.Genre.map(({ Genre }) => (
-							<a href="#" uk-tooltip={'View a list of ' + Genre.toLowerCase() + ' movies'}>
-								<span class="uk-label genres">{Genre}</span>
+						{movieData.Genre.map((g) => (
+							<a href="#" key={g._id} uk-tooltip={'View a list of ' + g.Genre.toLowerCase() + ' movies'}>
+								<span className="uk-label genres">{g.Genre}</span>
 							</a>
 						))}
 						<div className="movie-description">{movieData.Description}</div>
