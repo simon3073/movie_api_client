@@ -1,47 +1,36 @@
-// .movie-view {
-// 	display: flex;
-// 	color: #fff;
-// 	margin-top: 20px;
-// 	padding-right: 20px;
-// 	h1 {
-// 		color: #fff;
-// 	}
+.movie-view {
+	background-color: #0f003fe0;
+	border-radius: 20px;
+	margin-top: 160px !important;
 
-// 	img {
-// 		width: 200px;
-// 		padding: 10px;
-// 	}
-// 	.uk-label.genres {
-// 		padding: 5px 10px;
-// 		border-radius: 10px;
-// 		margin: 10px 10px 0 0;
-// 	}
+	.movie-image img {
+		border-radius: 10px;
+	}
 
-// 	button.btn-profile {
-// 		margin: 10px;
-// 		padding: 10px;
-// 		border-radius: 5px;
-// 		width: 60px;
-// 	}
+	.genre {
+		font-size: 1.25rem;
+	}
 
-// 	button.btn-favourites {
-// 		padding: 10px;
-// 		border-radius: 5px;
-// 		width: 60px;
-// 	}
+	.toggle-off.btn,
+	.toggle-on.btn {
+		border-radius: 10px;
+		justify-content: center;
+	}
 
-// 	.movie-description {
-// 		margin: 40px 0;
-// 	}
-// }
+	// .toggle-off.btn {
+	// 	padding-left: 0;
+	// }
 
-// @media only screen and (max-width: 1024px) {
-// 	.movie-view {
-// 		flex-direction: column;
-// 		img {
-// 			width: 40%;
+	.addedIcon {
+		font-style: normal;
+	}
+}
 
-// 			margin-top: 10px;
-// 		}
-// 	}
-// }
+@media only screen and (max-width: 767px) {
+	.movie-image {
+		img {
+			width: 40% !important;
+			margin-top: -30px;
+		}
+	}
+}

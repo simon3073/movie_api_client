@@ -1,11 +1,13 @@
-.uk-card {
-	border-radius: 10px;
+.main-view {
+	overflow-x: scroll;
+	height: 100vh;
+	margin-top: 150px;
 }
 
-.uk-card-default {
-	background-color: #10004e9e;
-}
-
-.uk-logo {
-	width: 250px;
+.header {
+	width: 100%;
+	background-color: #0f003fe0;
+	border-radius: 15px;
+	font-size: 2rem;
+	margin-left: 0px !important;
 }

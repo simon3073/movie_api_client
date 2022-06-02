@@ -1,0 +1,310 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap";
+.card.movie-card {
+  color: #fff;
+  background-color: #0f003fe0;
+  border-radius: 20px;
+}
+
+.card.movie-card .movie-thumb {
+  border-radius: 5px;
+}
+
+.movie-view {
+  background-color: #0f003fe0;
+  border-radius: 20px;
+  margin-top: 160px !important;
+}
+
+.movie-view .movie-image img {
+  border-radius: 10px;
+}
+
+.movie-view .genre {
+  font-size: 1.25rem;
+}
+
+.movie-view .toggle-off.btn, .movie-view .toggle-on.btn {
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.movie-view .addedIcon {
+  font-style: normal;
+}
+
+@media only screen and (max-width: 767px) {
+  .movie-image img {
+    margin-top: -30px;
+    width: 40% !important;
+  }
+}
+
+label.checkbox .toggle, label.checkbox.inline .toggle {
+  margin-left: -20px;
+  margin-right: 5px;
+}
+
+.toggle {
+  min-width: 40px;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.toggle-group {
+  width: 200%;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: left .35s;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.toggle.off .toggle-group {
+  left: -100%;
+}
+
+.toggle-on {
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  position: absolute;
+  inset: 0 50% 0 0;
+}
+
+.toggle-off {
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  position: absolute;
+  inset: 0 0 0 50%;
+}
+
+.toggle-handle {
+  height: 100%;
+  width: 0;
+  border-width: 0 1px;
+  margin: 0 auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  position: relative;
+}
+
+.toggle-handle.btn-mini, .toggle-handle.btn-xs {
+  top: -2px;
+}
+
+.toggle.btn {
+  min-width: 30px;
+}
+
+.toggle-on.btn {
+  align-items: center;
+  padding-right: 24px;
+  display: flex;
+}
+
+.toggle-off.btn {
+  align-items: center;
+  padding-left: 24px;
+  display: flex;
+}
+
+.toggle.btn-large {
+  min-width: 40px;
+}
+
+.toggle-on.btn-large {
+  padding-right: 35px;
+}
+
+.toggle-off.btn-large {
+  padding-left: 35px;
+}
+
+.toggle.btn-lg {
+  min-width: 40px;
+}
+
+.toggle-on.btn-lg {
+  padding-right: 35px;
+}
+
+.toggle-off.btn-lg {
+  padding-left: 35px;
+}
+
+.toggle.btn-small {
+  min-width: 25px;
+}
+
+.toggle-on.btn-small {
+  padding-right: 20px;
+}
+
+.toggle-off.btn-small {
+  padding-left: 20px;
+}
+
+.toggle.btn-sm {
+  min-width: 25px;
+}
+
+.toggle-on.btn-sm {
+  padding-right: 20px;
+}
+
+.toggle-off.btn-sm {
+  padding-left: 20px;
+}
+
+.toggle.btn-mini {
+  min-width: 20px;
+}
+
+.toggle-on.btn-mini {
+  padding-right: 12px;
+}
+
+.toggle-off.btn-mini {
+  padding-left: 12px;
+}
+
+.toggle.btn-xs {
+  min-width: 20px;
+}
+
+.toggle-on.btn-xs {
+  padding-right: 12px;
+}
+
+.toggle-off.btn-xs {
+  padding-left: 12px;
+}
+
+.slow .toggle-group {
+  transition: left .7s;
+}
+
+.fast .toggle-group {
+  transition: left .1s;
+}
+
+.quick .toggle-group {
+  transition: none;
+}
+
+.toggle-on[disabled], .toggle-on.disabled, .toggle-off[disabled], .toggle-on.disabled {
+  cursor: not-allowed !important;
+}
+
+.card.login-card {
+  color: #fff;
+  width: 30rem;
+  background-color: #0f003fe0;
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.card.login-card .login-form div {
+  margin-top: 15px;
+}
+
+a#navbarScrollingDropdown, #userDropdown {
+  color: #fff;
+  text-align: end;
+}
+
+.bi-person-circle {
+  font-size: 1.5rem;
+}
+
+.dropdown-menu.show.dropdown-menu-end {
+  left: auto;
+  right: 0 !important;
+}
+
+#search-btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.navbar-toggler {
+  color: "#ffbd24";
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar-collapse.collapse.show .navbar-nav {
+    align-items: flex-end;
+  }
+
+  .navbar-collapse.collapse.show .navbar-nav .dropdown, .navbar-collapse.collapse.show .navbar-nav form {
+    margin: 0 0 15px !important;
+  }
+
+  .navbar-collapse.collapse.show .ml-auto.user-profile.navbar-nav {
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    display: flex !important;
+  }
+
+  .navbar-collapse.collapse.show .ml-auto.user-profile.navbar-nav i {
+    display: none;
+  }
+
+  .navbar-collapse.collapse.show .ml-auto.user-profile.navbar-nav div {
+    margin: 0 0 0 5px !important;
+  }
+
+  .navbar-collapse.collapse.show .ml-auto.user-profile.navbar-nav .dropdown-menu.show.dropdown-menu-end {
+    left: auto;
+    right: 0 !important;
+  }
+}
+
+.card.register-card {
+  color: #fff;
+  width: 30rem;
+  background-color: #0f003fe0;
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.card.register-card .reg-form div {
+  margin-top: 15px;
+}
+
+.main-view {
+  height: 100vh;
+  margin-top: 150px;
+  overflow-x: scroll;
+}
+
+.header {
+  width: 100%;
+  background-color: #0f003fe0;
+  border-radius: 15px;
+  font-size: 2rem;
+  margin-left: 0 !important;
+}
+
+body {
+  background: url("bg.6c772103.png") center / cover no-repeat;
+  font-family: Poppins !important;
+}
+
+.container {
+  height: 100vh;
+  max-width: 90% !important;
+}
+
+.imdb-logo {
+  height: 30px;
+  width: 59px;
+  background: url("imdb_logo.f3a3550c.png") no-repeat;
+}
+
+/*# sourceMappingURL=index.e3f97e84.css.map */

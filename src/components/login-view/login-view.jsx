@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import { Form, Button, Card, Container } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 // Import styles for this view
 import './login.scss';
+
+// import logo image
+import logo from '../../img/site_logo.png';
 
 export default function LoginView(props) {
 	const [username, setUsername] = useState('');
@@ -15,16 +20,33 @@ export default function LoginView(props) {
 	};
 
 	return (
-		<div>
-			<form>
-				<fieldset>
-					<legend>Log In</legend>
-					<input className="uk-input uk-form-large" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-					<input className="uk-input uk-form-large" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-					<button onClick={handleSubmit}>LOG IN</button>
-					<button>SIGN UP</button>
-				</fieldset>
-			</form>
-		</div>
+		<Container fluid className="h-100 d-flex flex-column justify-content-center align-items-center">
+			<Card className="login-card">
+				<div className="m-4 text-center">
+					<img src={logo} style={{ width: '400px' }} />
+				</div>
+				<Card.Body>
+					<h2 className="mb-2 text-center" style={{ color: '#ffbd24' }}>
+						<strong>Login</strong>
+					</h2>
+					<Form className="login-form">
+						<Form.Group controlId="username">
+							<Form.Label>Username:</Form.Label>
+							<Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter your username" required />
+						</Form.Group>
+						<Form.Group controlId="password">
+							<Form.Label>Password:</Form.Label>
+							<Form.Control type="password" value={password} minLength="8" placeholder="Your Password must be 8 or more characters" onChange={(e) => setPassword(e.target.value)} required />
+						</Form.Group>
+						<Button variant="primary" className="btn-block mt-5" type="submit" onClick={handleSubmit}>
+							Log In
+						</Button>
+						<Button variant="link" className="btn-block text-white mt-3" type="submit">
+							Create an an account
+						</Button>
+					</Form>
+				</Card.Body>
+			</Card>
+		</Container>
 	);
 }
