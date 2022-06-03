@@ -4,8 +4,9 @@ a#navbarScrollingDropdown,
 	text-align: end;
 }
 
-.bi-person-circle {
-	font-size: 1.5rem;
+.user-profile span {
+	font-size: 1.65rem;
+	color: #fff;
 }
 
 .dropdown-menu.show.dropdown-menu-end {
@@ -34,7 +35,7 @@ a#navbarScrollingDropdown,
 		}
 
 		.ml-auto.user-profile.navbar-nav {
-			i {
+			span {
 				display: none;
 			}
 

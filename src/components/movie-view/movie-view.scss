@@ -1,4 +1,7 @@
 .movie-details {
+	background-color: #0f003fe0;
+	border-radius: 20px !important;
+
 	.movie-image img {
 		border-radius: 10px;
 	}
@@ -7,29 +10,19 @@
 		font-size: 1.25rem;
 	}
 
-	.toggle-off.btn,
-	.toggle-on.btn {
+	.btn.toggle {
 		border-radius: 10px;
 		justify-content: center;
-	}
 
-	// .toggle-off.btn {
-	// 	padding-left: 0;
-	// }
-
-	.addedIcon {
-		font-style: normal;
+		.btn {
+			padding: 10px 0 0 0;
+		}
 	}
 
 	a {
 		color: #00cce3;
 		text-decoration: underline;
 	}
-}
-
-.movie-details {
-	background-color: #0f003fe0;
-	border-radius: 20px;
 }
 
 @media only screen and (max-width: 767px) {

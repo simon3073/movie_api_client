@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Button, Badge, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { FaCheck } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import Toggle from 'react-bootstrap-toggle';
 
@@ -39,7 +40,6 @@ export default class MovieView extends Component {
 	// Displays specific details about a movie
 	render() {
 		const { movieData, onBackClick } = this.props;
-
 		// This view would have modal pop ups to show more information on actors and directors
 
 		return (
@@ -84,7 +84,22 @@ export default class MovieView extends Component {
 							</OverlayTrigger>
 						))}
 						<div className="mt-4">{movieData.Description}</div>
-						<Toggle onClick={this.onToggle} className="toggleBtn mt-4 mb-4 text-center" width="200px" height="45px" on={<i className="bi bi-check-circle-fill addedIcon"> Added!</i>} off="Add to Favourites" size="md" onstyle="success" offstyle="warning" active={this.state.toggleActive} />
+						<Toggle
+							onClick={this.onToggle}
+							className="toggleBtn mt-4 mb-4 text-center"
+							width="200px"
+							height="45px"
+							on={
+								<span>
+									Added! <FaCheck />
+								</span>
+							}
+							off="Add to Favourites"
+							size="md"
+							onstyle="success"
+							offstyle="warning"
+							active={this.state.toggleActive}
+						/>
 						<Button onClick={() => onBackClick(null)} size="lg" className="w-100 mt-2" variant="primary">
 							Back to the movies
 						</Button>

@@ -9,6 +9,11 @@
   border-radius: 5px;
 }
 
+.movie-details {
+  background-color: #0f003fe0;
+  border-radius: 20px !important;
+}
+
 .movie-details .movie-image img {
   border-radius: 10px;
 }
@@ -17,23 +22,18 @@
   font-size: 1.25rem;
 }
 
-.movie-details .toggle-off.btn, .movie-details .toggle-on.btn {
+.movie-details .btn.toggle {
   border-radius: 10px;
   justify-content: center;
 }
 
-.movie-details .addedIcon {
-  font-style: normal;
+.movie-details .btn.toggle .btn {
+  padding: 10px 0 0;
 }
 
 .movie-details a {
   color: #00cce3;
   text-decoration: underline;
-}
-
-.movie-details {
-  background-color: #0f003fe0;
-  border-radius: 20px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -60,8 +60,9 @@ a#navbarScrollingDropdown, #userDropdown {
   text-align: end;
 }
 
-.bi-person-circle {
-  font-size: 1.5rem;
+.user-profile span {
+  color: #fff;
+  font-size: 1.65rem;
 }
 
 .dropdown-menu.show.dropdown-menu-end {
@@ -94,7 +95,7 @@ a#navbarScrollingDropdown, #userDropdown {
     display: flex !important;
   }
 
-  .navbar-collapse.collapse.show .ml-auto.user-profile.navbar-nav i {
+  .navbar-collapse.collapse.show .ml-auto.user-profile.navbar-nav span {
     display: none;
   }
 

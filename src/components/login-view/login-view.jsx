@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Form, Button, Card, Container } from 'react-bootstrap';
-import PropTypes from 'prop-types';
 
 // Import styles for this view
 import './login.scss';
@@ -14,7 +13,7 @@ export default function LoginView(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(username, password);
+		//console.log(username, password);
 		// send authentication request
 		props.onLoggedIn(username);
 	};

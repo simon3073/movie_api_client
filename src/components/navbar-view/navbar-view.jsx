@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, NavDropdown, Dropdown, DropdownButton, InputGroup, Form, FormControl, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import { FaUserCircle } from 'react-icons/fa';
 
 // Import styles for this view
 import './navbar-view.scss';
@@ -36,7 +37,9 @@ export default function NavBarView(props) {
 						</Form>
 					</Nav>
 					<Nav className="ml-auto user-profile">
-						<i className="bi bi-person-circle text-white"></i>
+						<span>
+							<FaUserCircle />
+						</span>
 						<NavDropdown className="text-white" title={props.username} align="end" id="userDropdown">
 							<NavDropdown.Item key="vp" href="#">
 								View Profile

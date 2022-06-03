@@ -18,14 +18,13 @@
 	"homepage": "https://github.com/simon3073/movie_api_client#readme",
 	"dependencies": {
 		"axios": "^0.27.2",
-		"bootstrap-icons": "^1.8.3",
 		"parcel": "^2.5.0",
 		"prop-types": "^15.8.1",
 		"react": "^18.1.0",
 		"react-bootstrap": "^2.4.0",
 		"react-bootstrap-toggle": "^2.3.2",
 		"react-dom": "^18.1.0",
-		"react-toggle": "^4.1.2"
+		"react-icons": "^4.4.0"
 	},
 	"devDependencies": {
 		"@parcel/transformer-sass": "^2.5.0",
