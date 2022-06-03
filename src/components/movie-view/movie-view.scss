@@ -1,8 +1,4 @@
-.movie-view {
-	background-color: #0f003fe0;
-	border-radius: 20px;
-	margin-top: 160px !important;
-
+.movie-details {
 	.movie-image img {
 		border-radius: 10px;
 	}
@@ -24,6 +20,16 @@
 	.addedIcon {
 		font-style: normal;
 	}
+
+	a {
+		color: #00cce3;
+		text-decoration: underline;
+	}
+}
+
+.movie-details {
+	background-color: #0f003fe0;
+	border-radius: 20px;
 }
 
 @media only screen and (max-width: 767px) {

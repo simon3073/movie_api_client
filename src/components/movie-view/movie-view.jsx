@@ -5,7 +5,6 @@ import Toggle from 'react-bootstrap-toggle';
 
 // Import styles for this view
 import './movie-view.scss';
-import 'react-bootstrap-toggle/dist/bootstrap2-toggle.css'; // for ES6 modules
 
 // import IMDB image
 import imdb_logo from '../../img/imdb_logo.png';
@@ -44,7 +43,7 @@ export default class MovieView extends Component {
 		// This view would have modal pop ups to show more information on actors and directors
 
 		return (
-			<Row className="justify-content-center movie-view pt-5 pb-5 text-white">
+			<Row className="justify-content-center movie-details pt-5 pb-5 text-white">
 				<Col md={4} className="movie-image pb-3">
 					<img className="w-100 pl-0" src={movieData.imgURL} alt="" />
 				</Col>
@@ -55,7 +54,7 @@ export default class MovieView extends Component {
 						</h2>
 						<div className="movie-director">
 							<span className="font-weight-bold">
-								Directed by
+								Directed by:
 								<OverlayTrigger overlay={<Tooltip id="my-tooltip-id">More information about {movieData.Director[0].Name}</Tooltip>}>
 									<a href="#"> {movieData.Director[0].Name}</a>
 								</OverlayTrigger>

@@ -42520,7 +42520,6 @@ var _reactBootstrapToggle = require("react-bootstrap-toggle");
 var _reactBootstrapToggleDefault = parcelHelpers.interopDefault(_reactBootstrapToggle);
 // Import styles for this view
 var _movieViewScss = require("./movie-view.scss");
-var _bootstrap2ToggleCss = require("react-bootstrap-toggle/dist/bootstrap2-toggle.css"); // for ES6 modules
 // import IMDB image
 var _imdbLogoPng = require("../../img/imdb_logo.png");
 var _imdbLogoPngDefault = parcelHelpers.interopDefault(_imdbLogoPng);
@@ -42555,7 +42554,7 @@ class MovieView extends _react.Component {
         const { movieData , onBackClick  } = this.props;
         // This view would have modal pop ups to show more information on actors and directors
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
-            className: "justify-content-center movie-view pt-5 pb-5 text-white",
+            className: "justify-content-center movie-details pt-5 pb-5 text-white",
             children: [
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                     md: 4,
@@ -42566,12 +42565,12 @@ class MovieView extends _react.Component {
                         alt: ""
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 49,
+                        lineNumber: 48,
                         columnNumber: 6
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 48,
+                    lineNumber: 47,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
@@ -42586,7 +42585,7 @@ class MovieView extends _react.Component {
                                 children: movieData.Title
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 53,
+                                lineNumber: 52,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -42594,7 +42593,7 @@ class MovieView extends _react.Component {
                                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
                                     className: "font-weight-bold",
                                     children: [
-                                        "Directed by",
+                                        "Directed by:",
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.OverlayTrigger, {
                                             overlay: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Tooltip, {
                                                 id: "my-tooltip-id",
@@ -42611,23 +42610,23 @@ class MovieView extends _react.Component {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 60,
+                                                lineNumber: 59,
                                                 columnNumber: 10
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 59,
+                                            lineNumber: 58,
                                             columnNumber: 9
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 57,
+                                    lineNumber: 56,
                                     columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 56,
+                                lineNumber: 55,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -42638,7 +42637,7 @@ class MovieView extends _react.Component {
                                         children: "Starring: "
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 65,
+                                        lineNumber: 64,
                                         columnNumber: 8
                                     }, this),
                                     movieData.Actor.map((a, i)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.OverlayTrigger, {
@@ -42655,19 +42654,19 @@ class MovieView extends _react.Component {
                                                 children: i < movieData.Actor.length - 1 ? `${a.Name}, ` : a.Name
                                             }, void 0, false, {
                                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 68,
+                                                lineNumber: 67,
                                                 columnNumber: 10
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 67,
+                                            lineNumber: 66,
                                             columnNumber: 9
                                         }, this)
                                     )
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 64,
+                                lineNumber: 63,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -42677,7 +42676,7 @@ class MovieView extends _react.Component {
                                         src: _imdbLogoPngDefault.default
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 75,
+                                        lineNumber: 74,
                                         columnNumber: 8
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -42688,13 +42687,13 @@ class MovieView extends _react.Component {
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 76,
+                                        lineNumber: 75,
                                         columnNumber: 8
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 74,
+                                lineNumber: 73,
                                 columnNumber: 7
                             }, this),
                             movieData.Genre.map(({ Genre  })=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.OverlayTrigger, {
@@ -42714,17 +42713,17 @@ class MovieView extends _react.Component {
                                             children: Genre
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 81,
+                                            lineNumber: 80,
                                             columnNumber: 10
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 80,
+                                        lineNumber: 79,
                                         columnNumber: 9
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 79,
+                                    lineNumber: 78,
                                     columnNumber: 8
                                 }, this)
                             ),
@@ -42733,7 +42732,7 @@ class MovieView extends _react.Component {
                                 children: movieData.Description
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 87,
+                                lineNumber: 86,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrapToggleDefault.default, {
@@ -42752,7 +42751,7 @@ class MovieView extends _react.Component {
                                 active: this.state.toggleActive
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 88,
+                                lineNumber: 87,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -42764,24 +42763,24 @@ class MovieView extends _react.Component {
                                 children: "Back to the movies"
                             }, void 0, false, {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 89,
+                                lineNumber: 88,
                                 columnNumber: 7
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 52,
+                        lineNumber: 51,
                         columnNumber: 6
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 51,
+                    lineNumber: 50,
                     columnNumber: 5
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-view/movie-view.jsx",
-            lineNumber: 47,
+            lineNumber: 46,
             columnNumber: 4
         }, this);
     }
@@ -42806,7 +42805,7 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","prop-types":"7wKI2","react-bootstrap-toggle":"gguHL","./movie-view.scss":"jnlR5","react-bootstrap-toggle/dist/bootstrap2-toggle.css":"9rYMF","../../img/imdb_logo.png":"7NhkD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gguHL":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","prop-types":"7wKI2","react-bootstrap-toggle":"gguHL","./movie-view.scss":"jnlR5","../../img/imdb_logo.png":"7NhkD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gguHL":[function(require,module,exports) {
 'use strict';
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -44038,7 +44037,7 @@ function _inherits(subClass, superClass) {
 }(_reactBootstrapToggle2.default);
 exports.default = ReactBootstrap2Toggle;
 
-},{"react":"21dqq","./react-bootstrap-toggle":"4YwXH"}],"jnlR5":[function() {},{}],"9rYMF":[function() {},{}],"9YtA0":[function(require,module,exports) {
+},{"react":"21dqq","./react-bootstrap-toggle":"4YwXH"}],"jnlR5":[function() {},{}],"9YtA0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
