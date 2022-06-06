@@ -51,7 +51,7 @@ export default class MainView extends Component {
 		if (movies.length === 0) return <div className="main-view" />;
 
 		// Or else display either a movie's details or the movie list
-<<<<<<< HEAD
+
 		return (
 			<>
 				<NavBarView username={user} />
@@ -94,24 +94,5 @@ export default class MainView extends Component {
 				</Container>
 			</>
 		);
-=======
-		if (selectedMovie) {
-			return <MovieView movieData={selectedMovie} onBackClick={(newSelectedMovie) => this.setSelectedMovie(newSelectedMovie)} />;
-		} else {
-			return (
-				<div className={ukCardMovieGrid} uk-grid="true">
-					{movies.map((movie) => (
-						<MovieCard
-							key={movie._id}
-							movieData={movie}
-							onMovieClick={(newSelectedMovie) => {
-								this.setSelectedMovie(newSelectedMovie);
-							}}
-						/>
-					))}
-				</div>
-			);
-		}
->>>>>>> master
 	}
 }
