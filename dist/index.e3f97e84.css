@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap";
 .card.movie-card {
   color: #fff;
@@ -150,5 +151,161 @@ body {
   width: 59px;
   background: url("imdb_logo.f3a3550c.png") no-repeat;
 }
+=======
+<<<<<<<< HEAD:dist/index.e3f97e84.css
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap";
+.movie-grid {
+  max-height: 100vh;
+  overflow-x: scroll;
+}
+========
+>>>>>>>> master:dist/index.ce1d6491.css
+
+
+<<<<<<<< HEAD:dist/index.e3f97e84.css
+.movie-grid .movie-thumb {
+  width: 100px;
+  border-radius: 5px;
+}
+
+.movie-grid h3 {
+  margin: 15px 0 10px;
+}
+
+.movie-grid .imdb-div {
+  margin-top: 20px;
+}
+
+.movie-grid .imdb-div .rating {
+  color: #fff;
+========
+.card-img-top {
+  width: 200px !important;
+>>>>>>>> master:dist/index.ce1d6491.css
+}
+
+
+
+
+<<<<<<<< HEAD:dist/index.e3f97e84.css
+.movie-view img {
+  width: 400px;
+  padding: 10px;
+}
+
+.movie-view .uk-label.genres {
+  border-radius: 10px;
+  margin: 10px 10px 0 0;
+  padding: 5px 10px;
+}
+
+.movie-view .imdb-div {
+  margin: 20px 0 10px;
+}
+
+.movie-view .imdb-div .imdb-logo {
+  width: 59px;
+  height: 30px;
+  background: url("imdb_logo.f3a3550c.png");
+  margin-right: 10px;
+}
+
+.movie-view .imdb-div .rating {
+  color: #fff;
+}
+
+.movie-view button.btn-profile {
+  width: 60px;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.movie-view button.btn-favourites {
+  width: 60px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.movie-view .movie-description {
+  margin: 40px 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  .movie-view {
+    flex-direction: column;
+  }
+
+  .movie-view img {
+    width: 250px;
+    margin-top: 10px;
+  }
+}
+
+.login-header {
+  color: #fff;
+  text-align: center;
+  width: 250px;
+}
+
+.login-button {
+  color: #000;
+  background-color: #fff;
+}
+
+.login-button:hover {
+  background-color: #f1f1f1;
+}
+========
+>>>>>>>> master:dist/index.ce1d6491.css
+
+.reg-header {
+  color: #fff;
+  text-align: center;
+  width: 250px;
+}
+
+.reg-button {
+  color: #000;
+  background-color: #fff;
+}
+
+.reg-button:hover {
+  background-color: #f1f1f1;
+}
+
+.uk-card {
+  border-radius: 10px;
+}
+
+.uk-card-default {
+  background-color: #0f003fe0;
+}
+
+.uk-logo {
+  width: 250px;
+}
+
+<<<<<<<< HEAD:dist/index.e3f97e84.css
+body {
+  width: 100%;
+  height: 100vh;
+  background: url("bg.6c772103.png") center no-repeat fixed;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+  display: flex;
+}
+
+.imdb-logo {
+  width: 59px;
+  height: 30px;
+  background: url("imdb_logo.f3a3550c.png");
+  margin-right: 10px;
+}
+========
+
+>>>>>>>> master:dist/index.ce1d6491.css
+>>>>>>> master
 
 /*# sourceMappingURL=index.e3f97e84.css.map */
