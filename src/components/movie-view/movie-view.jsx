@@ -63,7 +63,7 @@ export default class MovieView extends Component {
 						<div className="movie-actors">
 							<span className="font-weight-bold">Starring: </span>
 							{movieData.Actor.map((a, i) => (
-								<OverlayTrigger overlay={<Tooltip id="my-tooltip-id">More information about {a.Name}</Tooltip>}>
+								<OverlayTrigger key={i} overlay={<Tooltip id="my-tooltip-id">More information about {a.Name}</Tooltip>}>
 									<a href="#" className="font-weight-bold">
 										{i < movieData.Actor.length - 1 ? `${a.Name}, ` : a.Name}
 									</a>
@@ -75,7 +75,7 @@ export default class MovieView extends Component {
 							<span className="rating ml-2">{movieData.imdbRating}/10</span>
 						</div>
 						{movieData.Genre.map(({ Genre }) => (
-							<OverlayTrigger overlay={<Tooltip id="my-tooltip-id">View a list of {Genre.toLowerCase()} movies</Tooltip>}>
+							<OverlayTrigger key={Genre} overlay={<Tooltip id="my-tooltip-id">View a list of {Genre.toLowerCase()} movies</Tooltip>}>
 								<a href="#">
 									<Badge bg="info" className="genre text-white mr-3">
 										{Genre}

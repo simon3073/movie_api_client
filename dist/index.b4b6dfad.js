@@ -38735,13 +38735,12 @@ class MainView extends _react.Component {
     render() {
         const { movies , selectedMovie , user: user1  } = this.state;
         // variables for multiple UIKIT css class styles
-        const ukCardMovieGrid = 'movie-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center uk-padding-small uk-animation-fade uk-position-top';
         // Check if we have to Log in by looking at the user value
         if (!user1) return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginViewDefault.default, {
             onLoggedIn: (user)=>this.onLoggedIn(user)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 48,
+            lineNumber: 47,
             columnNumber: 21
         }, this);
         // Check it we have any data to show and display an empty message if not
@@ -38749,7 +38748,7 @@ class MainView extends _react.Component {
             className: "main-view"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 51,
+            lineNumber: 50,
             columnNumber: 35
         }, this);
         // Or else display either a movie's details or the movie list
@@ -38757,9 +38756,9 @@ class MainView extends _react.Component {
             children: [
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_navbarViewDefault.default, {
                     username: user1
-                }, void 0, false, {
+                }, "navbar", false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 57,
+                    lineNumber: 56,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
@@ -38772,7 +38771,7 @@ class MainView extends _react.Component {
                         onBackClick: (newSelectedMovie)=>this.setSelectedMovie(newSelectedMovie)
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 64,
+                        lineNumber: 63,
                         columnNumber: 7
                     }, this) : /* Create another component from code below to 
 						- use for display all movies
@@ -38791,17 +38790,17 @@ class MainView extends _react.Component {
                                         children: "All the 80s movies"
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 74,
+                                        lineNumber: 73,
                                         columnNumber: 10
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 73,
+                                    lineNumber: 72,
                                     columnNumber: 9
                                 }, this)
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 72,
+                                lineNumber: 71,
                                 columnNumber: 8
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
@@ -38818,25 +38817,25 @@ class MainView extends _react.Component {
                                             }
                                         }, movie._id, false, {
                                             fileName: "src/components/main-view/main-view.jsx",
-                                            lineNumber: 82,
+                                            lineNumber: 81,
                                             columnNumber: 11
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
-                                        lineNumber: 81,
+                                        lineNumber: 80,
                                         columnNumber: 10
                                     }, this)
                                 )
                             }, void 0, false, {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 79,
+                                lineNumber: 78,
                                 columnNumber: 8
                             }, this)
                         ]
                     }, void 0, true)
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 58,
+                    lineNumber: 57,
                     columnNumber: 5
                 }, this)
             ]
@@ -42228,10 +42227,6 @@ var _imdbLogoPngDefault = parcelHelpers.interopDefault(_imdbLogoPng);
 class MovieCard extends _react.Component {
     render() {
         const { movieData , onMovieClick  } = this.props;
-        // variables for multiple UIKIT css class styles
-        const ukCardMovieView = 'uk-card uk-card-default uk-card-body uk-card-hover uk-card-small uk-box-shadow-medium';
-        const ukCardTitle = 'uk-card-title uk-text-bold';
-        const ukImdbDiv = 'uk-flex uk-flex-center uk-flex-middle imdb-div';
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
             className: "movie-card m-1 p-2 h-100 text-center",
             children: [
@@ -42243,7 +42238,7 @@ class MovieCard extends _react.Component {
                     src: movieData.imgURL
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 23,
+                    lineNumber: 18,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
@@ -42257,12 +42252,12 @@ class MovieCard extends _react.Component {
                                 children: movieData.Title
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 26,
+                                lineNumber: 21,
                                 columnNumber: 7
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 25,
+                            lineNumber: 20,
                             columnNumber: 6
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Text, {
@@ -42273,7 +42268,7 @@ class MovieCard extends _react.Component {
                                         src: _imdbLogoPngDefault.default
                                     }, void 0, false, {
                                         fileName: "src/components/movie-card/movie-card.jsx",
-                                        lineNumber: 30,
+                                        lineNumber: 25,
                                         columnNumber: 8
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
@@ -42284,24 +42279,24 @@ class MovieCard extends _react.Component {
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/movie-card/movie-card.jsx",
-                                        lineNumber: 31,
+                                        lineNumber: 26,
                                         columnNumber: 8
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 29,
+                                lineNumber: 24,
                                 columnNumber: 7
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 28,
+                            lineNumber: 23,
                             columnNumber: 6
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 24,
+                    lineNumber: 19,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Footer, {
@@ -42314,18 +42309,18 @@ class MovieCard extends _react.Component {
                         children: "GO TO MOVIE"
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 36,
+                        lineNumber: 31,
                         columnNumber: 6
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 35,
+                    lineNumber: 30,
                     columnNumber: 5
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 22,
+            lineNumber: 17,
             columnNumber: 4
         }, this);
     }
@@ -42664,7 +42659,7 @@ class MovieView extends _react.Component {
                                                 lineNumber: 67,
                                                 columnNumber: 10
                                             }, this)
-                                        }, void 0, false, {
+                                        }, i, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
                                             lineNumber: 66,
                                             columnNumber: 9
@@ -42728,7 +42723,7 @@ class MovieView extends _react.Component {
                                         lineNumber: 79,
                                         columnNumber: 9
                                     }, this)
-                                }, void 0, false, {
+                                }, Genre, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
                                     lineNumber: 78,
                                     columnNumber: 8
@@ -73523,194 +73518,192 @@ var _navbarViewScss = require("./navbar-view.scss");
 var _siteLogoNavbarPng = require("../../img/site_logo_navbar.png");
 var _siteLogoNavbarPngDefault = parcelHelpers.interopDefault(_siteLogoNavbarPng);
 function NavBarView(props) {
-    return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxDevRuntime.Fragment, {
-        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar, {
-            style: {
-                background: '#0f003fe0'
-            },
-            variant: "dark",
-            expand: "md",
-            className: "movie-navbar pl-5 pr-4",
-            fixed: "top",
-            children: [
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Brand, {
-                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
-                        src: _siteLogoNavbarPngDefault.default,
-                        width: "110",
-                        height: "auto",
-                        className: "m-2 d-inline-block align-top",
-                        alt: "80's Movies Logo"
-                    }, void 0, false, {
-                        fileName: "src/components/navbar-view/navbar-view.jsx",
-                        lineNumber: 18,
-                        columnNumber: 6
-                    }, this)
+    return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar, {
+        style: {
+            background: '#0f003fe0'
+        },
+        variant: "dark",
+        expand: "md",
+        className: "movie-navbar pl-5 pr-4",
+        fixed: "top",
+        children: [
+            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Brand, {
+                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
+                    src: _siteLogoNavbarPngDefault.default,
+                    width: "110",
+                    height: "auto",
+                    className: "m-2 d-inline-block align-top",
+                    alt: "80's Movies Logo"
                 }, void 0, false, {
                     fileName: "src/components/navbar-view/navbar-view.jsx",
                     lineNumber: 17,
                     columnNumber: 5
-                }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Toggle, {
-                    "aria-controls": "responsive-navbar-nav"
-                }, void 0, false, {
-                    fileName: "src/components/navbar-view/navbar-view.jsx",
-                    lineNumber: 20,
-                    columnNumber: 5
-                }, this),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Collapse, {
-                    id: "responsive-navbar-nav",
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav, {
-                            className: "ms-auto ml-4",
-                            children: [
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.DropdownButton, {
-                                    align: "end",
-                                    title: "Filter by Rating",
-                                    className: "mr-4",
+                }, this)
+            }, void 0, false, {
+                fileName: "src/components/navbar-view/navbar-view.jsx",
+                lineNumber: 16,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Toggle, {
+                "aria-controls": "responsive-navbar-nav"
+            }, void 0, false, {
+                fileName: "src/components/navbar-view/navbar-view.jsx",
+                lineNumber: 19,
+                columnNumber: 4
+            }, this),
+            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar.Collapse, {
+                id: "responsive-navbar-nav",
+                children: [
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav, {
+                        className: "ms-auto ml-4",
+                        children: [
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.DropdownButton, {
+                                align: "end",
+                                title: "Filter by Rating",
+                                className: "mr-4",
+                                children: [
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Dropdown.Item, {
+                                        href: "#/",
+                                        children: "Rated 6 and over"
+                                    }, void 0, false, {
+                                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                                        lineNumber: 23,
+                                        columnNumber: 7
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Dropdown.Item, {
+                                        href: "#/",
+                                        children: "Rated 7 and over"
+                                    }, void 0, false, {
+                                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                                        lineNumber: 24,
+                                        columnNumber: 7
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Dropdown.Item, {
+                                        href: "#/",
+                                        children: "Rated 8 and over"
+                                    }, void 0, false, {
+                                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                                        lineNumber: 25,
+                                        columnNumber: 7
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Dropdown.Item, {
+                                        href: "#/",
+                                        children: "Rated 9 and over"
+                                    }, void 0, false, {
+                                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                                        lineNumber: 26,
+                                        columnNumber: 7
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/navbar-view/navbar-view.jsx",
+                                lineNumber: 22,
+                                columnNumber: 6
+                            }, this),
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form, {
+                                className: "d-flex mr-5",
+                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.InputGroup, {
+                                    className: "mr-1",
                                     children: [
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Dropdown.Item, {
-                                            href: "#/",
-                                            children: "Rated 6 and over"
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.FormControl, {
+                                            type: "search",
+                                            placeholder: "Enter movie name"
                                         }, void 0, false, {
                                             fileName: "src/components/navbar-view/navbar-view.jsx",
-                                            lineNumber: 24,
+                                            lineNumber: 31,
                                             columnNumber: 8
                                         }, this),
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Dropdown.Item, {
-                                            href: "#/",
-                                            children: "Rated 7 and over"
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                            variant: "primary",
+                                            id: "search-btn",
+                                            children: "Search"
                                         }, void 0, false, {
                                             fileName: "src/components/navbar-view/navbar-view.jsx",
-                                            lineNumber: 25,
-                                            columnNumber: 8
-                                        }, this),
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Dropdown.Item, {
-                                            href: "#/",
-                                            children: "Rated 8 and over"
-                                        }, void 0, false, {
-                                            fileName: "src/components/navbar-view/navbar-view.jsx",
-                                            lineNumber: 26,
-                                            columnNumber: 8
-                                        }, this),
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Dropdown.Item, {
-                                            href: "#/",
-                                            children: "Rated 9 and over"
-                                        }, void 0, false, {
-                                            fileName: "src/components/navbar-view/navbar-view.jsx",
-                                            lineNumber: 27,
+                                            lineNumber: 32,
                                             columnNumber: 8
                                         }, this)
                                     ]
                                 }, void 0, true, {
-                                    fileName: "src/components/navbar-view/navbar-view.jsx",
-                                    lineNumber: 23,
-                                    columnNumber: 7
-                                }, this),
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form, {
-                                    className: "d-flex mr-5",
-                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.InputGroup, {
-                                        className: "mr-1",
-                                        children: [
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.FormControl, {
-                                                type: "search",
-                                                placeholder: "Enter movie name"
-                                            }, void 0, false, {
-                                                fileName: "src/components/navbar-view/navbar-view.jsx",
-                                                lineNumber: 32,
-                                                columnNumber: 9
-                                            }, this),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                                variant: "primary",
-                                                id: "search-btn",
-                                                children: "Search"
-                                            }, void 0, false, {
-                                                fileName: "src/components/navbar-view/navbar-view.jsx",
-                                                lineNumber: 33,
-                                                columnNumber: 9
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/components/navbar-view/navbar-view.jsx",
-                                        lineNumber: 31,
-                                        columnNumber: 8
-                                    }, this)
-                                }, void 0, false, {
                                     fileName: "src/components/navbar-view/navbar-view.jsx",
                                     lineNumber: 30,
                                     columnNumber: 7
                                 }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/navbar-view/navbar-view.jsx",
-                            lineNumber: 22,
-                            columnNumber: 6
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav, {
-                            className: "ml-auto user-profile",
-                            children: [
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
-                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_fa.FaUserCircle, {}, void 0, false, {
-                                        fileName: "src/components/navbar-view/navbar-view.jsx",
-                                        lineNumber: 41,
-                                        columnNumber: 8
-                                    }, this)
-                                }, void 0, false, {
+                            }, void 0, false, {
+                                fileName: "src/components/navbar-view/navbar-view.jsx",
+                                lineNumber: 29,
+                                columnNumber: 6
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                        lineNumber: 21,
+                        columnNumber: 5
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav, {
+                        className: "ml-auto user-profile",
+                        children: [
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
+                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_fa.FaUserCircle, {}, void 0, false, {
                                     fileName: "src/components/navbar-view/navbar-view.jsx",
                                     lineNumber: 40,
                                     columnNumber: 7
-                                }, this),
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.NavDropdown, {
-                                    className: "text-white",
-                                    title: props.username,
-                                    align: "end",
-                                    id: "userDropdown",
-                                    children: [
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.NavDropdown.Item, {
-                                            href: "#",
-                                            children: "View Profile"
-                                        }, "vp", false, {
-                                            fileName: "src/components/navbar-view/navbar-view.jsx",
-                                            lineNumber: 44,
-                                            columnNumber: 8
-                                        }, this),
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Dropdown.Divider, {}, void 0, false, {
-                                            fileName: "src/components/navbar-view/navbar-view.jsx",
-                                            lineNumber: 47,
-                                            columnNumber: 8
-                                        }, this),
-                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.NavDropdown.Item, {
-                                            href: "#",
-                                            children: "Log Out"
-                                        }, "lo", false, {
-                                            fileName: "src/components/navbar-view/navbar-view.jsx",
-                                            lineNumber: 48,
-                                            columnNumber: 8
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/navbar-view/navbar-view.jsx",
-                                    lineNumber: 43,
-                                    columnNumber: 7
                                 }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/navbar-view/navbar-view.jsx",
-                            lineNumber: 39,
-                            columnNumber: 6
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/navbar-view/navbar-view.jsx",
-                    lineNumber: 21,
-                    columnNumber: 5
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/navbar-view/navbar-view.jsx",
-            lineNumber: 16,
-            columnNumber: 4
-        }, this)
-    }, void 0, false);
+                            }, void 0, false, {
+                                fileName: "src/components/navbar-view/navbar-view.jsx",
+                                lineNumber: 39,
+                                columnNumber: 6
+                            }, this),
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.NavDropdown, {
+                                className: "text-white",
+                                title: props.username,
+                                align: "end",
+                                id: "userDropdown",
+                                children: [
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.NavDropdown.Item, {
+                                        href: "#",
+                                        children: "View Profile"
+                                    }, "vp", false, {
+                                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                                        lineNumber: 43,
+                                        columnNumber: 7
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Dropdown.Divider, {}, void 0, false, {
+                                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                                        lineNumber: 46,
+                                        columnNumber: 7
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.NavDropdown.Item, {
+                                        href: "#",
+                                        children: "Log Out"
+                                    }, "lo", false, {
+                                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                                        lineNumber: 47,
+                                        columnNumber: 7
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/navbar-view/navbar-view.jsx",
+                                lineNumber: 42,
+                                columnNumber: 6
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                        lineNumber: 38,
+                        columnNumber: 5
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/navbar-view/navbar-view.jsx",
+                lineNumber: 20,
+                columnNumber: 4
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/navbar-view/navbar-view.jsx",
+        lineNumber: 15,
+        columnNumber: 3
+    }, this);
 }
 exports.default = NavBarView;
 _c = NavBarView;

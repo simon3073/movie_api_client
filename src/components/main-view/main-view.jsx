@@ -42,7 +42,6 @@ export default class MainView extends Component {
 		const { movies, selectedMovie, user } = this.state;
 
 		// variables for multiple UIKIT css class styles
-		const ukCardMovieGrid = 'movie-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-text-center uk-padding-small uk-animation-fade uk-position-top';
 
 		// Check if we have to Log in by looking at the user value
 		if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
@@ -54,7 +53,7 @@ export default class MainView extends Component {
 
 		return (
 			<>
-				<NavBarView username={user} />
+				<NavBarView key="navbar" username={user} />
 				<Container className="main-view">
 					{selectedMovie ? (
 						/* Create another component to display below this to show
