@@ -1,63 +1,35 @@
-.movie-view {
-	display: flex;
-	color: #fff;
-	margin-top: 20px;
-	padding-right: 20px;
+.movie-details {
+	background-color: #0f003fe0;
+	border-radius: 20px !important;
 
-	h1 {
-		color: #fff;
-	}
-
-	img {
-		width: 400px;
-		padding: 10px;
-	}
-	.uk-label.genres {
-		padding: 5px 10px;
+	.movie-image img {
 		border-radius: 10px;
-		margin: 10px 10px 0 0;
 	}
 
-	.imdb-div {
-		margin: 20px 0 10px;
+	.genre {
+		font-size: 1.25rem;
+	}
 
-		.imdb-logo {
-			width: 59px;
-			height: 30px;
-			margin-right: 10px;
-			background: url('../../img/imdb_logo.png');
-		}
+	.btn.toggle {
+		border-radius: 10px;
+		justify-content: center;
 
-		.rating {
-			color: #fff;
+		.btn {
+			padding: 10px 0 0 0;
 		}
 	}
 
-	button.btn-profile {
-		margin: 10px;
-		padding: 10px;
-		border-radius: 5px;
-		width: 60px;
-	}
-
-	button.btn-favourites {
-		padding: 10px;
-		border-radius: 5px;
-		width: 60px;
-	}
-
-	.movie-description {
-		margin: 40px 0;
+	a {
+		color: #00cce3;
+		text-decoration: underline;
 	}
 }
 
-@media only screen and (max-width: 1024px) {
-	.movie-view {
-		flex-direction: column;
+@media only screen and (max-width: 767px) {
+	.movie-image {
 		img {
-			width: 250px;
-
-			margin-top: 10px;
+			width: 40% !important;
+			margin-top: -30px;
 		}
 	}
 }

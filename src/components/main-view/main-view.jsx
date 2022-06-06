@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Row, Col, Container } from 'react-bootstrap';
 import MovieCard from '../movie-card/movie-card';
 import MovieView from '../movie-view/movie-view';
 import LoginView from '../login-view/login-view';
+import NavBarView from '../navbar-view/navbar-view';
 import RegisterView from '../register-view/register-view';
 
 // Import styles for this view
@@ -49,22 +51,48 @@ export default class MainView extends Component {
 		if (movies.length === 0) return <div className="main-view" />;
 
 		// Or else display either a movie's details or the movie list
-		if (selectedMovie) {
-			return <MovieView movieData={selectedMovie} onBackClick={(newSelectedMovie) => this.setSelectedMovie(newSelectedMovie)} />;
-		} else {
-			return (
-				<div className={ukCardMovieGrid} uk-grid="true">
-					{movies.map((movie) => (
-						<MovieCard
-							key={movie._id}
-							movieData={movie}
-							onMovieClick={(newSelectedMovie) => {
-								this.setSelectedMovie(newSelectedMovie);
-							}}
-						/>
-					))}
-				</div>
-			);
-		}
+
+		return (
+			<>
+				<NavBarView username={user} />
+				<Container className="main-view">
+					{selectedMovie ? (
+						/* Create another component to display below this to show
+						- other movies that star these actors
+						- other movies directed by this director
+					*/
+						<MovieView movieData={selectedMovie} onBackClick={(newSelectedMovie) => this.setSelectedMovie(newSelectedMovie)} />
+					) : (
+						/* Create another component from code below to 
+						- use for display all movies
+						- display movies of a genre
+						- display movies of a rating
+					*/
+						<>
+							<Row className="header justify-content">
+								<Col>
+									<div className=" p-3 font-weight-bold text-center" style={{ color: '#ffbd24' }}>
+										All the 80s movies
+									</div>
+								</Col>
+							</Row>
+							<Row className="justify-content-center ">
+								{movies.map((movie) => (
+									<Col xs={12} md={6} lg={4} className="mt-4">
+										<MovieCard
+											key={movie._id}
+											movieData={movie}
+											onMovieClick={(newSelectedMovie) => {
+												this.setSelectedMovie(newSelectedMovie);
+											}}
+										/>
+									</Col>
+								))}
+							</Row>
+						</>
+					)}
+				</Container>
+			</>
+		);
 	}
 }

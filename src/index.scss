@@ -1,13 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+$primarycolor: #0f003f;
+$secondaycolor: #ffbd24;
+$tertiarycolor: #00cce3;
+
+$siteaplpha: rgba($primarycolor, 0.88);
+
 body {
-	display: flex;
-	font-family: 'Poppins';
-	justify-content: center;
-	align-items: center;
-	width: 100%;
+	font-family: 'Poppins' !important;
+	background: url('./img/bg.png') no-repeat center;
+	background-size: cover;
+}
+
+.container {
 	height: 100vh;
-	background: url('./img/bg.png') no-repeat center fixed;
+	max-width: 90% !important;
+}
+
+.imdb-logo {
+	background: url('./img/imdb_logo.png') no-repeat;
+	height: 30px;
+	width: 59px;
 }
 
 .imdb-logo {

@@ -35,6 +35,7 @@ If you have run : `npx parcel src/index.html`, parcels has an excellent hot relo
 - SASS
 - UIKit
 - Parcel
+- Bootstrap
 
 <br/>
 

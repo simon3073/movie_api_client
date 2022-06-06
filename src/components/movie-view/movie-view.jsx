@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
+import { Row, Col, Button, Badge, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { FaCheck } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+import Toggle from 'react-bootstrap-toggle';
 
 // Import styles for this view
 import './movie-view.scss';
 
+// import IMDB image
+import imdb_logo from '../../img/imdb_logo.png';
+
 export default class MovieView extends Component {
+	constructor() {
+		super();
+		this.state = { toggleActive: false };
+		this.onToggle = this.onToggle.bind(this);
+	}
+
+	onToggle() {
+		this.setState({ toggleActive: !this.state.toggleActive });
+	}
+
 	// separate actors for display
 	actorDisplay(actors) {
 		const newActorDisplay = actors.map((a, i) => {
@@ -21,61 +37,75 @@ export default class MovieView extends Component {
 		document.removeEventListener('keypress', this.keyPressCallback);
 	}
 
+	// Displays specific details about a movie
 	render() {
 		const { movieData, onBackClick } = this.props;
-		const actors = this.actorDisplay(movieData.Actor); // add a , in between each actor
-
-		// variables for multiple UIKIT css class styles
-		const ukMovieViewBase = 'uk-flex uk-flex-center ';
-		const ukMovieViewCont = 'uk-card uk-card-default uk-width-5-6s uk-width-3-4 movie-view uk-animation-slide-top ';
-		const ukMovieViewCard = 'uk-card-body uk-padding-small movie-view-info';
-		const ukProfileBtn = 'btn-profile uk-button uk-button-primary uk-margin-small-bottom uk-button-small uk-position-top-right';
-		const ukFavouriteBtn = 'btn-favourites uk-button uk-button-danger uk-margin-small-bottom uk-button-small';
-		const ukButton = 'uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large';
-		const ukImdbDiv = 'uk-flex uk-flex-middle imdb-div';
+		// This view would have modal pop ups to show more information on actors and directors
 
 		return (
-			<div className={ukMovieViewBase}>
-				<div className={ukMovieViewCont}>
-					<img src={movieData.imgURL} alt="" />
-					<div className={ukMovieViewCard}>
-						<button className={ukProfileBtn} uk-tooltip="Go To Profile Page">
-							<span uk-icon="user"></span>
-						</button>
-						<button className={ukFavouriteBtn} uk-tooltip="Add to favourites">
-							<span uk-icon="star"></span>
-						</button>
-						<div className="uk-card-title ">
-							<h1 className="uk-text-bold">{movieData.Title}</h1>
+			<Row className="justify-content-center movie-details pt-5 pb-5 text-white">
+				<Col md={4} className="movie-image pb-3">
+					<img className="w-100 pl-0" src={movieData.imgURL} alt="" />
+				</Col>
+				<Col md={7}>
+					<div>
+						<h2 className="font-weight-bold mb-3" style={{ color: '#ffbd24' }}>
+							{movieData.Title}
+						</h2>
+						<div className="movie-director">
+							<span className="font-weight-bold">
+								Directed by:
+								<OverlayTrigger overlay={<Tooltip id="my-tooltip-id">More information about {movieData.Director[0].Name}</Tooltip>}>
+									<a href="#"> {movieData.Director[0].Name}</a>
+								</OverlayTrigger>
+							</span>
 						</div>
-						<div className="movie-director uk-text-bold">
-							<span className="label">Directed by {movieData.Director[0].Name}</span>
+						<div className="movie-actors">
+							<span className="font-weight-bold">Starring: </span>
+							{movieData.Actor.map((a, i) => (
+								<OverlayTrigger overlay={<Tooltip id="my-tooltip-id">More information about {a.Name}</Tooltip>}>
+									<a href="#" className="font-weight-bold">
+										{i < movieData.Actor.length - 1 ? `${a.Name}, ` : a.Name}
+									</a>
+								</OverlayTrigger>
+							))}
 						</div>
-						<div className="movie-actors uk-text-bold">
-							<span className="label">Starring: </span>
-							<span className="value">{actors}</span>
+						<div className="imdb-div d-flex  mt-3 mb-5 align-items-center">
+							<img src={imdb_logo} />
+							<span className="rating ml-2">{movieData.imdbRating}/10</span>
 						</div>
-						<div className={ukImdbDiv}>
-							<div className="imdb-logo" />
-							<span className="rating">{movieData.imdbRating}</span>
-						</div>
-						{movieData.Genre.map((g) => (
-							<a href="#" key={g._id} uk-tooltip={'View a list of ' + g.Genre.toLowerCase() + ' movies'}>
-								<span className="uk-label genres">{g.Genre}</span>
-							</a>
+						{movieData.Genre.map(({ Genre }) => (
+							<OverlayTrigger overlay={<Tooltip id="my-tooltip-id">View a list of {Genre.toLowerCase()} movies</Tooltip>}>
+								<a href="#">
+									<Badge bg="info" className="genre text-white mr-3">
+										{Genre}
+									</Badge>
+								</a>
+							</OverlayTrigger>
 						))}
-						<div className="movie-description">{movieData.Description}</div>
-						<button
-							className={ukButton}
-							onClick={() => {
-								onBackClick(null);
-							}}
-						>
-							BACK TO MOVIES
-						</button>
+						<div className="mt-4">{movieData.Description}</div>
+						<Toggle
+							onClick={this.onToggle}
+							className="toggleBtn mt-4 mb-4 text-center"
+							width="200px"
+							height="45px"
+							on={
+								<span>
+									Added! <FaCheck />
+								</span>
+							}
+							off="Add to Favourites"
+							size="md"
+							onstyle="success"
+							offstyle="warning"
+							active={this.state.toggleActive}
+						/>
+						<Button onClick={() => onBackClick(null)} size="lg" className="w-100 mt-2" variant="primary">
+							Back to the movies
+						</Button>
 					</div>
-				</div>
-			</div>
+				</Col>
+			</Row>
 		);
 	}
 }

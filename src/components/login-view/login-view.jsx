@@ -1,53 +1,52 @@
 import React, { useState } from 'react';
+import { Form, Button, Card, Container } from 'react-bootstrap';
 
 // Import styles for this view
 import './login.scss';
+
+// import logo image
+import logo from '../../img/site_logo.png';
 
 export default function LoginView(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
-	// variables for multiple UIKIT css class styles
-	const ukCardBody = 'uk-card uk-card-default uk-card-body';
-	const ukForm = 'uk-form-stacked login-form';
-	const ukFormTitle = 'uk-legend uk-text-bold login-header uk-margin-small-bottom';
-	const ukFromInputDiv = 'uk-inline uk-width-1-1';
-	const ukFormLabel = 'uk-form-icon uk-form-icon';
-	const ukFormTextInput = 'uk-input uk-form-large';
-	const ukFormButton = 'uk-margin-small-top uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-button-large';
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(username, password);
+		//console.log(username, password);
 		// send authentication request
 		props.onLoggedIn(username);
 	};
 
 	return (
-		<div>
-			<div className={ukCardBody}>
-				<form className={ukForm}>
-					<fieldset className="uk-fieldset">
-						<legend className={ukFormTitle}>Log In</legend>
-						<div className="uk-margin">
-							<div className={ukFromInputDiv}>
-								<span className={ukFormLabel} uk-icon="icon: user"></span>
-								<input className={ukFormTextInput} type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-							</div>
-						</div>
-						<div className="uk-margin">
-							<div className={ukFromInputDiv}>
-								<span className={ukFormLabel} uk-icon="icon: lock"></span>
-								<input className={ukFormTextInput} type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-							</div>
-						</div>
-						<button className={ukFormButton + ' back-button'} onClick={handleSubmit}>
-							LOG IN
-						</button>
-						<button className={ukFormButton + ' login-button'}>SIGN UP</button>
-					</fieldset>
-				</form>
-			</div>
-		</div>
+		<Container fluid className="h-100 d-flex flex-column justify-content-center align-items-center">
+			<Card className="login-card">
+				<div className="m-4 text-center">
+					<img src={logo} style={{ width: '400px' }} />
+				</div>
+				<Card.Body>
+					<h2 className="mb-2 text-center" style={{ color: '#ffbd24' }}>
+						<strong>Login</strong>
+					</h2>
+					<Form className="login-form">
+						<Form.Group controlId="username">
+							<Form.Label>Username:</Form.Label>
+							<Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter your username" required />
+						</Form.Group>
+						<Form.Group controlId="password">
+							<Form.Label>Password:</Form.Label>
+							<Form.Control type="password" value={password} minLength="8" placeholder="Your Password must be 8 or more characters" onChange={(e) => setPassword(e.target.value)} required />
+						</Form.Group>
+						<Button variant="primary" className="btn-block mt-5" type="submit" onClick={handleSubmit}>
+							Log In
+						</Button>
+						<Button variant="link" className="btn-block text-white mt-3" type="submit">
+							Create an an account
+						</Button>
+					</Form>
+				</Card.Body>
+			</Card>
+		</Container>
 	);
 }
