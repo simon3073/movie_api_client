@@ -18,7 +18,6 @@ export default function LoginView(props) {
 		// send authentication request
 		// props.onLoggedIn(username);
 		try {
-			axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 			const response = await axios.post('https://movie-app-3073.herokuapp.com/login', {
 				Username: username,
 				Password: password
