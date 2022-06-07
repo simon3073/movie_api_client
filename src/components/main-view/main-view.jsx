@@ -71,13 +71,13 @@ export default class MainView extends Component {
 							<Row className="header justify-content">
 								<Col>
 									<div className=" p-3 font-weight-bold text-center" style={{ color: '#ffbd24' }}>
-										All the 80s movies
+										80s Movies
 									</div>
 								</Col>
 							</Row>
 							<Row className="justify-content-center ">
-								{movies.map((movie) => (
-									<Col xs={12} md={6} lg={4} className="mt-4">
+								{movies.map((movie, i) => (
+									<Col xs={12} md={6} lg={4} key={movie._id} className="mt-4">
 										<MovieCard
 											key={movie._id}
 											movieData={movie}

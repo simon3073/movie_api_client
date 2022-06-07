@@ -13,11 +13,6 @@ export default class MovieCard extends Component {
 	render() {
 		const { movieData, onMovieClick } = this.props;
 
-		// variables for multiple UIKIT css class styles
-		const ukCardMovieView = 'uk-card uk-card-default uk-card-body uk-card-hover uk-card-small uk-box-shadow-medium';
-		const ukCardTitle = 'uk-card-title uk-text-bold';
-		const ukImdbDiv = 'uk-flex uk-flex-center uk-flex-middle imdb-div';
-
 		return (
 			<Card className="movie-card m-1 p-2 h-100 text-center">
 				<Card.Img className="movie-thumb mx-auto mt-2" style={{ width: '100px' }} src={movieData.imgURL} />
@@ -26,10 +21,10 @@ export default class MovieCard extends Component {
 						<strong>{movieData.Title}</strong>
 					</Card.Title>
 					<Card.Text>
-						<div className="imdb-div d-flex m-1 justify-content-center align-items-center">
+						<span className="imdb-div d-flex m-1 justify-content-center align-items-center">
 							<img src={imdb_logo} />
 							<span className="rating ml-2">{movieData.imdbRating}/10</span>
-						</div>
+						</span>
 					</Card.Text>
 				</Card.Body>
 				<Card.Footer className="p-1 mb-2">

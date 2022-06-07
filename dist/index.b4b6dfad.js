@@ -38787,7 +38787,7 @@ class MainView extends _react.Component {
                                         style: {
                                             color: '#ffbd24'
                                         },
-                                        children: "All the 80s movies"
+                                        children: "80s Movies"
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
                                         lineNumber: 73,
@@ -38805,7 +38805,7 @@ class MainView extends _react.Component {
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
                                 className: "justify-content-center ",
-                                children: movies.map((movie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
+                                children: movies.map((movie, i)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                                         xs: 12,
                                         md: 6,
                                         lg: 4,
@@ -38820,7 +38820,7 @@ class MainView extends _react.Component {
                                             lineNumber: 81,
                                             columnNumber: 11
                                         }, this)
-                                    }, void 0, false, {
+                                    }, movie._id, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
                                         lineNumber: 80,
                                         columnNumber: 10
@@ -42261,7 +42261,7 @@ class MovieCard extends _react.Component {
                             columnNumber: 6
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Text, {
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("span", {
                                 className: "imdb-div d-flex m-1 justify-content-center align-items-center",
                                 children: [
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
@@ -42345,7 +42345,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap":"3AD9A","./movie-card.scss":"d6HH4","../../img/imdb_logo.png":"7NhkD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"d6HH4":[function() {},{}],"7NhkD":[function(require,module,exports) {
+},{"react":"21dqq","prop-types":"7wKI2","react-bootstrap":"3AD9A","./movie-card.scss":"d6HH4","../../img/imdb_logo.png":"7NhkD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj"}],"d6HH4":[function() {},{}],"7NhkD":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('byUka') + "imdb_logo.f3a3550c.png" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -73350,12 +73350,12 @@ function LoginView(props) {
                         }
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 26,
+                        lineNumber: 25,
                         columnNumber: 6
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 25,
+                    lineNumber: 24,
                     columnNumber: 5
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
@@ -73369,12 +73369,12 @@ function LoginView(props) {
                                 children: "Login"
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 30,
+                                lineNumber: 29,
                                 columnNumber: 7
                             }, this)
                         }, void 0, false, {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 29,
+                            lineNumber: 28,
                             columnNumber: 6
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form, {
@@ -73387,7 +73387,7 @@ function LoginView(props) {
                                             children: "Username:"
                                         }, void 0, false, {
                                             fileName: "src/components/login-view/login-view.jsx",
-                                            lineNumber: 34,
+                                            lineNumber: 33,
                                             columnNumber: 8
                                         }, this),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
@@ -73399,13 +73399,13 @@ function LoginView(props) {
                                             required: true
                                         }, void 0, false, {
                                             fileName: "src/components/login-view/login-view.jsx",
-                                            lineNumber: 35,
+                                            lineNumber: 34,
                                             columnNumber: 8
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/login-view/login-view.jsx",
-                                    lineNumber: 33,
+                                    lineNumber: 32,
                                     columnNumber: 7
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
@@ -73415,7 +73415,7 @@ function LoginView(props) {
                                             children: "Password:"
                                         }, void 0, false, {
                                             fileName: "src/components/login-view/login-view.jsx",
-                                            lineNumber: 38,
+                                            lineNumber: 37,
                                             columnNumber: 8
                                         }, this),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
@@ -73428,13 +73428,13 @@ function LoginView(props) {
                                             required: true
                                         }, void 0, false, {
                                             fileName: "src/components/login-view/login-view.jsx",
-                                            lineNumber: 39,
+                                            lineNumber: 38,
                                             columnNumber: 8
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/login-view/login-view.jsx",
-                                    lineNumber: 37,
+                                    lineNumber: 36,
                                     columnNumber: 7
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -73445,7 +73445,7 @@ function LoginView(props) {
                                     children: "Log In"
                                 }, void 0, false, {
                                     fileName: "src/components/login-view/login-view.jsx",
-                                    lineNumber: 41,
+                                    lineNumber: 40,
                                     columnNumber: 7
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -73455,30 +73455,30 @@ function LoginView(props) {
                                     children: "Create an an account"
                                 }, void 0, false, {
                                     fileName: "src/components/login-view/login-view.jsx",
-                                    lineNumber: 44,
+                                    lineNumber: 43,
                                     columnNumber: 7
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 32,
+                            lineNumber: 31,
                             columnNumber: 6
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 28,
+                    lineNumber: 27,
                     columnNumber: 5
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 24,
+            lineNumber: 23,
             columnNumber: 4
         }, this)
     }, void 0, false, {
         fileName: "src/components/login-view/login-view.jsx",
-        lineNumber: 23,
+        lineNumber: 22,
         columnNumber: 3
     }, this);
 }
