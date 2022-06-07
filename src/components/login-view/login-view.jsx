@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Form, Button, Card, Container } from 'react-bootstrap';
 
 // Import styles for this view
@@ -11,11 +12,22 @@ export default function LoginView(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		//console.log(username, password);
 		// send authentication request
-		props.onLoggedIn(username);
+		// props.onLoggedIn(username);
+		try {
+			axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+			const response = await axios.post('https://movie-app-3073.herokuapp.com/login', {
+				Username: username,
+				Password: password
+			});
+			const data = response.data;
+			props.onLoggedIn(data);
+		} catch (error) {
+			console.log('User not in system', error);
+		}
 	};
 
 	return (
