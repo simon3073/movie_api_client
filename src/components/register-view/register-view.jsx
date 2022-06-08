@@ -13,12 +13,70 @@ export default function LoginView(props) {
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
 	const [birthday, setBirthday] = useState('');
+	const [values, setValues] = useState({
+		birthdayErr: '',
+		usernameErr: '',
+		passwordErr: '',
+		emailErr: ''
+	});
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(username, password, email, birthday);
-		// send authentication request
-		props.onLoggedIn(username);
+		if (validate()) {
+			// if there are no client side registration errors
+			// and process the form
+			console.log(username, password, email, birthday);
+			// send authentication request
+			props.onLoggedIn(username);
+		}
+	};
+
+	// function to set error messages
+	const setErrMessage = (obj) => {
+		setValues((prev) => ({ ...prev, ...obj }));
+	};
+
+	const validate = () => {
+		let isReq = true;
+		// reset error checking values
+		setValues({
+			birthdayErr: '',
+			usernameErr: '',
+			passwordErr: '',
+			emailErr: ''
+		});
+		// check username existence and length
+		if (!username) {
+			setErrMessage({ usernameErr: 'Username Required' });
+			isReq = false;
+		} else if (username.length < 4) {
+			setErrMessage({ usernameErr: 'Username must be at least 4 characters long' });
+			isReq = false;
+		}
+		// check password existence and length
+		if (!password) {
+			setErrMessage({ passwordErr: 'Password Required' });
+			isReq = false;
+		} else if (password.length < 6) {
+			setErrMessage({ passwordErr: 'Password must be at least 6 characters long' });
+			isReq = false;
+		}
+		// check email existence and format
+		const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		if (!email) {
+			setErrMessage({ emailErr: 'Email Required' });
+			isReq = false;
+		} else if (!email.match(mailFormat)) {
+			setErrMessage({ emailErr: 'You have an invalid email address' });
+			isReq = false;
+		}
+		// check birthday existence and format
+		if (!birthday) {
+			setErrMessage({ birthdayErr: 'Birthday Required' });
+			isReq = false;
+		}
+
+		return isReq;
 	};
 
 	return (
@@ -36,18 +94,22 @@ export default function LoginView(props) {
 						<Form.Group controlId="username">
 							<Form.Label>Username:</Form.Label>
 							<Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter a username" required />
+							{values.usernameErr && <p className="error-msg">{values.usernameErr}</p>}
 						</Form.Group>
 						<Form.Group controlId="password">
 							<Form.Label>Password:</Form.Label>
 							<Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter a password" required />
+							{values.passwordErr && <p className="error-msg">{values.passwordErr}</p>}
 						</Form.Group>
 						<Form.Group controlId="email">
 							<Form.Label>Your email:</Form.Label>
 							<Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter an email address" required />
+							{values.emailErr && <p className="error-msg">{values.emailErr}</p>}
 						</Form.Group>
 						<Form.Group controlId="dob">
 							<Form.Label>Enter your Birth Date</Form.Label>
 							<Form.Control type="date" value={birthday} onChange={(e) => setBirthday(e.target.value)} placeholder="Date of Birth" />
+							{values.birthdayErr && <p className="error-msg">{values.birthdayErr}</p>}
 						</Form.Group>
 						<Button variant="primary" className="btn-block mt-5" type="submit" onClick={handleSubmit}>
 							Sign Up

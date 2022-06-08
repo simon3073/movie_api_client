@@ -11,6 +11,10 @@ import logo from '../../img/site_logo_navbar.png';
 
 // Display the navbar
 export default function NavBarView(props) {
+	const logOut = () => {
+		props.onLoggedOut();
+	};
+
 	return (
 		<Navbar style={{ background: '#0f003fe0' }} variant="dark" expand="md" className="movie-navbar pl-5 pr-4" fixed="top">
 			<Navbar.Brand>
@@ -44,7 +48,7 @@ export default function NavBarView(props) {
 							View Profile
 						</NavDropdown.Item>
 						<Dropdown.Divider />
-						<NavDropdown.Item key="lo" href="#">
+						<NavDropdown.Item key="lo" href="#" onClick={logOut}>
 							Log Out
 						</NavDropdown.Item>
 					</NavDropdown>

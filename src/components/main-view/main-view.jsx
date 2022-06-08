@@ -9,6 +9,7 @@ import RegisterView from '../register-view/register-view';
 
 // Import styles for this view
 import './main-view.scss';
+import { FaRegIdBadge } from 'react-icons/fa';
 
 export default class MainView extends Component {
 	constructor() {
@@ -25,16 +26,41 @@ export default class MainView extends Component {
 	}
 
 	// to set user state on log in
-	onLoggedIn(user) {
-		this.setState({ user });
+	onLoggedIn(authData) {
+		this.setState({ user: authData.user.Username });
+		// set local data to authorised user token
+		localStorage.setItem('token', authData.token);
+		localStorage.setItem('user', authData.user.Username);
+		this.getMovies(authData.token);
 	}
 
-	async componentDidMount() {
+	// to log a user out of the application
+	onLoggedOut() {
+		localStorage.removeItem('token');
+		localStorage.removeItem('user');
+		this.setState({ user: null });
+	}
+
+	// function to retrieve the movies when a user has successfully logged in
+	async getMovies(token) {
 		try {
-			const response = await axios.get('https://movie-app-3073.herokuapp.com/movies/');
+			const response = await axios.get('https://movie-app-3073.herokuapp.com/movies/', {
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
 			this.setState({ movies: response.data });
 		} catch (error) {
-			console.error(error);
+			console.log(error);
+		}
+	}
+
+	// check if there is a token in local storage to bypass the log in view
+	componentDidMount() {
+		const accessToken = localStorage.getItem('token');
+		if (accessToken !== null) {
+			this.setState({ user: localStorage.getItem('user') });
+			this.getMovies(accessToken);
 		}
 	}
 
@@ -44,7 +70,7 @@ export default class MainView extends Component {
 		// variables for multiple UIKIT css class styles
 
 		// Check if we have to Log in by looking at the user value
-		if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+		if (!user) return <RegisterView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
 		// Check it we have any data to show and display an empty message if not
 		if (movies.length === 0) return <div className="main-view" />;
@@ -53,7 +79,7 @@ export default class MainView extends Component {
 
 		return (
 			<>
-				<NavBarView key="navbar" username={user} />
+				<NavBarView key="navbar" username={user} onLoggedOut={() => this.onLoggedOut()} />
 				<Container className="main-view">
 					{selectedMovie ? (
 						/* Create another component to display below this to show

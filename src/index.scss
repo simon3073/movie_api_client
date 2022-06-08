@@ -29,3 +29,9 @@ body {
 	margin-right: 10px;
 	background: url('./img/imdb_logo.png');
 }
+
+.error-msg {
+	margin-top: 5px;
+	font-style: italic;
+	color: $secondaycolor;
+}
