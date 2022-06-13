@@ -23,6 +23,12 @@ a#navbarScrollingDropdown,
 	color: '#ffbd24';
 }
 
+@media (max-width: 992px) {
+	.search-input input {
+		height: 100% !important;
+	}
+}
+
 @media only screen and (max-width: 767px) {
 	.navbar-collapse.collapse.show {
 		.navbar-nav {

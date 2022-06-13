@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
+import axios from 'axios';
+import { Form, Button, Container, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 // Import styles for this view
 import './register.scss';
@@ -8,7 +10,7 @@ import './register.scss';
 import logo from '../../img/site_logo.png';
 
 // Display the registration form
-export default function LoginView(props) {
+export default function RegisterView(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
@@ -20,14 +22,24 @@ export default function LoginView(props) {
 		emailErr: ''
 	});
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (validate()) {
 			// if there are no client side registration errors
-			// and process the form
-			console.log(username, password, email, birthday);
-			// send authentication request
-			props.onLoggedIn(username);
+			// process the form
+			try {
+				const response = await axios.post('https://movie-app-3073.herokuapp.com/register', {
+					Username: username,
+					Password: password,
+					Email: email,
+					Birthday: birthday
+				});
+				const data = response.data;
+				// console.log(data);
+				window.open('/', '_self');
+			} catch (error) {
+				console.log('Error registering the user', error);
+			}
 		}
 	};
 
@@ -114,9 +126,11 @@ export default function LoginView(props) {
 						<Button variant="primary" className="btn-block mt-5" type="submit" onClick={handleSubmit}>
 							Sign Up
 						</Button>
-						<Button variant="link" className="btn-block text-white mt-3" type="submit">
-							I already have an account
-						</Button>
+						<Link to={'/'}>
+							<Button variant="link" className="btn-block text-white mt-3" type="submit">
+								I already have an account
+							</Button>
+						</Link>
 					</Form>
 				</Card.Body>
 			</Card>

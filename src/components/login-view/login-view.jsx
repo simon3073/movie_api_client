@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Form, Button, Card, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 // Import styles for this view
 import './login.scss';
@@ -18,17 +19,14 @@ export default function LoginView(props) {
 		e.preventDefault();
 		if (validate()) {
 			// if there are no client side registration errors
-			// reset error checking values
-			setUsernameErr('');
-			setPasswordErr('');
-			// and process the form
+			// process the form
 			try {
 				const response = await axios.post('https://movie-app-3073.herokuapp.com/login', {
 					Username: username,
 					Password: password
 				});
-				const data = response.data;
-				props.onLoggedIn(data);
+				// Log in to the app
+				props.onLoggedIn(response.data);
 			} catch (error) {
 				console.log('User not in system', error);
 			}
@@ -38,7 +36,9 @@ export default function LoginView(props) {
 	// Validate the forms input on submit to add extra layer of code validation and client advice
 	const validate = () => {
 		let isReq = true;
-
+		// reset error checking values
+		setUsernameErr('');
+		setPasswordErr('');
 		// check username existence and length
 		if (!username) {
 			setUsernameErr('Username Required');
@@ -82,9 +82,11 @@ export default function LoginView(props) {
 						<Button variant="primary" className="btn-block mt-5" type="submit" onClick={handleSubmit}>
 							Log In
 						</Button>
-						<Button variant="link" className="btn-block text-white mt-3" type="submit">
-							Create an an account
-						</Button>
+						<Link to={'/register'}>
+							<Button variant="link" className="btn-block text-white mt-3" type="submit">
+								Create an an account
+							</Button>
+						</Link>
 					</Form>
 				</Card.Body>
 			</Card>
