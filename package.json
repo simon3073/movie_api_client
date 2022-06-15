@@ -10,6 +10,9 @@
 		"type": "git",
 		"url": "https://github.com/simon3073/movie_api_client.git"
 	},
+	"browserslist": [
+		"since 2017-06"
+	],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
@@ -24,7 +27,8 @@
 		"react-bootstrap": "^2.4.0",
 		"react-bootstrap-toggle": "^2.3.2",
 		"react-dom": "^18.1.0",
-		"react-icons": "^4.4.0"
+		"react-icons": "^4.4.0",
+		"react-router-dom": "^5.3.0"
 	},
 	"devDependencies": {
 		"@parcel/transformer-sass": "^2.5.0",

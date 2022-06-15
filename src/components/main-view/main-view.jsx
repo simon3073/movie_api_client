@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Row, Col, Container } from 'react-bootstrap';
-import MovieCard from '../movie-card/movie-card';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import MovieView from '../movie-view/movie-view';
+import MovieGrid from '../movie-grid/movie-grid';
 import LoginView from '../login-view/login-view';
 import NavBarView from '../navbar-view/navbar-view';
 import RegisterView from '../register-view/register-view';
+import ProfileView from '../profile-view/profile-view';
 
 // Import styles for this view
 import './main-view.scss';
@@ -19,78 +20,145 @@ export default class MainView extends Component {
 			selectedMovie: null // set the initial state to nothing clicked
 		};
 	}
-	// Function to set movie state
-	setSelectedMovie(newSelectedMovie) {
-		this.setState({ selectedMovie: newSelectedMovie });
-	}
 
 	// to set user state on log in
-	onLoggedIn(user) {
-		this.setState({ user });
+	onLoggedIn(authData) {
+		this.setState({ user: authData.user.Username });
+		// set local data to authorised user token
+		localStorage.setItem('token', authData.token);
+		localStorage.setItem('user', authData.user.Username);
+		this.getMovies(authData.token);
 	}
 
-	async componentDidMount() {
+	// to log a user out of the application
+	onLoggedOut() {
+		// reset the local storage and user state values and load page again
+		localStorage.removeItem('token');
+		localStorage.removeItem('user');
+		this.setState({ user: null });
+		window.open('/', '_self');
+	}
+
+	// function to retrieve the movies when a user has successfully logged in
+	async getMovies(token) {
 		try {
-			const response = await axios.get('https://movie-app-3073.herokuapp.com/movies/');
+			const response = await axios.get('https://movie-app-3073.herokuapp.com/movies/', {
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
 			this.setState({ movies: response.data });
 		} catch (error) {
-			console.error(error);
+			console.log(error);
+		}
+	}
+
+	// check if there is a token in local storage to bypass the log in view
+	componentDidMount() {
+		const accessToken = localStorage.getItem('token');
+		if (accessToken !== null) {
+			this.setState({ user: localStorage.getItem('user') });
+			this.getMovies(accessToken);
 		}
 	}
 
 	render() {
 		const { movies, selectedMovie, user } = this.state;
-
-		// variables for multiple UIKIT css class styles
-
-		// Check if we have to Log in by looking at the user value
-		if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
-
-		// Check it we have any data to show and display an empty message if not
-		if (movies.length === 0) return <div className="main-view" />;
-
-		// Or else display either a movie's details or the movie list
-
 		return (
 			<>
-				<NavBarView key="navbar" username={user} />
-				<Container className="main-view">
-					{selectedMovie ? (
-						/* Create another component to display below this to show
-						- other movies that star these actors
-						- other movies directed by this director
-					*/
-						<MovieView movieData={selectedMovie} onBackClick={(newSelectedMovie) => this.setSelectedMovie(newSelectedMovie)} />
-					) : (
-						/* Create another component from code below to 
-						- use for display all movies
-						- display movies of a genre
-						- display movies of a rating
-					*/
-						<>
-							<Row className="header justify-content">
-								<Col>
-									<div className=" p-3 font-weight-bold text-center" style={{ color: '#ffbd24' }}>
-										80s Movies
-									</div>
-								</Col>
-							</Row>
-							<Row className="justify-content-center ">
-								{movies.map((movie, i) => (
-									<Col xs={12} md={6} lg={4} key={movie._id} className="mt-4">
-										<MovieCard
-											key={movie._id}
-											movieData={movie}
-											onMovieClick={(newSelectedMovie) => {
-												this.setSelectedMovie(newSelectedMovie);
-											}}
-										/>
-									</Col>
-								))}
-							</Row>
-						</>
-					)}
-				</Container>
+				<Router>
+					<Route
+						exact
+						path="/"
+						render={() => {
+							if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+							return (
+								<>
+									<NavBarView username={user} onLoggedOut={() => this.onLoggedOut()} />
+									<MovieGrid movies={movies} headerText="All 80s Movies" />
+								</>
+							);
+						}}
+					/>
+
+					<Route
+						path="/movies/:movieId"
+						render={({ match }) => {
+							if (!user) return <Redirect to="/" />;
+							return (
+								<>
+									<NavBarView username={user} onLoggedOut={() => this.onLoggedOut()} />
+									<MovieView user={user} movie={movies.find((m) => m._id === Number(match.params.movieId))} />;
+								</>
+							);
+						}}
+					/>
+					<Route
+						path="/register"
+						exact
+						render={() => {
+							if (user) return <Redirect to="/" />;
+							return <RegisterView />;
+						}}
+					/>
+					<Route
+						path="/account/:username"
+						render={() => {
+							if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+							return (
+								<>
+									<NavBarView username={user} onLoggedOut={() => this.onLoggedOut()} />
+									<ProfileView />;
+								</>
+							);
+						}}
+					/>
+
+					<Route
+						path="/genre/:genre"
+						render={({ match }) => {
+							const genrePassed = match.params.genre;
+							const genreMovies = movies.filter((m) => m.Genre.some((g) => g.Genre === genrePassed));
+							if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+							return (
+								<>
+									<NavBarView username={user} onLoggedOut={() => this.onLoggedOut()} />
+									<MovieGrid movies={genreMovies} headerText={`${genrePassed} Movies`} />
+								</>
+							);
+						}}
+					/>
+					<Route
+						path="/rating/:rating"
+						render={({ match }) => {
+							const ratingPassed = match.params.rating;
+							const ratedMovies = movies.filter((m) => m.imdbRating > ratingPassed);
+
+							if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+							return (
+								<>
+									<NavBarView username={user} onLoggedOut={() => this.onLoggedOut()} />
+									<MovieGrid movies={ratedMovies} headerText={`Movies rated above ${ratingPassed} out of 10`} noResultMsg={`Sorry, no movies above the rating of ${ratingPassed}`} />
+								</>
+							);
+						}}
+					/>
+					<Route
+						path="/search/:term"
+						render={({ match }) => {
+							const searchTerm = match.params.term;
+							const searchedMovies = movies.filter((m) => m.Title.toLowerCase().includes(searchTerm));
+
+							if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+							return (
+								<>
+									<NavBarView username={user} onLoggedOut={() => this.onLoggedOut()} />
+									<MovieGrid movies={searchedMovies} headerText="Movie search" noResultMsg={`Sorry, no movies fit the search term \"${searchTerm}\"`} />
+								</>
+							);
+						}}
+					/>
+				</Router>
 			</>
 		);
 	}

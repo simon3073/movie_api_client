@@ -8,13 +8,20 @@ $siteaplpha: rgba($primarycolor, 0.88);
 
 body {
 	font-family: 'Poppins' !important;
-	background: url('./img/bg.png') no-repeat center;
+	background: url('./img/bg.png') no-repeat center center fixed;
 	background-size: cover;
 }
 
+.top-container {
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
 .container {
-	height: 100vh;
-	max-width: 90% !important;
+	//height: 100vh;
+	// max-width: 90% !important;
 }
 
 .imdb-logo {
@@ -28,4 +35,10 @@ body {
 	height: 30px;
 	margin-right: 10px;
 	background: url('./img/imdb_logo.png');
+}
+
+.error-msg {
+	margin-top: 5px;
+	font-style: italic;
+	color: $secondaycolor;
 }
