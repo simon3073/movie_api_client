@@ -83,12 +83,12 @@ export default class MainView extends Component {
 
 					<Route
 						path="/movies/:movieId"
-						render={({ match, history }) => {
+						render={({ match }) => {
 							if (!user) return <Redirect to="/" />;
 							return (
 								<>
 									<NavBarView username={user} onLoggedOut={() => this.onLoggedOut()} />
-									<MovieView user={user} movie={movies.find((m) => m._id === Number(match.params.movieId))} onBackClick={() => history.goBack()} />;
+									<MovieView user={user} movie={movies.find((m) => m._id === Number(match.params.movieId))} />;
 								</>
 							);
 						}}

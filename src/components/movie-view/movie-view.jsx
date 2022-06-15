@@ -180,9 +180,11 @@ export default class MovieView extends Component {
 								offstyle="warning"
 								active={this.state.toggleActive}
 							/>
-							<Button onClick={() => onBackClick()} size="lg" className="w-100 mt-2" variant="primary">
-								Back to the movies
-							</Button>
+							<Link to={'/'}>
+								<Button size="lg" className="w-100 mt-2" variant="primary">
+									Back to the movies
+								</Button>
+							</Link>
 						</div>
 					</Col>
 				</Row>

@@ -237,7 +237,7 @@ a#navbarScrollingDropdown, #userDropdown {
 }
 
 body {
-  background: url("bg.6c772103.png") center / cover no-repeat;
+  background: url("bg.6c772103.png") center / cover no-repeat fixed;
   font-family: Poppins !important;
 }
 
