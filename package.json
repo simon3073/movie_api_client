@@ -10,6 +10,9 @@
 		"type": "git",
 		"url": "https://github.com/simon3073/movie_api_client.git"
 	},
+	"browserslist": [
+		"since 2017-06"
+	],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
