@@ -1,9 +1,9 @@
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap";
 .movie-details {
-  width: 80%;
+  width: 70%;
   background-color: #0f003fe0;
   border-radius: 20px !important;
-  margin: 150px auto !important;
+  margin: 30px auto !important;
 }
 
 .movie-details .movie-image img {
@@ -218,8 +218,7 @@ a#navbarScrollingDropdown, #userDropdown {
 
 .main-view {
   height: 100vh;
-  margin-top: 150px;
-  overflow-x: scroll;
+  margin-top: 30px;
   padding: 0 !important;
 }
 
@@ -241,8 +240,11 @@ body {
   font-family: Poppins !important;
 }
 
-.container {
-  height: 100vh;
+.top-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .imdb-logo {
