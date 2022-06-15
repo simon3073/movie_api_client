@@ -127,7 +127,7 @@ export default function RegisterView(props) {
 							Sign Up
 						</Button>
 						<Link to={'/'}>
-							<Button variant="link" className="btn-block text-white mt-3" type="submit">
+							<Button variant="link" className="btn-block text-white mt-3" type="link">
 								I already have an account
 							</Button>
 						</Link>

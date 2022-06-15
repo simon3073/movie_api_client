@@ -83,7 +83,7 @@ export default function LoginView(props) {
 							Log In
 						</Button>
 						<Link to={'/register'}>
-							<Button variant="link" className="btn-block text-white mt-3" type="submit">
+							<Button variant="link" className="btn-block text-white mt-3" type="link">
 								Create an an account
 							</Button>
 						</Link>
