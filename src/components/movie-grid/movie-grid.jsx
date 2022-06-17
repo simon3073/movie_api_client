@@ -3,9 +3,6 @@ import { Row, Col, Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import MovieCard from '../movie-card/movie-card';
 
-// Import styles for this view
-import './movie-grid.scss';
-
 // component passed the movie object defined ib the main view to display
 export default function MovieGrid(props) {
 	return (

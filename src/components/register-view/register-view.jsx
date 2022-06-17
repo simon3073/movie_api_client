@@ -92,7 +92,7 @@ export default function RegisterView(props) {
 	};
 
 	return (
-		<Container fluid className="h-100 d-flex justify-content-center align-items-center">
+		<Container fluid className="register-container d-flex justify-content-center align-items-center">
 			<Card className="register-card">
 				<div className="m-4 text-center">
 					<img src={logo} style={{ width: '400px' }} />

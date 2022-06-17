@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Nav, Navbar, NavDropdown, Dropdown, DropdownButton, InputGroup, Form, FormControl, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Link, useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { setSearch, setRating } from '../../actions/actions';
+
 import { FaUserCircle } from 'react-icons/fa';
 
 // Import styles for this view
@@ -11,11 +14,26 @@ import './navbar-view.scss';
 import logo from '../../img/site_logo_navbar.png';
 
 // Display the navbar
-export default function NavBarView(props) {
-	const [searchTerm, setSearchTerm] = useState('');
+function NavBarView(props) {
+	const { loggedInUser } = props;
+
+	const history = useHistory();
+	const searchInput = React.createRef();
 
 	const logOut = () => {
-		props.onLoggedOut();
+		// reset the local storage values and load page again
+		localStorage.removeItem('token');
+		localStorage.removeItem('user');
+		window.open('/', '_self');
+	};
+
+	const saveSearchTerm = () => {
+		props.setSearch(searchInput.current.value);
+	};
+
+	const saveRating = (rating) => {
+		props.setRating(rating);
+		history.push('/rating/');
 	};
 
 	return (
@@ -29,17 +47,19 @@ export default function NavBarView(props) {
 			<Navbar.Collapse id="responsive-navbar-nav">
 				<Nav className="ms-auto ml-4">
 					<DropdownButton align="end" title="Filter by Rating" className="mr-4">
-						<Dropdown.Item href="/rating/6">Rated 6 and Above</Dropdown.Item>
-						<Dropdown.Item href="/rating/7">Rated 7 and Above</Dropdown.Item>
-						<Dropdown.Item href="/rating/8">Rated 8 and Above</Dropdown.Item>
+						<Dropdown.Item onClick={() => saveRating(6)}>Rated 6 and Above</Dropdown.Item>
+						<Dropdown.Item onClick={() => saveRating(7)}>Rated 7 and Above</Dropdown.Item>
+						<Dropdown.Item onClick={() => saveRating(8)}>Rated 8 and Above</Dropdown.Item>
 					</DropdownButton>
 
 					<Form className="d-flex mr-5">
 						<InputGroup className="mr-1 search-input">
-							<FormControl type="search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Enter movie name" />
-							<Button variant="primary" id="search-btn" href={`/search/${searchTerm}`}>
-								Search
-							</Button>
+							<FormControl type="search" ref={searchInput} value={props.searchFilter} onChange={saveSearchTerm} placeholder="Enter movie name" />
+							<Link to={`/search/`}>
+								<Button variant="primary" id="search-btn">
+									Search
+								</Button>
+							</Link>
 						</InputGroup>
 					</Form>
 				</Nav>
@@ -47,8 +67,8 @@ export default function NavBarView(props) {
 					<span>
 						<FaUserCircle />
 					</span>
-					<NavDropdown className="text-white" title={props.username} align="end" id="userDropdown">
-						<NavDropdown.Item href={`/account/${props.username}`}>View Profile & Favourites</NavDropdown.Item>
+					<NavDropdown className="text-white" title={loggedInUser} align="end" id="userDropdown">
+						<NavDropdown.Item href={'/account/'}>View Profile & Favourites</NavDropdown.Item>
 						<Dropdown.Divider />
 						<NavDropdown.Item key="lo" href="#" onClick={logOut}>
 							Log Out
@@ -60,6 +80,9 @@ export default function NavBarView(props) {
 	);
 }
 
-NavBarView.propTypes = {
-	username: PropTypes.string.isRequired
+const mapStateToProps = (state) => {
+	const { searchFilter, loggedInUser } = state;
+	return { searchFilter, loggedInUser };
 };
+
+export default connect(mapStateToProps, { setSearch, setRating })(NavBarView);

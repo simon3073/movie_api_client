@@ -56,27 +56,11 @@
   margin-right: 15px;
 }
 
-.card.movie-card {
-  color: #fff;
-  background-color: #0f003fe0;
-  border-radius: 20px;
+.login-container {
+  height: 100vh;
 }
 
-.card.movie-card .movie-thumb {
-  border-radius: 5px;
-}
-
-.no-result {
-  width: 97%;
-  height: 70px;
-  background-color: #0f003fe0;
-  border-radius: 20px;
-  margin-top: 20px;
-  font-size: 1.25rem;
-  font-style: italic;
-}
-
-.card.login-card {
+.login-container .card.login-card {
   color: #fff;
   width: 30rem;
   background-color: #0f003fe0;
@@ -84,7 +68,7 @@
   padding: 15px;
 }
 
-.card.login-card .login-form div {
+.login-container .card.login-card .login-form div {
   margin-top: 15px;
 }
 
@@ -148,7 +132,11 @@ a#navbarScrollingDropdown, #userDropdown {
   }
 }
 
-.card.register-card {
+.register-container {
+  height: 100vh;
+}
+
+.register-container .card.register-card {
   color: #fff;
   width: 30rem;
   background-color: #0f003fe0;
@@ -156,7 +144,7 @@ a#navbarScrollingDropdown, #userDropdown {
   padding: 15px;
 }
 
-.card.register-card .reg-form div {
+.register-container .card.register-card .reg-form div {
   margin-top: 15px;
 }
 
@@ -233,6 +221,16 @@ a#navbarScrollingDropdown, #userDropdown {
   .container {
     max-width: 90% !important;
   }
+}
+
+.card.movie-card {
+  color: #fff;
+  background-color: #0f003fe0;
+  border-radius: 20px;
+}
+
+.card.movie-card .movie-thumb {
+  border-radius: 5px;
 }
 
 body {

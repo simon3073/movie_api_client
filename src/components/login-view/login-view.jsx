@@ -59,7 +59,7 @@ export default function LoginView(props) {
 	};
 
 	return (
-		<Container fluid className="h-100 d-flex flex-column justify-content-center align-items-center">
+		<Container fluid className="login-container d-flex flex-column justify-content-center align-items-center">
 			<Card className="login-card">
 				<div className="m-4 text-center">
 					<img src={logo} style={{ width: '400px' }} />

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col, Button, Badge, Tooltip, OverlayTrigger, Modal } from 'react-bootstrap';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { setGenre } from '../../actions/actions';
+
 import { FaCheck } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import Toggle from 'react-bootstrap-toggle';
@@ -12,7 +15,7 @@ import './movie-view.scss';
 // import IMDB image
 import imdb_logo from '../../img/imdb_logo.png';
 
-export default class MovieView extends Component {
+class MovieView extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -117,7 +120,7 @@ export default class MovieView extends Component {
 
 	// Displays specific details about a movie
 	render() {
-		const { movie, onBackClick } = this.props;
+		const { movie, setGenre } = this.props;
 		// This view would have modal pop ups to show more information on actors and directors
 		return (
 			<>
@@ -156,7 +159,7 @@ export default class MovieView extends Component {
 							</div>
 							{movie.Genre.map(({ Genre }) => (
 								<OverlayTrigger key={Genre} overlay={<Tooltip id="my-tooltip-id">View a list of {Genre.toLowerCase()} movies</Tooltip>}>
-									<Link to={`/genre/${Genre}`}>
+									<Link to={`/genre/`} onClick={() => setGenre(Genre)}>
 										<Badge bg="info" className="genre text-white mr-3">
 											{Genre}
 										</Badge>
@@ -218,6 +221,7 @@ MovieView.propTypes = {
 		imgURL: PropTypes.string.isRequired,
 		Actor: PropTypes.array.isRequired,
 		Genre: PropTypes.array.isRequired
-	}).isRequired,
-	onBackClick: PropTypes.func.isRequired
+	}).isRequired
 };
+
+export default connect(null, { setGenre })(MovieView);
