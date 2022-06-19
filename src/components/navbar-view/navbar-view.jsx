@@ -16,7 +16,6 @@ import logo from '../../img/site_logo_navbar.png';
 // Display the navbar
 function NavBarView(props) {
 	const { loggedInUser } = props;
-
 	const history = useHistory();
 	const searchInput = React.createRef();
 

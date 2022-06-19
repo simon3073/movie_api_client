@@ -71,7 +71,7 @@ class MainView extends Component {
 							return (
 								<>
 									<NavBarView />
-									<MovieView movie={movies.find((m) => m._id === Number(match.params.movieId))} />;
+									<MovieView user={loggedInUser.user} movie={movies.find((m) => m._id === Number(match.params.movieId))} />;
 								</>
 							);
 						}}
