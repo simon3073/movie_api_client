@@ -17,20 +17,17 @@ import './main-view.scss';
 
 class MainView extends Component {
 	// to set user state on log in
-	onLoggedIn(userData) {
-		this.props.setUser(userData.user.Username);
-		// set local data to authorised user token
-		localStorage.setItem('token', userData.token);
-		localStorage.setItem('user', userData.user.Username);
-		this.getMovies(userData.token);
+	onLoggedIn() {
+		this.getMovies();
 	}
 
 	// function to retrieve the movies when a user has successfully logged in
-	async getMovies(token) {
+	async getMovies() {
+		const accessToken = localStorage.getItem('token');
 		try {
 			const response = await axios.get('https://movie-app-3073.herokuapp.com/movies/', {
 				headers: {
-					Authorization: `Bearer ${token}`
+					Authorization: `Bearer ${accessToken}`
 				}
 			});
 			this.props.setMovies(response.data);
@@ -74,7 +71,7 @@ class MainView extends Component {
 							return (
 								<>
 									<NavBarView />
-									<MovieView user={loggedInUser.user} movie={movies.find((m) => m._id === Number(match.params.movieId))} />;
+									<MovieView movie={movies.find((m) => m._id === Number(match.params.movieId))} />;
 								</>
 							);
 						}}

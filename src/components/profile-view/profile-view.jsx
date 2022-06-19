@@ -3,10 +3,13 @@ import { Row, Col, Container, OverlayTrigger, Tooltip, Button, Form, Modal } fro
 import { FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 
+import { connect } from 'react-redux';
+import { updateUser, deleteUser } from '../../actions/actions';
+
 // Import styles for this view
 import './profile-view.scss';
 
-export default function ProfileView(props) {
+function ProfileView(props) {
 	// define state for editing profile data
 	const [editProfile, setEditProfile] = useState(false);
 
@@ -85,8 +88,7 @@ export default function ProfileView(props) {
 	const fetchUserData = async () => {
 		try {
 			const token = localStorage.getItem('token');
-			const user = localStorage.getItem('user');
-			const response = await axios.get(`https://movie-app-3073.herokuapp.com/account/${user}`, {
+			const response = await axios.get(`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}`, {
 				headers: {
 					Authorization: `Bearer ${token}`
 				}
@@ -112,9 +114,8 @@ export default function ProfileView(props) {
 		if (validate()) {
 			try {
 				const token = localStorage.getItem('token');
-				const user = localStorage.getItem('user');
 				const response = await axios.put(
-					`https://movie-app-3073.herokuapp.com/account/${user}`,
+					`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}`,
 					{
 						Username: username,
 						Password: password,
@@ -125,6 +126,7 @@ export default function ProfileView(props) {
 						headers: { Authorization: `Bearer ${token}` }
 					}
 				);
+				props.updateUser(response.data.Username);
 				localStorage.setItem('user', response.data.Username);
 				setEditProfile(false);
 				alert('Your profile has been updated');
@@ -139,12 +141,12 @@ export default function ProfileView(props) {
 	const deleteAccount = async (e) => {
 		try {
 			const token = localStorage.getItem('token');
-			const user = localStorage.getItem('user');
-			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${user}`, {
+			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}`, {
 				headers: { Authorization: `Bearer ${token}` }
 			});
 			localStorage.removeItem('user');
 			localStorage.removeItem('token');
+			props.deleteUser('');
 			alert('Your profile has been deleted');
 			window.open('/', '_self');
 		} catch (error) {
@@ -171,8 +173,7 @@ export default function ProfileView(props) {
 		});
 		try {
 			const token = localStorage.getItem('token');
-			const user = localStorage.getItem('user');
-			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${user}/movies/${movie}`, {
+			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}/movies/${movie}`, {
 				headers: { Authorization: `Bearer ${token}` }
 			});
 			alert(`You removed ${movie} from your favourites list`);
@@ -298,3 +299,10 @@ export default function ProfileView(props) {
 		</Container>
 	);
 }
+
+const mapStateToProps = (state) => {
+	const { loggedInUser } = state;
+	return { loggedInUser };
+};
+
+export default connect(mapStateToProps, { updateUser, deleteUser })(ProfileView);

@@ -3,13 +3,16 @@ import axios from 'axios';
 import { Form, Button, Card, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
+
 // Import styles for this view
 import './login.scss';
 
 // import logo image
 import logo from '../../img/site_logo.png';
 
-export default function LoginView(props) {
+function LoginView(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [usernameErr, setUsernameErr] = useState('');
@@ -26,7 +29,10 @@ export default function LoginView(props) {
 					Password: password
 				});
 				// Log in to the app
-				props.onLoggedIn(response.data);
+				props.setUser(response.data.user.Username);
+				localStorage.setItem('token', response.data.token);
+				localStorage.setItem('user', response.data.user.Username);
+				props.onLoggedIn();
 			} catch (error) {
 				console.log('User not in system', error);
 			}
@@ -93,3 +99,5 @@ export default function LoginView(props) {
 		</Container>
 	);
 }
+
+export default connect(null, { setUser })(LoginView);

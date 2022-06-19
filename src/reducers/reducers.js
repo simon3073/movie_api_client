@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { SET_SEARCH, SET_MOVIES, SET_GENRE, SET_RATING, SET_USER, ADD_MOVIE, REMOVE_MOVIE } from '../actions/actions';
+import { SET_SEARCH, SET_MOVIES, SET_GENRE, SET_RATING, SET_USER, UPDATE_USER, DELETE_USER } from '../actions/actions';
 
 function searchFilter(state = '', action) {
 	switch (action.type) {
@@ -42,9 +42,9 @@ function loggedInUser(state = '', action) {
 	switch (action.type) {
 		case SET_USER:
 			return action.value;
-		case ADD_MOVIE:
+		case UPDATE_USER:
 			return action.value;
-		case REMOVE_MOVIE:
+		case DELETE_USER:
 			return action.value;
 		default:
 			return state;
