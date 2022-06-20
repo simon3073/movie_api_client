@@ -56,26 +56,6 @@
   margin-right: 15px;
 }
 
-.card.movie-card {
-  color: #fff;
-  background-color: #0f003fe0;
-  border-radius: 20px;
-}
-
-.card.movie-card .movie-thumb {
-  border-radius: 5px;
-}
-
-.no-result {
-  width: 97%;
-  height: 70px;
-  background-color: #0f003fe0;
-  border-radius: 20px;
-  margin-top: 20px;
-  font-size: 1.25rem;
-  font-style: italic;
-}
-
 .card.login-card {
   color: #fff;
   width: 30rem;
@@ -233,6 +213,26 @@ a#navbarScrollingDropdown, #userDropdown {
   .container {
     max-width: 90% !important;
   }
+}
+
+.card.movie-card {
+  color: #fff;
+  background-color: #0f003fe0;
+  border-radius: 20px;
+}
+
+.card.movie-card .movie-thumb {
+  border-radius: 5px;
+}
+
+.no-result {
+  width: 97%;
+  height: 70px;
+  background-color: #0f003fe0;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: 1.25rem;
+  font-style: italic;
 }
 
 body {
