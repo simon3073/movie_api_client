@@ -1,8 +1,9 @@
 import React from 'react';
 import { Nav, Navbar, NavDropdown, Dropdown, DropdownButton, InputGroup, Form, FormControl, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
-import { connect } from 'react-redux';
 
+// connect to the redux actions
+import { connect } from 'react-redux';
 import { setSearch, setRating } from '../../actions/actions';
 
 import { FaUserCircle } from 'react-icons/fa';
@@ -15,6 +16,7 @@ import logo from '../../img/site_logo_navbar.png';
 
 // Display the navbar
 function NavBarView(props) {
+	// import loggedInUser prop into state, history hook for rating re-direct and creteRef hook for search bar
 	const { loggedInUser } = props;
 	const history = useHistory();
 	const searchInput = React.createRef();
@@ -27,9 +29,11 @@ function NavBarView(props) {
 	};
 
 	const saveSearchTerm = () => {
+		// set the search property - filter
 		props.setSearch(searchInput.current.value);
 	};
 
+	// set the rating value and re-route to rating page/view
 	const saveRating = (rating) => {
 		props.setRating(rating);
 		history.push('/rating/');
@@ -79,6 +83,7 @@ function NavBarView(props) {
 	);
 }
 
+// 	connect to the actions and dispatchers
 const mapStateToProps = (state) => {
 	const { searchFilter, loggedInUser } = state;
 	return { searchFilter, loggedInUser };

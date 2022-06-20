@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col, Button, Badge, Tooltip, OverlayTrigger, Modal } from 'react-bootstrap';
 import axios from 'axios';
+
+// connect to the redux actions
 import { connect } from 'react-redux';
 import { setGenre } from '../../actions/actions';
 
@@ -17,6 +19,7 @@ import imdb_logo from '../../img/imdb_logo.png';
 
 class MovieView extends Component {
 	constructor() {
+		// set up states for Toggle and Modal views and Movie id and Title to check favourites list
 		super();
 		this.state = {
 			toggleActive: false,
@@ -25,13 +28,13 @@ class MovieView extends Component {
 				id: ''
 			},
 			modalView: false,
-			modalData: null,
-			favList: []
+			modalData: null
 		};
 		this.onToggle = this.onToggle.bind(this);
 		this.modalShowHide = this.modalShowHide.bind(this);
 	}
 
+	// fetch user data for Favourites list to set the toggle status of Add to Favourites
 	async fetchUserData() {
 		try {
 			const token = localStorage.getItem('token');
@@ -67,12 +70,12 @@ class MovieView extends Component {
 		}
 	}
 
+	// on Toggle > add movie to favourites
 	async addToFavourites() {
 		try {
 			const token = localStorage.getItem('token');
-			const user = localStorage.getItem('user');
 			const response = await axios.put(
-				`https://movie-app-3073.herokuapp.com/account/${user}/movies/${this.state.movieData.title}`,
+				`https://movie-app-3073.herokuapp.com/account/${this.props.loggedInUser}/movies/${this.state.movieData.title}`,
 				{},
 				{
 					headers: { Authorization: `Bearer ${token}` }
@@ -83,11 +86,11 @@ class MovieView extends Component {
 		}
 	}
 
+	// on Toggle > add movie to favourites
 	async removeFromFavourites() {
 		try {
 			const token = localStorage.getItem('token');
-			const user = localStorage.getItem('user');
-			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${user}/movies/${this.state.movieData.title}`, {
+			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${this.props.loggedInUser}/movies/${this.state.movieData.title}`, {
 				headers: { Authorization: `Bearer ${token}` }
 			});
 		} catch (error) {
@@ -109,19 +112,13 @@ class MovieView extends Component {
 	}
 
 	componentDidMount() {
-		document.addEventListener('keypress', this.keyPressCallback);
 		this.setMovieData(this.props.movie);
 		this.fetchUserData();
-	}
-
-	componentWillUnmount() {
-		document.removeEventListener('keypress', this.keyPressCallback);
 	}
 
 	// Displays specific details about a movie
 	render() {
 		const { movie, setGenre } = this.props;
-		// This view would have modal pop ups to show more information on actors and directors
 		return (
 			<>
 				<Row className="justify-content-center movie-details pt-5 pb-5 text-white">
@@ -130,9 +127,7 @@ class MovieView extends Component {
 					</Col>
 					<Col md={7}>
 						<div>
-							<h2 className="font-weight-bold mb-3" style={{ color: '#ffbd24' }}>
-								{movie.Title}
-							</h2>
+							<h2 className="font-weight-bold mb-3">{movie.Title}</h2>
 							<div className="movie-director">
 								<span className="font-weight-bold">
 									Directed by:
@@ -191,6 +186,7 @@ class MovieView extends Component {
 						</div>
 					</Col>
 				</Row>
+
 				<Modal show={this.state.modalView} size="lg" centered className="modal-display">
 					<Modal.Header>
 						<Modal.Title id="contained-modal-title-vcenter">{this.state.modalView.Name}</Modal.Title>
@@ -224,4 +220,10 @@ MovieView.propTypes = {
 	}).isRequired
 };
 
-export default connect(null, { setGenre })(MovieView);
+// 	connect to the actions and dispatchers
+const mapStateToProps = (state) => {
+	const { loggedInUser } = state;
+	return { loggedInUser };
+};
+
+export default connect(mapStateToProps, { setGenre })(MovieView);

@@ -6,6 +6,10 @@
   margin: 30px auto !important;
 }
 
+.movie-details h2 {
+  color: #ffbd24;
+}
+
 .movie-details .movie-image img {
   border-radius: 10px;
 }
@@ -97,7 +101,7 @@ a#navbarScrollingDropdown, #userDropdown {
 }
 
 @media (max-width: 992px) {
-  .search-input input {
+  .search-input input, #search-btn {
     height: 100% !important;
   }
 }
@@ -163,6 +167,10 @@ a#navbarScrollingDropdown, #userDropdown {
   font-size: 1.5rem;
 }
 
+.account-grid .account-details div, .account-grid .favourite-details div {
+  color: #ffbd24;
+}
+
 .account-grid .account-details hr, .account-grid .favourite-details hr {
   border-top: 1px solid #ffbd24;
 }
@@ -201,6 +209,7 @@ a#navbarScrollingDropdown, #userDropdown {
 }
 
 .header {
+  color: #ffbd24;
   margin: 0 !important;
 }
 
@@ -231,6 +240,10 @@ a#navbarScrollingDropdown, #userDropdown {
 
 .card.movie-card .movie-thumb {
   border-radius: 5px;
+}
+
+.movie-list-header, .movie-list-noresult {
+  color: #ffbd24;
 }
 
 body {

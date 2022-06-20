@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Form, Button, Card, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+// connect to the redux actions
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/actions';
 
@@ -28,10 +29,13 @@ function LoginView(props) {
 					Username: username,
 					Password: password
 				});
-				// Log in to the app
+
+				// set the user property in redux store
 				props.setUser(response.data.user.Username);
 				localStorage.setItem('token', response.data.token);
 				localStorage.setItem('user', response.data.user.Username);
+
+				// Log in to the app
 				props.onLoggedIn();
 			} catch (error) {
 				console.log('User not in system', error);
@@ -100,4 +104,5 @@ function LoginView(props) {
 	);
 }
 
+// 	connect to the actions
 export default connect(null, { setUser })(LoginView);

@@ -3,6 +3,7 @@ import { Row, Col, Container, OverlayTrigger, Tooltip, Button, Form, Modal } fro
 import { FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 
+// connect to the redux actions
 import { connect } from 'react-redux';
 import { updateUser, deleteUser } from '../../actions/actions';
 
@@ -209,6 +210,7 @@ function ProfileView(props) {
 		);
 	};
 
+	// Display for the favourite movies column
 	const favouriteMovieDisplay = () => {
 		return favouriteMovies.length ? (
 			favouriteMovies.map((movie) => (
@@ -222,7 +224,7 @@ function ProfileView(props) {
 				</div>
 			))
 		) : (
-			<div style={{ color: '#ffbd24' }}>No movies in your favourites list</div>
+			<div>No movies in your favourites list</div>
 		);
 	};
 
@@ -230,9 +232,7 @@ function ProfileView(props) {
 		<Container className="main-view">
 			<Row className="header justify-content">
 				<Col>
-					<div className="p-3 font-weight-bold text-center" style={{ color: '#ffbd24' }}>
-						Account Profile
-					</div>
+					<div className="p-3 font-weight-bold text-center">Account Profile</div>
 				</Col>
 			</Row>
 			<Row className="justify-content-center mt-4 account-grid">
@@ -300,6 +300,7 @@ function ProfileView(props) {
 	);
 }
 
+// 	connect to the actions and dispatchers
 const mapStateToProps = (state) => {
 	const { loggedInUser } = state;
 	return { loggedInUser };

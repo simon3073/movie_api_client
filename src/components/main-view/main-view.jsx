@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
+// connect to the redux actions
 import { connect } from 'react-redux';
 import { setMovies, setUser } from '../../actions/actions';
 
@@ -84,6 +85,7 @@ class MainView extends Component {
 							return <RegisterView />;
 						}}
 					/>
+
 					<Route
 						path="/account/"
 						render={() => {
@@ -150,7 +152,8 @@ class MainView extends Component {
 		);
 	}
 }
-// adds the movies to the state movies
+
+// 	connect to the actions and dispatchers
 const mapStateToProps = (state) => {
 	const { movies, searchFilter, ratingFilter, genreFilter, loggedInUser } = state;
 	return {
@@ -162,5 +165,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-// 										  gives us access to the aciton to add each movie
 export default connect(mapStateToProps, { setMovies, setUser })(MainView);
