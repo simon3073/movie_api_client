@@ -81,7 +81,6 @@ function ProfileView(props) {
 
 	// on component load > fetch profile data
 	useEffect(() => {
-		console.log('profileView useEffect');
 		fetchUserData();
 	}, []);
 
@@ -158,8 +157,8 @@ function ProfileView(props) {
 
 	// function to display profile birthday in account profile
 	const displayDate = (d) => {
-		[yyyy, mm, dd] = d.split(/[/:\-T]/);
-		return `${dd}-${mm}-${yyyy}`;
+		const date = new Date(d);
+		return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 	};
 
 	const editAccountProfile = () => {
