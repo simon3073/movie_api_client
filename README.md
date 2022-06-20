@@ -1,6 +1,12 @@
 # 80s Movies App
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/64065be7-cdd6-401f-a385-26a284389f29/deploy-status)](https://app.netlify.com/sites/80s-movies-app/deploys)
+
 <img src="https://res.cloudinary.com/ds9nzjduw/image/upload/v1655681327/movie_api_client/80s_MoviesApp_Client_Screenshot_m54b3b.png">
+
+<br>
+
+https://80s-movies-app.netlify.app/
 
 The 80s Movies App allows access to information movies from the 1980's. Users will be able to sign up, update their personal information, and create a list of their favorite 80's movies.
 <br />
@@ -17,12 +23,6 @@ npx parcel src/index.html
 ```
 
 And then go to `localhost:1234`
-
-<br/>
-
-## Handling changes
-
-If you have run : `npx parcel src/index.html`, parcels has an excellent hot reload except if you are on another page than index.html.
 
 <br/>
 

@@ -194,7 +194,7 @@ class MovieView extends Component {
 					<Modal.Body>
 						<img src={this.state.modalView.imgURL} />
 						<p className="modal-dates">
-							Born: {this.state.modalView.Born} {this.state.modalView.Died !== '' ? ` - Died: ${this.state.modalView.Died}` : ''}
+							Born: {this.state.modalView.Born} {this.state.modalView.Died && this.state.modalView.Died !== '' ? ` - Died: ${this.state.modalView.Died}` : ''}
 						</p>
 						<p>{this.state.modalView.Bio}</p>
 					</Modal.Body>

@@ -81,6 +81,7 @@ function ProfileView(props) {
 
 	// on component load > fetch profile data
 	useEffect(() => {
+		console.log('profileView useEffect');
 		fetchUserData();
 	}, []);
 

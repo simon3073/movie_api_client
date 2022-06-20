@@ -90,6 +90,7 @@ class MainView extends Component {
 						path="/account/"
 						render={() => {
 							if (!loggedInUser) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+							console.log('account page');
 							return (
 								<>
 									<NavBarView />
