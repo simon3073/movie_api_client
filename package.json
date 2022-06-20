@@ -2,7 +2,7 @@
 	"name": "movie-api-client",
 	"version": "1.0.0",
 	"description": "",
-	"main": "src/index.js",
+	"entry": "src/index.html",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -20,6 +20,7 @@
 	},
 	"homepage": "https://github.com/simon3073/movie_api_client#readme",
 	"dependencies": {
+		"@swc/helpers": "^0.4.2",
 		"axios": "^0.27.2",
 		"parcel": "^2.5.0",
 		"prop-types": "^15.8.1",
