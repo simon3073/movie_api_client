@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Form, Button, Card, Container } from 'react-bootstrap';
+import { Form, Button, Card, Container, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 // connect to the redux actions
@@ -18,6 +18,7 @@ function LoginView(props) {
 	const [password, setPassword] = useState('');
 	const [usernameErr, setUsernameErr] = useState('');
 	const [passwordErr, setPasswordErr] = useState('');
+	const [modalView, setModalView] = useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -34,10 +35,10 @@ function LoginView(props) {
 				props.setUser(response.data.user.Username);
 				localStorage.setItem('token', response.data.token);
 				localStorage.setItem('user', response.data.user.Username);
-
 				// Log in to the app
 				props.onLoggedIn();
 			} catch (error) {
+				setModalView(true);
 				console.log('User not in system', error);
 			}
 		}
@@ -66,6 +67,28 @@ function LoginView(props) {
 			isReq = false;
 		}
 		return isReq;
+	};
+
+	// Functions needed to open and close the modal (below) to delete a user
+	const modalClose = () => setModalView(false);
+
+	// Function that contains the modal to delete a users account
+	const noUserModal = () => {
+		return (
+			<>
+				<Modal show={modalView} centered className="modal-display modal-md">
+					<Modal.Header>
+						<Modal.Title>Invalid Username or Password</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>The username or password were entered incorrectly, or there is not an account associated with these details.</Modal.Body>
+					<Modal.Footer>
+						<Button variant="primary" onClick={modalClose}>
+							OK
+						</Button>
+					</Modal.Footer>
+				</Modal>
+			</>
+		);
 	};
 
 	return (
@@ -100,6 +123,7 @@ function LoginView(props) {
 					</Form>
 				</Card.Body>
 			</Card>
+			{noUserModal()}
 		</Container>
 	);
 }
