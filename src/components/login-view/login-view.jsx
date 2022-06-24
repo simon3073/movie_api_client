@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Form, Button, Card, Container } from 'react-bootstrap';
+import { Form, Button, Card, Container, Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
+// connect to the redux actions
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
 
 // Import styles for this view
 import './login.scss';
@@ -9,11 +13,12 @@ import './login.scss';
 // import logo image
 import logo from '../../img/site_logo.png';
 
-export default function LoginView(props) {
+function LoginView(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [usernameErr, setUsernameErr] = useState('');
 	const [passwordErr, setPasswordErr] = useState('');
+	const [modalView, setModalView] = useState(false);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -25,9 +30,15 @@ export default function LoginView(props) {
 					Username: username,
 					Password: password
 				});
+
+				// set the user property in redux store
+				props.setUser(response.data.user.Username);
+				localStorage.setItem('token', response.data.token);
+				localStorage.setItem('user', response.data.user.Username);
 				// Log in to the app
-				props.onLoggedIn(response.data);
+				props.onLoggedIn();
 			} catch (error) {
+				setModalView(true);
 				console.log('User not in system', error);
 			}
 		}
@@ -58,8 +69,30 @@ export default function LoginView(props) {
 		return isReq;
 	};
 
+	// Functions needed to open and close the modal (below) to delete a user
+	const modalClose = () => setModalView(false);
+
+	// Function that contains the modal to delete a users account
+	const noUserModal = () => {
+		return (
+			<>
+				<Modal show={modalView} centered className="modal-display modal-md">
+					<Modal.Header>
+						<Modal.Title>Invalid Username or Password</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>The username or password were entered incorrectly, or there is not an account associated with these details.</Modal.Body>
+					<Modal.Footer>
+						<Button variant="primary" onClick={modalClose}>
+							OK
+						</Button>
+					</Modal.Footer>
+				</Modal>
+			</>
+		);
+	};
+
 	return (
-		<Container fluid className="h-100 d-flex flex-column justify-content-center align-items-center">
+		<Container fluid className="login-container d-flex flex-column justify-content-center align-items-center">
 			<Card className="login-card">
 				<div className="m-4 text-center">
 					<img src={logo} style={{ width: '400px' }} />
@@ -90,6 +123,10 @@ export default function LoginView(props) {
 					</Form>
 				</Card.Body>
 			</Card>
+			{noUserModal()}
 		</Container>
 	);
 }
+
+// 	connect to the actions
+export default connect(null, { setUser })(LoginView);

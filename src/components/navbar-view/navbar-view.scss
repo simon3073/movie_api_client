@@ -24,7 +24,8 @@ a#navbarScrollingDropdown,
 }
 
 @media (max-width: 992px) {
-	.search-input input {
+	.search-input input,
+	#search-btn {
 		height: 100% !important;
 	}
 }

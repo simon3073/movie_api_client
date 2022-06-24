@@ -6,6 +6,10 @@
   margin: 30px auto !important;
 }
 
+.movie-details h2 {
+  color: #ffbd24;
+}
+
 .movie-details .movie-image img {
   border-radius: 10px;
 }
@@ -56,7 +60,11 @@
   margin-right: 15px;
 }
 
-.card.login-card {
+.login-container {
+  height: 100vh;
+}
+
+.login-container .card.login-card {
   color: #fff;
   width: 30rem;
   background-color: #0f003fe0;
@@ -64,8 +72,16 @@
   padding: 15px;
 }
 
-.card.login-card .login-form div {
+.login-container .card.login-card .login-form div {
   margin-top: 15px;
+}
+
+.modal-footer {
+  justify-content: center !important;
+}
+
+.modal-footer .btn {
+  width: 100px;
 }
 
 a#navbarScrollingDropdown, #userDropdown {
@@ -93,7 +109,7 @@ a#navbarScrollingDropdown, #userDropdown {
 }
 
 @media (max-width: 992px) {
-  .search-input input {
+  .search-input input, #search-btn {
     height: 100% !important;
   }
 }
@@ -128,7 +144,11 @@ a#navbarScrollingDropdown, #userDropdown {
   }
 }
 
-.card.register-card {
+.register-container {
+  height: 100vh;
+}
+
+.register-container .card.register-card {
   color: #fff;
   width: 30rem;
   background-color: #0f003fe0;
@@ -136,7 +156,7 @@ a#navbarScrollingDropdown, #userDropdown {
   padding: 15px;
 }
 
-.card.register-card .reg-form div {
+.register-container .card.register-card .reg-form div {
   margin-top: 15px;
 }
 
@@ -153,6 +173,10 @@ a#navbarScrollingDropdown, #userDropdown {
   color: #ffbd24;
   margin: 0 auto;
   font-size: 1.5rem;
+}
+
+.account-grid .account-details div, .account-grid .favourite-details div {
+  color: #ffbd24;
 }
 
 .account-grid .account-details hr, .account-grid .favourite-details hr {
@@ -193,6 +217,7 @@ a#navbarScrollingDropdown, #userDropdown {
 }
 
 .header {
+  color: #ffbd24;
   margin: 0 !important;
 }
 
@@ -225,14 +250,8 @@ a#navbarScrollingDropdown, #userDropdown {
   border-radius: 5px;
 }
 
-.no-result {
-  width: 97%;
-  height: 70px;
-  background-color: #0f003fe0;
-  border-radius: 20px;
-  margin-top: 20px;
-  font-size: 1.25rem;
-  font-style: italic;
+.movie-list-header, .movie-list-noresult {
+  color: #ffbd24;
 }
 
 body {

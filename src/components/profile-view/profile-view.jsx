@@ -3,10 +3,14 @@ import { Row, Col, Container, OverlayTrigger, Tooltip, Button, Form, Modal } fro
 import { FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 
+// connect to the redux actions
+import { connect } from 'react-redux';
+import { updateUser, deleteUser } from '../../actions/actions';
+
 // Import styles for this view
 import './profile-view.scss';
 
-export default function ProfileView(props) {
+function ProfileView(props) {
 	// define state for editing profile data
 	const [editProfile, setEditProfile] = useState(false);
 
@@ -85,8 +89,7 @@ export default function ProfileView(props) {
 	const fetchUserData = async () => {
 		try {
 			const token = localStorage.getItem('token');
-			const user = localStorage.getItem('user');
-			const response = await axios.get(`https://movie-app-3073.herokuapp.com/account/${user}`, {
+			const response = await axios.get(`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}`, {
 				headers: {
 					Authorization: `Bearer ${token}`
 				}
@@ -112,9 +115,8 @@ export default function ProfileView(props) {
 		if (validate()) {
 			try {
 				const token = localStorage.getItem('token');
-				const user = localStorage.getItem('user');
 				const response = await axios.put(
-					`https://movie-app-3073.herokuapp.com/account/${user}`,
+					`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}`,
 					{
 						Username: username,
 						Password: password,
@@ -125,6 +127,7 @@ export default function ProfileView(props) {
 						headers: { Authorization: `Bearer ${token}` }
 					}
 				);
+				props.updateUser(response.data.Username);
 				localStorage.setItem('user', response.data.Username);
 				setEditProfile(false);
 				alert('Your profile has been updated');
@@ -139,12 +142,12 @@ export default function ProfileView(props) {
 	const deleteAccount = async (e) => {
 		try {
 			const token = localStorage.getItem('token');
-			const user = localStorage.getItem('user');
-			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${user}`, {
+			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}`, {
 				headers: { Authorization: `Bearer ${token}` }
 			});
 			localStorage.removeItem('user');
 			localStorage.removeItem('token');
+			props.deleteUser('');
 			alert('Your profile has been deleted');
 			window.open('/', '_self');
 		} catch (error) {
@@ -154,8 +157,8 @@ export default function ProfileView(props) {
 
 	// function to display profile birthday in account profile
 	const displayDate = (d) => {
-		[yyyy, mm, dd] = d.split(/[/:\-T]/);
-		return `${dd}-${mm}-${yyyy}`;
+		const date = new Date(d);
+		return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
 	};
 
 	const editAccountProfile = () => {
@@ -171,8 +174,7 @@ export default function ProfileView(props) {
 		});
 		try {
 			const token = localStorage.getItem('token');
-			const user = localStorage.getItem('user');
-			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${user}/movies/${movie}`, {
+			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}/movies/${movie}`, {
 				headers: { Authorization: `Bearer ${token}` }
 			});
 			alert(`You removed ${movie} from your favourites list`);
@@ -208,6 +210,7 @@ export default function ProfileView(props) {
 		);
 	};
 
+	// Display for the favourite movies column
 	const favouriteMovieDisplay = () => {
 		return favouriteMovies.length ? (
 			favouriteMovies.map((movie) => (
@@ -221,7 +224,7 @@ export default function ProfileView(props) {
 				</div>
 			))
 		) : (
-			<div style={{ color: '#ffbd24' }}>No movies in your favourites list</div>
+			<div>No movies in your favourites list</div>
 		);
 	};
 
@@ -229,9 +232,7 @@ export default function ProfileView(props) {
 		<Container className="main-view">
 			<Row className="header justify-content">
 				<Col>
-					<div className="p-3 font-weight-bold text-center" style={{ color: '#ffbd24' }}>
-						Account Profile
-					</div>
+					<div className="p-3 font-weight-bold text-center">Account Profile</div>
 				</Col>
 			</Row>
 			<Row className="justify-content-center mt-4 account-grid">
@@ -298,3 +299,11 @@ export default function ProfileView(props) {
 		</Container>
 	);
 }
+
+// 	connect to the actions and dispatchers
+const mapStateToProps = (state) => {
+	const { loggedInUser } = state;
+	return { loggedInUser };
+};
+
+export default connect(mapStateToProps, { updateUser, deleteUser })(ProfileView);

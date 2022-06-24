@@ -1,6 +1,14 @@
-# Movie API
+# 80s Movies App
 
-Movie API allows access to information movies from the 1980's. Users will be able to sign up, update their personal information, and create a list of their favorite 80's movies.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/64065be7-cdd6-401f-a385-26a284389f29/deploy-status)](https://app.netlify.com/sites/80s-movies-app/deploys)
+
+<img src="https://res.cloudinary.com/ds9nzjduw/image/upload/v1655681327/movie_api_client/80s_MoviesApp_Client_Screenshot_m54b3b.png">
+
+<br>
+
+https://80s-movies-app.netlify.app/
+
+The 80s Movies App allows access to information movies from the 1980's. Users will be able to sign up, update their personal information, and create a list of their favorite 80's movies.
 <br />
 
 _Developer: Simon Bertoli_
@@ -18,12 +26,6 @@ And then go to `localhost:1234`
 
 <br/>
 
-## Handling changes
-
-If you have run : `npx parcel src/index.html`, parcels has an excellent hot reload except if you are on another page than index.html.
-
-<br/>
-
 ---
 
 ## Project Dependencies
@@ -36,6 +38,36 @@ If you have run : `npx parcel src/index.html`, parcels has an excellent hot relo
 - UIKit
 - Parcel
 - Bootstrap
+
+---
+
+<br/>
+
+## Features
+
+Login / Registration View
+
+- Allows uses top alternate between Logging in to the app or creating an account
+
+Main View
+
+- Returns a list of all the movies in the database - Title, Movie Image and IMDB Rating
+- Allows searching from the Navigation Bar
+- Allows sorting via IMDB rating
+
+Movie View
+
+- Displays specific details about the movie - Director, Actor(s), Genre(s), Movie Description
+- Allows user to add movies to a favourites list
+- Allows user to view biography of Director and Actor(s)
+- Allows user to view all Movies of a Genre
+
+Profile View
+
+- Displays a users account information and favourite movie list
+- Allows user to update their account details
+- Allows user to delete their account
+- Allows users to delete movies from their favourite list
 
 <br/>
 

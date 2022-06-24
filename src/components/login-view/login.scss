@@ -1,13 +1,24 @@
-.card.login-card {
-	background-color: #0f003fe0;
-	border-radius: 20px;
-	padding: 15px;
-	color: #fff;
-	width: 30rem;
+.login-container {
+	height: 100vh;
+	.card.login-card {
+		background-color: #0f003fe0;
+		border-radius: 20px;
+		padding: 15px;
+		color: #fff;
+		width: 30rem;
 
-	.login-form {
-		div {
-			margin-top: 15px;
+		.login-form {
+			div {
+				margin-top: 15px;
+			}
 		}
+	}
+}
+
+.modal-footer {
+	justify-content: center !important;
+
+	.btn {
+		width: 100px;
 	}
 }
