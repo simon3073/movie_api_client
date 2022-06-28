@@ -84,6 +84,10 @@
   width: 100px;
 }
 
+.movie-navbar {
+  background: #0f003fe0;
+}
+
 a#navbarScrollingDropdown, #userDropdown {
   color: #fff;
   text-align: end;
@@ -99,19 +103,12 @@ a#navbarScrollingDropdown, #userDropdown {
   right: 0 !important;
 }
 
-#search-btn {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
 .navbar-toggler {
   color: "#ffbd24";
 }
 
-@media (max-width: 992px) {
-  .search-input input, #search-btn {
-    height: 100% !important;
-  }
+.search-input input {
+  width: 300px !important;
 }
 
 @media only screen and (max-width: 767px) {

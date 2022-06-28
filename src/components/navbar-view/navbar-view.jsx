@@ -41,7 +41,7 @@ function NavBarView(props) {
 	};
 
 	return (
-		<Navbar style={{ background: '#0f003fe0' }} variant="dark" expand="md" className="movie-navbar pl-5 pr-4">
+		<Navbar variant="dark" expand="md" className="movie-navbar pl-5 pr-4">
 			<Navbar.Brand>
 				<Link to={'/'}>
 					<img src={logo} width="110" height="auto" className="m-2 d-inline-block align-top" alt="80's Movies Logo" />
@@ -59,12 +59,12 @@ function NavBarView(props) {
 
 						<Form className="d-flex mr-5">
 							<InputGroup className="mr-1 search-input">
-								<FormControl type="search" ref={searchInput} value={props.searchFilter} onChange={saveSearchTerm} placeholder="Enter movie name" />
-								<Link to={`/search/`}>
+								<FormControl type="search" ref={searchInput} value={props.searchFilter} onChange={(e) => props.setSearch(e.target.value)} placeholder="Enter movie name" />
+								{/* <Link to={`/search/`}>
 									<Button variant="primary" id="search-btn">
 										Search
 									</Button>
-								</Link>
+								</Link> */}
 							</InputGroup>
 						</Form>
 					</Nav>
