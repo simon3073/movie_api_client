@@ -158,7 +158,7 @@ class MovieView extends Component {
 							{movie.Genre.map(({ Genre }) => (
 								<OverlayTrigger key={Genre} overlay={<Tooltip id="my-tooltip-id">View a list of {Genre.toLowerCase()} movies</Tooltip>}>
 									<Link to={`/genre/`} onClick={() => setGenre(Genre)}>
-										<Badge bg="info" className="genre text-white mr-3">
+										<Badge bg="info" className="genre text-white mr-3 mb-1">
 											{Genre}
 										</Badge>
 									</Link>

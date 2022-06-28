@@ -42,7 +42,7 @@ function NavBarView(props) {
 	};
 
 	return (
-		<Navbar variant="dark" expand="md" className="movie-navbar pl-5 pr-4">
+		<Navbar variant="dark" expand="md" className="movie-navbar pr-4">
 			<Navbar.Brand>
 				<Link to={'/'}>
 					<img src={logo} width="110" height="auto" className="m-2 d-inline-block align-top" alt="80's Movies Logo" />

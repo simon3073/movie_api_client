@@ -34,7 +34,7 @@
 	display: flex !important;
 	flex-wrap: wrap !important;
 	button {
-		margin-top: 5px;
+		margin: 0 0 0 5px !important;
 	}
 }
 
@@ -43,10 +43,15 @@
 		width: 100% !important;
 	}
 }
+@media (max-width: 449px) {
+	.modalFooter {
+		button {
+			margin: 5px 0 0 0 !important;
+		}
+	}
+}
 
 .modal-display {
-	//min-width: 500px;
-
 	.btn {
 		min-width: 200px;
 	}

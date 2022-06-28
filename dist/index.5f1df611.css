@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap";
 .movie-details {
-  width: 70%;
+  width: 85%;
   background-color: #0f003fe0;
   border-radius: 20px !important;
   margin: 30px auto !important;
@@ -37,6 +37,10 @@
     margin-top: -30px;
     width: 40% !important;
   }
+}
+
+.modal-backdrop {
+  z-index: 1025 !important;
 }
 
 .modal-display .modal-content {
@@ -119,10 +123,6 @@ a#navbarScrollingDropdown, #userDropdown {
 
 .navbar-toggler {
   color: "#ffbd24";
-}
-
-.search-input input {
-  width: 300px !important;
 }
 
 @media only screen and (max-width: 767px) {
@@ -210,12 +210,18 @@ a#navbarScrollingDropdown, #userDropdown {
 }
 
 .modalFooter button {
-  margin-top: 5px;
+  margin: 0 0 0 5px !important;
 }
 
 @media (max-width: 992px) {
   .back-movies {
     width: 100% !important;
+  }
+}
+
+@media (max-width: 449px) {
+  .modalFooter button {
+    margin: 5px 0 0 !important;
   }
 }
 
