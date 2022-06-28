@@ -204,14 +204,19 @@ a#navbarScrollingDropdown, #userDropdown {
   font-size: 1.1rem;
 }
 
+.modalFooter {
+  flex-wrap: wrap !important;
+  display: flex !important;
+}
+
+.modalFooter button {
+  margin-top: 5px;
+}
+
 @media (max-width: 992px) {
   .back-movies {
     width: 100% !important;
   }
-}
-
-.modal-display {
-  min-width: 500px;
 }
 
 .modal-display .btn {
@@ -284,6 +289,8 @@ body {
 .top-container {
   width: 100% !important;
   max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .imdb-logo {

@@ -200,7 +200,7 @@ function ProfileView(props) {
 						<Modal.Title>Delete your Account</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>Are you sure you want to delete your account?</Modal.Body>
-					<Modal.Footer>
+					<Modal.Footer className="modalFooter">
 						<Button variant="primary" onClick={modalClose}>
 							No, Keep my Account
 						</Button>

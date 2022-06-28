@@ -30,6 +30,14 @@
 	}
 }
 
+.modalFooter {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	button {
+		margin-top: 5px;
+	}
+}
+
 @media (max-width: 992px) {
 	.back-movies {
 		width: 100% !important;
@@ -37,7 +45,7 @@
 }
 
 .modal-display {
-	min-width: 500px;
+	//min-width: 500px;
 
 	.btn {
 		min-width: 200px;
