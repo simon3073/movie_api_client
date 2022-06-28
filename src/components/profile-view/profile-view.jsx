@@ -30,6 +30,9 @@ function ProfileView(props) {
 		emailErr: ''
 	});
 
+	// baseurl for all API calls
+	const baseURL = 'https://movie-app-3073.herokuapp.com/account/';
+
 	// function to set error messages
 	const setErrMessage = (obj) => {
 		setValues((prev) => ({ ...prev, ...obj }));
@@ -89,7 +92,7 @@ function ProfileView(props) {
 	const fetchUserData = async () => {
 		try {
 			const token = localStorage.getItem('token');
-			const response = await axios.get(`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}`, {
+			const response = await axios.get(baseURL + props.loggedInUser, {
 				headers: {
 					Authorization: `Bearer ${token}`
 				}
@@ -116,7 +119,7 @@ function ProfileView(props) {
 			try {
 				const token = localStorage.getItem('token');
 				const response = await axios.put(
-					`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}`,
+					baseURL + props.loggedInUser,
 					{
 						Username: username,
 						Password: password,
@@ -142,7 +145,7 @@ function ProfileView(props) {
 	const deleteAccount = async (e) => {
 		try {
 			const token = localStorage.getItem('token');
-			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}`, {
+			const response = await axios.delete(baseURL + props.loggedInUser, {
 				headers: { Authorization: `Bearer ${token}` }
 			});
 			localStorage.removeItem('user');
@@ -174,7 +177,7 @@ function ProfileView(props) {
 		});
 		try {
 			const token = localStorage.getItem('token');
-			const response = await axios.delete(`https://movie-app-3073.herokuapp.com/account/${props.loggedInUser}/movies/${movie}`, {
+			const response = await axios.delete(baseURL + props.loggedInUser + '/movies/' + movie, {
 				headers: { Authorization: `Bearer ${token}` }
 			});
 			alert(`You removed ${movie} from your favourites list`);
@@ -289,12 +292,22 @@ function ProfileView(props) {
 						</>
 					)}
 				</Col>
-				<Col md={11} lg={6} className="favourite-details">
+				<Col md={11} lg={6} className="favourite-details ">
 					<h3>Favourite Movies</h3>
 					<hr></hr>
 					{favouriteMovieDisplay()}
 				</Col>
 			</Row>
+			<Row className="back-panel justify-content mt-3">
+				<Col>
+					<div className=" text-center p-3">
+						<Button variant="warning" className="w-70 ms-auto back-movies" size="lg" href="/">
+							Go back to the movies
+						</Button>
+					</div>
+				</Col>
+			</Row>
+
 			{deleteUserModal()}
 		</Container>
 	);

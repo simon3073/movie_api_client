@@ -9,6 +9,7 @@ import { setGenre } from '../../actions/actions';
 import { FaCheck } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import Toggle from 'react-bootstrap-toggle';
+import ImageLoader from '../image-loader/image-loader';
 import { Link } from 'react-router-dom';
 
 // Import styles for this view
@@ -123,7 +124,9 @@ class MovieView extends Component {
 			<>
 				<Row className="justify-content-center movie-details pt-5 pb-5 text-white">
 					<Col md={4} className="movie-image pb-3">
-						<img className="w-100 pl-0" src={movie.imgURL} alt="" />
+						<ImageLoader loaderImage={movie.imgURL_load} mainImage={movie.imgURL} alt={movie.Title} />
+
+						{/* <img className="w-100 pl-0" src={movie.imgURL_load} alt="" /> */}
 					</Col>
 					<Col md={7}>
 						<div>

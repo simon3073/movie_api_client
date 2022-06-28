@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
-import { connect } from 'react-redux';
 import MovieCard from '../movie-card/movie-card';
 
 // Import styles for this view

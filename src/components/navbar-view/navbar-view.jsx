@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav, Navbar, NavDropdown, Dropdown, DropdownButton, InputGroup, Form, FormControl, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
 
 // connect to the redux actions
@@ -17,7 +18,7 @@ import logo from '../../img/site_logo_navbar.png';
 // Display the navbar
 function NavBarView(props) {
 	// import loggedInUser prop into state, history hook for rating re-direct and creteRef hook for search bar
-	const { loggedInUser } = props;
+	const { loggedInUser, hideSearch } = props;
 	const history = useHistory();
 	const searchInput = React.createRef();
 
@@ -48,24 +49,27 @@ function NavBarView(props) {
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav">
-				<Nav className="ms-auto ml-4">
-					<DropdownButton align="end" title="Filter by Rating" className="mr-4">
-						<Dropdown.Item onClick={() => saveRating(6)}>Rated 6 and Above</Dropdown.Item>
-						<Dropdown.Item onClick={() => saveRating(7)}>Rated 7 and Above</Dropdown.Item>
-						<Dropdown.Item onClick={() => saveRating(8)}>Rated 8 and Above</Dropdown.Item>
-					</DropdownButton>
+				{hideSearch || (
+					<Nav className="ms-auto ml-4">
+						<DropdownButton align="end" title="Filter by Rating" className="mr-4">
+							<Dropdown.Item onClick={() => saveRating(6)}>Rated 6 and Above</Dropdown.Item>
+							<Dropdown.Item onClick={() => saveRating(7)}>Rated 7 and Above</Dropdown.Item>
+							<Dropdown.Item onClick={() => saveRating(8)}>Rated 8 and Above</Dropdown.Item>
+						</DropdownButton>
 
-					<Form className="d-flex mr-5">
-						<InputGroup className="mr-1 search-input">
-							<FormControl type="search" ref={searchInput} value={props.searchFilter} onChange={saveSearchTerm} placeholder="Enter movie name" />
-							<Link to={`/search/`}>
-								<Button variant="primary" id="search-btn">
-									Search
-								</Button>
-							</Link>
-						</InputGroup>
-					</Form>
-				</Nav>
+						<Form className="d-flex mr-5">
+							<InputGroup className="mr-1 search-input">
+								<FormControl type="search" ref={searchInput} value={props.searchFilter} onChange={saveSearchTerm} placeholder="Enter movie name" />
+								<Link to={`/search/`}>
+									<Button variant="primary" id="search-btn">
+										Search
+									</Button>
+								</Link>
+							</InputGroup>
+						</Form>
+					</Nav>
+				)}
+
 				<Nav className="ml-auto user-profile">
 					<span>
 						<FaUserCircle />
@@ -82,6 +86,10 @@ function NavBarView(props) {
 		</Navbar>
 	);
 }
+
+NavBarView.propTypes = {
+	hideSearch: PropTypes.bool
+};
 
 // 	connect to the actions and dispatchers
 const mapStateToProps = (state) => {

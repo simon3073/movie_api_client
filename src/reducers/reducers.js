@@ -29,7 +29,7 @@ function ratingFilter(state = '', action) {
 	}
 }
 
-function movies(state = [], action) {
+function movieList(state = [], action) {
 	switch (action.type) {
 		case SET_MOVIES:
 			return action.value;
@@ -56,7 +56,7 @@ const moviesApp = combineReducers({
 	genreFilter,
 	ratingFilter,
 	searchFilter,
-	movies
+	movieList
 });
 
 export default moviesApp;

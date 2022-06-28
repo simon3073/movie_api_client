@@ -13,10 +13,9 @@ import imdb_logo from '../../img/imdb_logo.png';
 export default class MovieCard extends Component {
 	render() {
 		const { movie } = this.props;
-
 		return (
 			<Card className="movie-card m-1 p-2 h-100 text-center">
-				<Card.Img className="movie-thumb mx-auto mt-2" style={{ width: '100px' }} src={movie.imgURL} />
+				<Card.Img className="movie-thumb mx-auto mt-2" style={{ width: '100px' }} src={movie.imgURL_thumb} />
 				<Card.Body className="p-3">
 					<Card.Title style={{ color: '#ffbd24' }}>
 						<strong>{movie.Title}</strong>

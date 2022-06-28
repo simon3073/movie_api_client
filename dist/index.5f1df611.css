@@ -190,9 +190,21 @@ a#navbarScrollingDropdown, #userDropdown {
 }
 
 @media (max-width: 992px) {
-  .account-grid .favourite-details {
+  .favourite-details {
     margin-top: 20px !important;
   }
+
+  .back-movies {
+    width: 100% !important;
+  }
+}
+
+.modal-display {
+  min-width: 500px;
+}
+
+.modal-display .btn {
+  min-width: 200px;
 }
 
 .movie {
