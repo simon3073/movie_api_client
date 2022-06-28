@@ -101,7 +101,7 @@ function RegisterView(props) {
 		<Container fluid className="register-container d-flex justify-content-center align-items-center">
 			<Card className="register-card">
 				<div className="m-4 text-center">
-					<img src={logo} style={{ width: '400px' }} />
+					<img src={logo} />
 				</div>
 
 				<Card.Body>

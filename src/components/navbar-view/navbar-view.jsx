@@ -61,11 +61,11 @@ function NavBarView(props) {
 						<Form className="d-flex mr-5">
 							<InputGroup className="mr-1 search-input">
 								<FormControl type="search" ref={searchInput} value={props.searchFilter} onChange={saveSearchTerm} placeholder="Enter movie name" />
-								{/* <Link to={`/search/`}>
+								<Link to={`/search/`}>
 									<Button variant="primary" id="search-btn">
 										Search
 									</Button>
-								</Link> */}
+								</Link>
 							</InputGroup>
 						</Form>
 					</Nav>

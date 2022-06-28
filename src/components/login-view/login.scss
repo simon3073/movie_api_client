@@ -1,5 +1,9 @@
 .login-container {
 	height: 100vh;
+
+	h2 {
+		color: #ffbd24;
+	}
 	.card.login-card {
 		background-color: #0f003fe0;
 		border-radius: 20px;
@@ -11,6 +15,16 @@
 			div {
 				margin-top: 15px;
 			}
+		}
+	}
+
+	@media only screen and (max-width: 767px) {
+		.card.login-card {
+			width: 23rem;
+		}
+
+		img {
+			width: 300px;
 		}
 	}
 }
