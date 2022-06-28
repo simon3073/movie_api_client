@@ -32,6 +32,7 @@ function NavBarView(props) {
 	const saveSearchTerm = () => {
 		// set the search property - filter
 		props.setSearch(searchInput.current.value);
+		history.push('/search/');
 	};
 
 	// set the rating value and re-route to rating page/view
@@ -59,7 +60,7 @@ function NavBarView(props) {
 
 						<Form className="d-flex mr-5">
 							<InputGroup className="mr-1 search-input">
-								<FormControl type="search" ref={searchInput} value={props.searchFilter} onChange={(e) => props.setSearch(e.target.value)} placeholder="Enter movie name" />
+								<FormControl type="search" ref={searchInput} value={props.searchFilter} onChange={saveSearchTerm} placeholder="Enter movie name" />
 								{/* <Link to={`/search/`}>
 									<Button variant="primary" id="search-btn">
 										Search
