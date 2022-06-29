@@ -29,10 +29,17 @@ function NavBarView(props) {
 		window.open('/', '_self');
 	};
 
-	const saveSearchTerm = () => {
-		// set the search property - filter
+	const submitSearch = () => {
 		props.setSearch(searchInput.current.value);
 		history.push('/search/');
+	};
+
+	const handleKeyPress = (e) => {
+		e.preventDefault();
+		if (e.key === 'Enter') {
+			props.setSearch(searchInput.current.value);
+			history.push('/search/');
+		}
 	};
 
 	// set the rating value and re-route to rating page/view
@@ -60,12 +67,17 @@ function NavBarView(props) {
 
 						<Form className="d-flex mr-5">
 							<InputGroup className="mr-1 search-input">
-								<FormControl type="search" ref={searchInput} value={props.searchFilter} onChange={saveSearchTerm} placeholder="Enter movie name" />
-								<Link to={`/search/`}>
-									<Button variant="primary" id="search-btn">
-										Search
-									</Button>
-								</Link>
+								<FormControl
+									type="search"
+									ref={searchInput}
+									onKeyPress={(e) => {
+										e.key === 'Enter' && e.preventDefault();
+									}}
+									placeholder="Enter movie name"
+								/>
+								<Button variant="primary" id="search-btn" onClick={submitSearch}>
+									Search
+								</Button>
 							</InputGroup>
 						</Form>
 					</Nav>

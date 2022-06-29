@@ -64,6 +64,7 @@ class MainView extends Component {
 					<Route exact path="/" render={() => <LoginView onLoggedIn={() => this.onLoggedIn()} />} />
 				</Router>
 			);
+
 		return (
 			<>
 				<Router>
@@ -107,9 +108,7 @@ class MainView extends Component {
 					<Route
 						path="/genre/"
 						render={() => {
-							if (genreFilter === '') {
-								return <Redirect to="/" />;
-							}
+							if (genreFilter === '') return <Redirect to="/" />;
 							let filteredMovies = movieList.filter((m) => m.Genre.some((g) => g.Genre === genreFilter));
 							return (
 								<>
@@ -122,8 +121,7 @@ class MainView extends Component {
 					<Route
 						path="/rating/"
 						render={() => {
-							if (ratingFilter === '') {
-							}
+							if (ratingFilter === '') return <Redirect to="/" />;
 							let filteredMovies = movieList.filter((m) => m.imdbRating > ratingFilter);
 							return (
 								<>
@@ -136,9 +134,7 @@ class MainView extends Component {
 					<Route
 						path="/search/"
 						render={() => {
-							if (searchFilter === '') {
-								return <Redirect to="/" />;
-							}
+							if (searchFilter === '') return <Redirect to="/" />;
 							let filteredMovies = movieList.filter((m) => m.Title.toLowerCase().includes(searchFilter.toLowerCase()));
 							return (
 								<>
