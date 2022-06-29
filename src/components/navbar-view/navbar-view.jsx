@@ -2,6 +2,7 @@ import React from 'react';
 import { Nav, Navbar, NavDropdown, Dropdown, DropdownButton, InputGroup, Form, FormControl, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
 // connect to the redux actions
 import { connect } from 'react-redux';
@@ -18,7 +19,8 @@ import logo from '../../img/site_logo_navbar.png';
 // Display the navbar
 function NavBarView(props) {
 	// import loggedInUser prop into state, history hook for rating re-direct and creteRef hook for search bar
-	const { loggedInUser, hideSearch } = props;
+	const { loggedInUser, hideSearch, movieList } = props;
+	console.log('🚀 ~ file: navbar-view.jsx ~ line 23 ~ NavBarView ~ movieList', movieList);
 	const history = useHistory();
 	const searchInput = React.createRef();
 
@@ -28,19 +30,28 @@ function NavBarView(props) {
 		localStorage.removeItem('user');
 		window.open('/', '_self');
 	};
+	const movieSearchList = movieList.map((m) => ({ id: m._id, name: m.Title }));
 
-	// retrieve the search value and navigate to the search route
-	const submitSearch = () => {
-		props.setSearch(searchInput.current.value);
-		history.push('/search/');
+	const searchStyleObj = {
+		height: '40px',
+		borderRadius: '5px',
+		backgroundColor: 'white',
+		boxShadow: 'none',
+		hoverBackgroundColor: 'none',
+		color: 'black',
+		fontSize: '.9rem',
+		fontFamily: 'Poppins',
+		iconColor: '#0f003f',
+		lineColor: '#0f003f',
+		placeholderColor: '#0f003f',
+		clearIconMargin: '0 8px 0 0',
+		zIndex: 1024
 	};
 
-	// listen for the enter press in the search field and perform search
-	const handleKeyPress = (e) => {
-		if (e.key === 'Enter') {
-			submitSearch();
-			e.preventDefault();
-		}
+	const handleOnSelect = (item) => {
+		console.log('🚀 ~ file: navbar-view.jsx ~ line 52 ~ handleOnSelect ~ item', item);
+		props.setSearch(item.name);
+		history.push('/search/');
 	};
 
 	// set the rating value and re-route to rating page/view
@@ -65,15 +76,7 @@ function NavBarView(props) {
 							<Dropdown.Item onClick={() => saveRating(7)}>Rated 7 and Above</Dropdown.Item>
 							<Dropdown.Item onClick={() => saveRating(8)}>Rated 8 and Above</Dropdown.Item>
 						</DropdownButton>
-
-						<Form className="d-flex mr-5">
-							<InputGroup className="mr-1 search-input">
-								<FormControl type="search" ref={searchInput} onKeyPress={handleKeyPress} placeholder="Enter movie name" />
-								<Button variant="primary" id="search-btn" onClick={submitSearch}>
-									Search
-								</Button>
-							</InputGroup>
-						</Form>
+						<ReactSearchAutocomplete items={movieSearchList} onSelect={handleOnSelect} styling={searchStyleObj} autoFocus />
 					</Nav>
 				)}
 
@@ -100,8 +103,8 @@ NavBarView.propTypes = {
 
 // 	connect to the actions and dispatchers
 const mapStateToProps = (state) => {
-	const { searchFilter, loggedInUser } = state;
-	return { searchFilter, loggedInUser };
+	const { searchFilter, loggedInUser, movieList } = state;
+	return { searchFilter, loggedInUser, movieList };
 };
 
 export default connect(mapStateToProps, { setSearch, setRating })(NavBarView);
