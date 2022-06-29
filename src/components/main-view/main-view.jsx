@@ -32,7 +32,6 @@ class MainView extends Component {
 				}
 			});
 			this.props.setMovies(response.data);
-			console.log('getMovies');
 		} catch (error) {
 			console.log(error);
 		}
@@ -40,7 +39,6 @@ class MainView extends Component {
 
 	// check if there is a token in local storage to bypass the log in view
 	componentDidMount() {
-		console.log('🚀 ~ file: main-view.jsx ~ line 43 ~ MainView ~ componentDidMount ~ componentDidMount');
 		const accessToken = localStorage.getItem('token');
 		if (accessToken !== null) {
 			this.props.setUser(localStorage.getItem('user'));
