@@ -51,8 +51,6 @@ class MainView extends Component {
 	render() {
 		const { movieList, searchFilter, ratingFilter, genreFilter, loggedInUser } = this.props;
 
-		if (movieList.length < 1) console.log('no moovies');
-
 		if (!loggedInUser)
 			return (
 				<Router>
@@ -85,6 +83,7 @@ class MainView extends Component {
 					<Route
 						path="/movies/:movieId"
 						render={({ match }) => {
+							if (movieList.length < 1) return <Redirect to="/" />;
 							return (
 								<>
 									<NavBarView />
@@ -108,10 +107,10 @@ class MainView extends Component {
 					<Route
 						path="/genre/"
 						render={() => {
-							let filteredMovies = movieList;
-							if (genreFilter !== '') {
-								filteredMovies = movieList.filter((m) => m.Genre.some((g) => g.Genre === genreFilter));
+							if (genreFilter === '') {
+								return <Redirect to="/" />;
 							}
+							let filteredMovies = movieList.filter((m) => m.Genre.some((g) => g.Genre === genreFilter));
 							return (
 								<>
 									<NavBarView />
@@ -123,10 +122,9 @@ class MainView extends Component {
 					<Route
 						path="/rating/"
 						render={() => {
-							let filteredMovies = movieList;
-							if (ratingFilter !== '') {
-								filteredMovies = movieList.filter((m) => m.imdbRating > ratingFilter);
+							if (ratingFilter === '') {
 							}
+							let filteredMovies = movieList.filter((m) => m.imdbRating > ratingFilter);
 							return (
 								<>
 									<NavBarView />
@@ -138,10 +136,10 @@ class MainView extends Component {
 					<Route
 						path="/search/"
 						render={() => {
-							let filteredMovies = movieList;
-							if (searchFilter !== '') {
-								filteredMovies = movieList.filter((m) => m.Title.toLowerCase().includes(searchFilter.toLowerCase()));
+							if (searchFilter === '') {
+								return <Redirect to="/" />;
 							}
+							let filteredMovies = movieList.filter((m) => m.Title.toLowerCase().includes(searchFilter.toLowerCase()));
 							return (
 								<>
 									<NavBarView />

@@ -102,6 +102,58 @@
   width: 100px;
 }
 
+.register-container {
+  height: 100vh;
+}
+
+.register-container .card.register-card {
+  color: #fff;
+  width: 30rem;
+  background-color: #0f003fe0;
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.register-container .card.register-card img {
+  max-width: 300px;
+}
+
+.register-container .card.register-card .reg-form div {
+  margin-top: 15px;
+}
+
+.main-view {
+  height: 100vh;
+  margin-top: 30px;
+}
+
+.header {
+  width: 100%;
+  background-color: #0f003fe0;
+  border-radius: 15px;
+  font-size: 2rem;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 90% !important;
+  }
+}
+
+.card.movie-card {
+  color: #fff;
+  background-color: #0f003fe0;
+  border-radius: 20px;
+}
+
+.card.movie-card .movie-thumb {
+  border-radius: 5px;
+}
+
+.movie-list-header, .movie-list-noresult {
+  color: #ffbd24;
+}
+
 .movie-navbar {
   background: #0f003fe0;
 }
@@ -153,26 +205,6 @@ a#navbarScrollingDropdown, #userDropdown {
     left: auto;
     right: 0 !important;
   }
-}
-
-.register-container {
-  height: 100vh;
-}
-
-.register-container .card.register-card {
-  color: #fff;
-  width: 30rem;
-  background-color: #0f003fe0;
-  border-radius: 20px;
-  padding: 15px;
-}
-
-.register-container .card.register-card img {
-  max-width: 300px;
-}
-
-.register-container .card.register-card .reg-form div {
-  margin-top: 15px;
 }
 
 .account-grid .account-details, .account-grid .favourite-details {
@@ -253,38 +285,6 @@ a#navbarScrollingDropdown, #userDropdown {
 .header {
   color: #ffbd24;
   margin: 0 !important;
-}
-
-.main-view {
-  height: 100vh;
-  margin-top: 30px;
-}
-
-.header {
-  width: 100%;
-  background-color: #0f003fe0;
-  border-radius: 15px;
-  font-size: 2rem;
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 90% !important;
-  }
-}
-
-.card.movie-card {
-  color: #fff;
-  background-color: #0f003fe0;
-  border-radius: 20px;
-}
-
-.card.movie-card .movie-thumb {
-  border-radius: 5px;
-}
-
-.movie-list-header, .movie-list-noresult {
-  color: #ffbd24;
 }
 
 body {
