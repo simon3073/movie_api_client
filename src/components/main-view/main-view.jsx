@@ -15,7 +15,7 @@ import ProfileView from '../profile-view/profile-view';
 
 // Import styles for this view
 import './main-view.scss';
-c;
+
 class MainView extends Component {
 	// to set user state on log in
 	onLoggedIn() {
