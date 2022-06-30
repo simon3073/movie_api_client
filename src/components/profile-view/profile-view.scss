@@ -4,7 +4,7 @@
 		width: 100%;
 		background-color: #0f003fe0;
 		border-radius: 15px;
-		margin: 0 15px !important;
+		margin: 0 15px 20px !important;
 		padding: 20px;
 		height: 100%;
 
@@ -28,10 +28,32 @@
 		font-size: 1.1rem;
 		padding: 5px;
 	}
-	@media (max-width: 992px) {
-		.favourite-details {
-			margin-top: 20px !important;
+}
+
+.modalFooter {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	button {
+		margin: 0 0 0 5px !important;
+	}
+}
+
+@media (max-width: 992px) {
+	.back-movies {
+		width: 100% !important;
+	}
+}
+@media (max-width: 449px) {
+	.modalFooter {
+		button {
+			margin: 5px 0 0 0 !important;
 		}
+	}
+}
+
+.modal-display {
+	.btn {
+		min-width: 200px;
 	}
 }
 

@@ -47,7 +47,22 @@ class MainView extends Component {
 	}
 
 	render() {
-		const { movies, searchFilter, ratingFilter, genreFilter, loggedInUser } = this.props;
+		const { movieList, searchFilter, ratingFilter, genreFilter, loggedInUser } = this.props;
+
+		if (!loggedInUser)
+			return (
+				<Router>
+					<Route
+						path="/register"
+						exact
+						render={() => {
+							return <RegisterView />;
+						}}
+					/>
+					<Route exact path="/" render={() => <LoginView onLoggedIn={() => this.onLoggedIn()} />} />
+				</Router>
+			);
+
 		return (
 			<>
 				<Router>
@@ -55,11 +70,10 @@ class MainView extends Component {
 						exact
 						path="/"
 						render={() => {
-							if (!loggedInUser) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 							return (
 								<>
 									<NavBarView />
-									<MovieList movies={movies} headerText="All 80s Movies" />
+									<MovieList movies={movieList} headerText="All 80s Movies" />
 								</>
 							);
 						}}
@@ -68,31 +82,21 @@ class MainView extends Component {
 					<Route
 						path="/movies/:movieId"
 						render={({ match }) => {
-							if (!loggedInUser) return <Redirect to="/" />;
+							if (movieList.length < 1) return <Redirect to="/" />;
 							return (
 								<>
 									<NavBarView />
-									<MovieView user={loggedInUser.user} movie={movies.find((m) => m._id === Number(match.params.movieId))} />;
+									<MovieView user={loggedInUser.user} movie={movieList.find((m) => m._id === Number(match.params.movieId))} />;
 								</>
 							);
 						}}
 					/>
 					<Route
-						path="/register"
-						exact
-						render={() => {
-							if (loggedInUser) return <Redirect to="/" />;
-							return <RegisterView />;
-						}}
-					/>
-
-					<Route
 						path="/account/"
 						render={() => {
-							if (!loggedInUser) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 							return (
 								<>
-									<NavBarView />
+									<NavBarView hideSearch={true} />
 									<ProfileView />;
 								</>
 							);
@@ -102,11 +106,8 @@ class MainView extends Component {
 					<Route
 						path="/genre/"
 						render={() => {
-							let filteredMovies = movies;
-							if (genreFilter !== '') {
-								filteredMovies = movies.filter((m) => m.Genre.some((g) => g.Genre === genreFilter));
-							}
-							if (!loggedInUser) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+							if (genreFilter === '') return <Redirect to="/" />;
+							let filteredMovies = movieList.filter((m) => m.Genre.some((g) => g.Genre === genreFilter));
 							return (
 								<>
 									<NavBarView />
@@ -118,11 +119,8 @@ class MainView extends Component {
 					<Route
 						path="/rating/"
 						render={() => {
-							let filteredMovies = movies;
-							if (ratingFilter !== '') {
-								filteredMovies = movies.filter((m) => m.imdbRating > ratingFilter);
-							}
-							if (!loggedInUser) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+							if (ratingFilter === '') return <Redirect to="/" />;
+							let filteredMovies = movieList.filter((m) => m.imdbRating > ratingFilter);
 							return (
 								<>
 									<NavBarView />
@@ -134,11 +132,8 @@ class MainView extends Component {
 					<Route
 						path="/search/"
 						render={() => {
-							let filteredMovies = movies;
-							if (searchFilter !== '') {
-								filteredMovies = movies.filter((m) => m.Title.toLowerCase().includes(searchFilter.toLowerCase()));
-							}
-							if (!loggedInUser) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+							if (searchFilter === '') return <Redirect to="/" />;
+							let filteredMovies = movieList.filter((m) => m.Title.toLowerCase().includes(searchFilter.toLowerCase()));
 							return (
 								<>
 									<NavBarView />
@@ -155,12 +150,12 @@ class MainView extends Component {
 
 // 	connect to the actions and dispatchers
 const mapStateToProps = (state) => {
-	const { movies, searchFilter, ratingFilter, genreFilter, loggedInUser } = state;
+	const { movieList, searchFilter, ratingFilter, genreFilter, loggedInUser } = state;
 	return {
 		loggedInUser,
 		ratingFilter,
 		genreFilter,
-		movies,
+		movieList,
 		searchFilter
 	};
 };

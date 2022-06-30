@@ -95,10 +95,10 @@ function LoginView(props) {
 		<Container fluid className="login-container d-flex flex-column justify-content-center align-items-center">
 			<Card className="login-card">
 				<div className="m-4 text-center">
-					<img src={logo} style={{ width: '400px' }} />
+					<img src={logo} />
 				</div>
 				<Card.Body>
-					<h2 className="mb-2 text-center" style={{ color: '#ffbd24' }}>
+					<h2 className="mb-2 text-center">
 						<strong>Login</strong>
 					</h2>
 					<Form className="login-form">

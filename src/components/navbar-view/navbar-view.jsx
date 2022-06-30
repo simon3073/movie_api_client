@@ -1,6 +1,8 @@
 import React from 'react';
 import { Nav, Navbar, NavDropdown, Dropdown, DropdownButton, InputGroup, Form, FormControl, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
 // connect to the redux actions
 import { connect } from 'react-redux';
@@ -17,7 +19,8 @@ import logo from '../../img/site_logo_navbar.png';
 // Display the navbar
 function NavBarView(props) {
 	// import loggedInUser prop into state, history hook for rating re-direct and creteRef hook for search bar
-	const { loggedInUser } = props;
+	const { loggedInUser, hideSearch, movieList } = props;
+	console.log('🚀 ~ file: navbar-view.jsx ~ line 23 ~ NavBarView ~ movieList', movieList);
 	const history = useHistory();
 	const searchInput = React.createRef();
 
@@ -27,10 +30,28 @@ function NavBarView(props) {
 		localStorage.removeItem('user');
 		window.open('/', '_self');
 	};
+	const movieSearchList = movieList.map((m) => ({ id: m._id, name: m.Title }));
 
-	const saveSearchTerm = () => {
-		// set the search property - filter
-		props.setSearch(searchInput.current.value);
+	const searchStyleObj = {
+		height: '40px',
+		borderRadius: '5px',
+		backgroundColor: 'white',
+		boxShadow: 'none',
+		hoverBackgroundColor: 'none',
+		color: 'black',
+		fontSize: '.9rem',
+		fontFamily: 'Poppins',
+		iconColor: '#0f003f',
+		lineColor: '#0f003f',
+		placeholderColor: '#0f003f',
+		clearIconMargin: '0 8px 0 0',
+		zIndex: 1024
+	};
+
+	const handleOnSelect = (item) => {
+		console.log('🚀 ~ file: navbar-view.jsx ~ line 52 ~ handleOnSelect ~ item', item);
+		props.setSearch(item.name);
+		history.push('/search/');
 	};
 
 	// set the rating value and re-route to rating page/view
@@ -40,7 +61,7 @@ function NavBarView(props) {
 	};
 
 	return (
-		<Navbar style={{ background: '#0f003fe0' }} variant="dark" expand="md" className="movie-navbar pl-5 pr-4">
+		<Navbar variant="dark" expand="md" className="movie-navbar pr-4">
 			<Navbar.Brand>
 				<Link to={'/'}>
 					<img src={logo} width="110" height="auto" className="m-2 d-inline-block align-top" alt="80's Movies Logo" />
@@ -48,24 +69,17 @@ function NavBarView(props) {
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav">
-				<Nav className="ms-auto ml-4">
-					<DropdownButton align="end" title="Filter by Rating" className="mr-4">
-						<Dropdown.Item onClick={() => saveRating(6)}>Rated 6 and Above</Dropdown.Item>
-						<Dropdown.Item onClick={() => saveRating(7)}>Rated 7 and Above</Dropdown.Item>
-						<Dropdown.Item onClick={() => saveRating(8)}>Rated 8 and Above</Dropdown.Item>
-					</DropdownButton>
+				{hideSearch || (
+					<Nav className="ms-auto ml-4">
+						<DropdownButton align="end" title="Filter by Rating" className="mr-4">
+							<Dropdown.Item onClick={() => saveRating(6)}>Rated 6 and Above</Dropdown.Item>
+							<Dropdown.Item onClick={() => saveRating(7)}>Rated 7 and Above</Dropdown.Item>
+							<Dropdown.Item onClick={() => saveRating(8)}>Rated 8 and Above</Dropdown.Item>
+						</DropdownButton>
+						<ReactSearchAutocomplete items={movieSearchList} onSelect={handleOnSelect} styling={searchStyleObj} autoFocus />
+					</Nav>
+				)}
 
-					<Form className="d-flex mr-5">
-						<InputGroup className="mr-1 search-input">
-							<FormControl type="search" ref={searchInput} value={props.searchFilter} onChange={saveSearchTerm} placeholder="Enter movie name" />
-							<Link to={`/search/`}>
-								<Button variant="primary" id="search-btn">
-									Search
-								</Button>
-							</Link>
-						</InputGroup>
-					</Form>
-				</Nav>
 				<Nav className="ml-auto user-profile">
 					<span>
 						<FaUserCircle />
@@ -83,10 +97,14 @@ function NavBarView(props) {
 	);
 }
 
+NavBarView.propTypes = {
+	hideSearch: PropTypes.bool
+};
+
 // 	connect to the actions and dispatchers
 const mapStateToProps = (state) => {
-	const { searchFilter, loggedInUser } = state;
-	return { searchFilter, loggedInUser };
+	const { searchFilter, loggedInUser, movieList } = state;
+	return { searchFilter, loggedInUser, movieList };
 };
 
 export default connect(mapStateToProps, { setSearch, setRating })(NavBarView);

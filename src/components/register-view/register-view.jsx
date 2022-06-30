@@ -3,6 +3,10 @@ import axios from 'axios';
 import { Form, Button, Container, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+// connect to the redux actions
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
+
 // Import styles for this view
 import './register.scss';
 
@@ -10,7 +14,7 @@ import './register.scss';
 import logo from '../../img/site_logo.png';
 
 // Display the registration form
-export default function RegisterView(props) {
+function RegisterView(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
@@ -34,8 +38,10 @@ export default function RegisterView(props) {
 					Email: email,
 					Birthday: birthday
 				});
-				const data = response.data;
-				// console.log(data);
+				props.setUser(response.data.user.Username);
+				console.log('🚀 ~ file: register-view.jsx ~ line 42 ~ handleSubmit ~ response.data', response.data);
+				localStorage.setItem('token', response.data.token);
+				localStorage.setItem('user', response.data.user.Username);
 				window.open('/', '_self');
 			} catch (error) {
 				console.log('Error registering the user', error);
@@ -95,7 +101,7 @@ export default function RegisterView(props) {
 		<Container fluid className="register-container d-flex justify-content-center align-items-center">
 			<Card className="register-card">
 				<div className="m-4 text-center">
-					<img src={logo} style={{ width: '400px' }} />
+					<img src={logo} />
 				</div>
 
 				<Card.Body>
@@ -137,3 +143,6 @@ export default function RegisterView(props) {
 		</Container>
 	);
 }
+
+// 	connect to the actions
+export default connect(null, { setUser })(RegisterView);
