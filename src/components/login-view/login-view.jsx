@@ -39,7 +39,7 @@ function LoginView(props) {
 				props.onLoggedIn();
 			} catch (error) {
 				setModalView(true);
-				console.log('User not in system', error);
+				// console.log('User not in system', error);
 			}
 		}
 	};

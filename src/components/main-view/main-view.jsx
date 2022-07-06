@@ -33,7 +33,8 @@ class MainView extends Component {
 			});
 			this.props.setMovies(response.data);
 		} catch (error) {
-			console.log(error);
+			alert('There was an issue connecting to the movie database. Please try again later');
+			// console.log(error);
 		}
 	}
 

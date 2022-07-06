@@ -39,12 +39,11 @@ function RegisterView(props) {
 					Birthday: birthday
 				});
 				props.setUser(response.data.user.Username);
-				console.log('🚀 ~ file: register-view.jsx ~ line 42 ~ handleSubmit ~ response.data', response.data);
 				localStorage.setItem('token', response.data.token);
 				localStorage.setItem('user', response.data.user.Username);
 				window.open('/', '_self');
 			} catch (error) {
-				console.log('Error registering the user', error);
+				// console.log('Error registering the user', error);
 			}
 		}
 	};

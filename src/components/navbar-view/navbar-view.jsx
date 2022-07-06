@@ -20,7 +20,6 @@ import logo from '../../img/site_logo_navbar.png';
 function NavBarView(props) {
 	// import loggedInUser prop into state, history hook for rating re-direct and creteRef hook for search bar
 	const { loggedInUser, hideSearch, movieList } = props;
-	console.log('🚀 ~ file: navbar-view.jsx ~ line 23 ~ NavBarView ~ movieList', movieList);
 	const history = useHistory();
 	const searchInput = React.createRef();
 
@@ -49,7 +48,6 @@ function NavBarView(props) {
 	};
 
 	const handleOnSelect = (item) => {
-		console.log('🚀 ~ file: navbar-view.jsx ~ line 52 ~ handleOnSelect ~ item', item);
 		props.setSearch(item.name);
 		history.push('/search/');
 	};

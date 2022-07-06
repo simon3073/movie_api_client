@@ -47,7 +47,8 @@ class MovieView extends Component {
 			});
 			this.checkToggleStatus(response.data.FavouriteMovies);
 		} catch (error) {
-			console.error(error);
+			alert('There was an issue retrieving your account details. Please try again later');
+			// console.error(error);
 		}
 	}
 
@@ -83,7 +84,8 @@ class MovieView extends Component {
 				}
 			);
 		} catch (error) {
-			console.log('Error adding movie to list', error);
+			alert('There was an issue adding this movie tou your favourites. Please try again later');
+			// console.log('Error adding movie to list', error);
 		}
 	}
 
@@ -95,7 +97,8 @@ class MovieView extends Component {
 				headers: { Authorization: `Bearer ${token}` }
 			});
 		} catch (error) {
-			console.log('Error removing movie from list', error);
+			alert('There was an issue removing this movie tou your favourites. Please try again later');
+			// console.log('Error removing movie from list', error);
 		}
 	}
 

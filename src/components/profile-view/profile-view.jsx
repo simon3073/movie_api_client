@@ -103,7 +103,8 @@ function ProfileView(props) {
 			setEmail(response.data.Email);
 			setFavouriteMovies(response.data.FavouriteMovies);
 		} catch (error) {
-			console.error(error);
+			alert('There was an issue retrieving your account data. Please try again later');
+			//console.error(error);
 		}
 	};
 
@@ -136,7 +137,8 @@ function ProfileView(props) {
 				alert('Your profile has been updated');
 				window.open(`/account/${response.data.Username}`, '_self');
 			} catch (error) {
-				console.log('Error registering the user', error);
+				alert('There was an issue updating your account details. Please try again later');
+				// console.log('Error registering the user', error);
 			}
 		}
 	};
@@ -154,7 +156,8 @@ function ProfileView(props) {
 			alert('Your profile has been deleted');
 			window.open('/', '_self');
 		} catch (error) {
-			console.log('Error registering the user', error);
+			alert('Sorry, we cannot delete your account at this time. Please try again later');
+			// console.log('Error registering the user', error);
 		}
 	};
 
@@ -183,7 +186,8 @@ function ProfileView(props) {
 			alert(`You removed ${movie} from your favourites list`);
 			setFavouriteMovies(updatedFavouritesArr);
 		} catch (error) {
-			console.log('Error removing movie from list', error);
+			alert('Sorry, we are unable to remove this movie from your favourites at this time. Please try again later');
+			//console.log('Error removing movie from list', error);
 		}
 	};
 
