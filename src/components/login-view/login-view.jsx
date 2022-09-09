@@ -20,26 +20,7 @@ function LoginView(props) {
   const [passwordErr, setPasswordErr] = useState('')
   const [modalView, setModalView] = useState(false)
 
-  //   useEffect(() => {
-  //     const listener = (event) => {
-  //       if (event.code === 'Enter' || event.code === 'NumpadEnter') {
-  //         console.log('Enter Pressed', username, password)
-  //         handleSubmit(event)
-  //       }
-  //     }
-  //     document.addEventListener('keydown', listener)
-  //     return () => {
-  //       document.removeEventListener('keydown', listener)
-  //     }
-  //   }, [])
-
   const handleSubmit = async (e) => {
-    console.log(
-      '🚀 ~ file: login-view.jsx ~ line 62 ~ handleSubmit ~ handleSubmit',
-      username,
-      password
-    )
-
     e.preventDefault()
     if (validate()) {
       // if there are no client side registration errors
@@ -154,14 +135,18 @@ function LoginView(props) {
               />
             </Form.Group>
             {passwordErr && <p className="error-msg">{passwordErr}</p>}
-            <Button
-              variant="primary"
-              className="btn-block mt-5"
-              type="submit"
-              //   onClick={handleSubmit}
-            >
+            <Button variant="primary" className="btn-block mt-5" type="submit">
               Log In
             </Button>
+            <Link to={'/forgotpassword'}>
+              <Button
+                variant="link"
+                className="btn-block forgot-password mt-1"
+                type="link"
+              >
+                I forgot my password
+              </Button>
+            </Link>
             <Link to={'/register'}>
               <Button
                 variant="link"

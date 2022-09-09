@@ -98,6 +98,14 @@
   margin-top: 15px;
 }
 
+.login-container .card.login-card .forgot-password {
+  color: #ffbd24;
+}
+
+.login-container .card.login-card .forgot-password:hover {
+  color: #f0a800;
+}
+
 @media only screen and (max-width: 767px) {
   .login-container .card.login-card {
     width: 23rem;
@@ -306,6 +314,95 @@ a#navbarScrollingDropdown, #userDropdown {
   .container {
     max-width: 90% !important;
   }
+}
+
+.login-container {
+  height: 100vh;
+}
+
+.login-container h5 {
+  color: #ffbd24;
+}
+
+.login-container .card.login-card {
+  color: #fff;
+  width: 30rem;
+  background-color: #0f003fe0;
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.login-container .card.login-card .login-form div {
+  margin-top: 15px;
+}
+
+.login-container .card.login-card .forgot-password {
+  color: #ffbd24;
+}
+
+.login-container .card.login-card .forgot-password:hover {
+  color: #f0a800;
+}
+
+@media only screen and (max-width: 767px) {
+  .login-container .card.login-card {
+    width: 23rem;
+  }
+
+  .login-container img {
+    width: 300px;
+  }
+}
+
+.modal-footer {
+  justify-content: center !important;
+}
+
+.modal-footer .btn {
+  width: 100px;
+}
+
+.login-container {
+  height: 100vh;
+}
+
+.login-container h5 {
+  color: #ffbd24;
+}
+
+.login-container .card.login-card {
+  color: #fff;
+  width: 30rem;
+  background-color: #0f003fe0;
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.login-container .card.login-card .login-form div {
+  margin-top: 15px;
+}
+
+.login-container .card.login-card .expired {
+  text-align: center;
+  padding: 50px;
+}
+
+@media only screen and (max-width: 767px) {
+  .login-container .card.login-card {
+    width: 23rem;
+  }
+
+  .login-container img {
+    width: 300px;
+  }
+}
+
+.modal-footer {
+  justify-content: center !important;
+}
+
+.modal-footer .btn {
+  width: 100px;
 }
 
 body {
