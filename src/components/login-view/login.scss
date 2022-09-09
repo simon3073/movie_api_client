@@ -1,38 +1,45 @@
 .login-container {
-	height: 100vh;
+  height: 100vh;
 
-	h2 {
-		color: #ffbd24;
-	}
-	.card.login-card {
-		background-color: #0f003fe0;
-		border-radius: 20px;
-		padding: 15px;
-		color: #fff;
-		width: 30rem;
+  h2 {
+    color: #ffbd24;
+  }
+  .card.login-card {
+    background-color: #0f003fe0;
+    border-radius: 20px;
+    padding: 15px;
+    color: #fff;
+    width: 30rem;
 
-		.login-form {
-			div {
-				margin-top: 15px;
-			}
-		}
-	}
+    .login-form {
+      div {
+        margin-top: 15px;
+      }
+    }
 
-	@media only screen and (max-width: 767px) {
-		.card.login-card {
-			width: 23rem;
-		}
+    .forgot-password {
+      color: #ffbd24;
+      &:hover {
+        color: darken(#ffbd24, 10%);
+      }
+    }
+  }
 
-		img {
-			width: 300px;
-		}
-	}
+  @media only screen and (max-width: 767px) {
+    .card.login-card {
+      width: 23rem;
+    }
+
+    img {
+      width: 300px;
+    }
+  }
 }
 
 .modal-footer {
-	justify-content: center !important;
+  justify-content: center !important;
 
-	.btn {
-		width: 100px;
-	}
+  .btn {
+    width: 100px;
+  }
 }
