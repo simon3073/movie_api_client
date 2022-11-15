@@ -49,7 +49,7 @@ export default function ForgotPassword(props) {
         </div>
         <Card.Body>
           <h5 className="mb-4 text-center">
-            <strong>Enter your username or password</strong>
+            <strong>Enter your email or username</strong>
           </h5>
           <Form className="login-form" onSubmit={handleSubmit}>
             <Form.Group controlId="username">
